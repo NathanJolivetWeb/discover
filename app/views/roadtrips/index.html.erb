@@ -1,2 +1,20 @@
-<h1>Roadtrips#index</h1>
-<p>Find me in app/views/roadtrips/index.html.erb</p>
+<div class="container">
+  <div class="d-flex">
+
+    <%= link_to new_roadtrip_path do %>
+     <p> <i class="fas fa-plus-circle"></i> Ajouter un trip </p>
+    <% end %>
+  </div>
+  <div>
+    <% @roadtrips.each do |roadtrip| %>
+      <div class="card-product">
+        <img src="https://images.unsplash.com/photo-1518097884217-a59822450508?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" />
+        <div class="card-product-infos">
+          <h2> <%= roadtrip.title %> </h2>
+          <p><%= roadtrip.status %></p>
+          <%= link_to roadtrip_path %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

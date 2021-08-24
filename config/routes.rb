@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :partners, only: :create
   end
   resources :tasks, only: :delete do
-    resources :partnerTasks, only: :create
+    resources :partnertasks, only: :create
   end
   resources :messages, only: :delete
   resources :itineraries, only: %i[delete update edit show index]
