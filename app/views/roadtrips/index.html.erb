@@ -14,6 +14,7 @@
           <p><%= roadtrip.status %></p>
           <%= link_to "Consulter ce trip", roadtrip_path(roadtrip) %>
           <%= link_to "Supprimer ce trip", roadtrip_path(roadtrip), confirm: 'Are you sure?', method: :delete %>
+          <%= link_to "Modifier ce trip", edit_roadtrip_path(roadtrip) %>
         </div>
       </div>
     <% end %>
