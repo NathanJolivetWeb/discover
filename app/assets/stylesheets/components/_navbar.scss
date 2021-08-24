@@ -1,12 +1,17 @@
-.navbar-lewagon {
+.navbar-discover {
   justify-content: space-between;
   background: white;
 }
 
-.navbar-lewagon .navbar-collapse {
+.discover-nav-link:hover {
+  color: #84a98c !important;
+}
+
+.navbar-discover .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-brand img {
+  width: 100px;
+  margin-left: 15px;
 }
