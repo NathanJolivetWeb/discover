@@ -1,0 +1,2 @@
+class Roadtrip < ApplicationRecord
+end
