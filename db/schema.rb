@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_124420) do
+ActiveRecord::Schema.define(version: 2021_08_24_130634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "requester_id", null: false
+    t.bigint "addressed_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["addressed_id"], name: "index_friendships_on_addressed_id"
+    t.index ["requester_id"], name: "index_friendships_on_requester_id"
+  end
 
   create_table "itineraries", force: :cascade do |t|
     t.string "address_start"
@@ -78,6 +87,8 @@ ActiveRecord::Schema.define(version: 2021_08_24_124420) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "friendships", "users", column: "addressed_id"
+  add_foreign_key "friendships", "users", column: "requester_id"
   add_foreign_key "itineraries", "roadtrips"
   add_foreign_key "messages", "roadtrips"
   add_foreign_key "messages", "users"
