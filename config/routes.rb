@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'messages/new'
+  get 'messages/index'
+  get 'messages/show'
+  get 'messages/edit'
+  get 'tasks/index'
+  get 'itineraries/new'
+  get 'itineraries/show'
+  get 'itineraries/index'
+  get 'itineraries/edit'
   get 'roadtrips/new'
   get 'roadtrips/index'
   get 'roadtrips/show'
