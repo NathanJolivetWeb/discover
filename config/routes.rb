@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
-  get 'messages/new'
-  get 'messages/index'
-  get 'messages/show'
-  get 'messages/edit'
-  get 'tasks/index'
-  get 'itineraries/new'
-  get 'itineraries/show'
-  get 'itineraries/index'
-  get 'itineraries/edit'
-  get 'roadtrips/new'
-  get 'roadtrips/index'
-  get 'roadtrips/show'
-  get 'roadtrips/edit'
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :roadtrips do
+    resources :tasks, only: :create
+    resources :messages, only: %i[index create]
+    resources :itineraries, only: :create
+    resources :partners, only: :create
+  end
+  resources :tasks, only: :delete do
+    resources :partnerTasks, only: :create
+  end
+  resources :messages, only: :delete
+  resources :itineraries, only: %i[delete update edit show index]
+  resources :partners, only: :delete
 end
