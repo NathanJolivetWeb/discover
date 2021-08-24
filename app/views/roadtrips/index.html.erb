@@ -12,7 +12,8 @@
         <div class="card-product-infos">
           <h2> <%= roadtrip.title %> </h2>
           <p><%= roadtrip.status %></p>
-          <%= link_to roadtrip_path %>
+          <%= link_to "Consulter ce trip", roadtrip_path(roadtrip) %>
+          <%= link_to "Supprimer ce trip", roadtrip_path(roadtrip), confirm: 'Are you sure?', method: :delete %>
         </div>
       </div>
     <% end %>

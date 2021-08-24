@@ -1,5 +1,5 @@
 class RoadtripsController < ApplicationController
-  before_action :roadtrip_id, only: %i[show edit update delete]
+  before_action :roadtrip_id, only: %i[show edit update destroy]
   def index
     @roadtrips = Roadtrip.all
   end
@@ -23,13 +23,13 @@ class RoadtripsController < ApplicationController
     @roadtrip.update
   end
 
-  def delete
+  def destroy
     @roadtrip.destroy
   end
 
   private
   def roadtrip_id
-    @roadtrip = Roadtrip.find(params_id)
+    @roadtrip = Roadtrip.find(params[:id])
   end
 
   def roadtrip_params
