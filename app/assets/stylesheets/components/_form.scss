@@ -1,3 +1,28 @@
 .imageForm{
-  background-color: #333;
+  background: url("https://i.imgur.com/JYFfBQF.jpeg") center no-repeat;
+  background-size: cover;
+  width: 50vw;
+  height: 100vh;
+}
+
+span{
+  color: #999;
+}
+
+.container-sign{
+  margin: 0 200px;
+}
+
+.btn-signin{
+  width: 140px;
+  height: 45px;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color: #84A98C;
+  color: white;
+
+  &:hover{
+    opacity: 0.8;
+    color: white;
+  }
 }
