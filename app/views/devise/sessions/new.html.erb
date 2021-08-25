@@ -1,4 +1,9 @@
-<h2>Log in</h2>
+<h2>Se connecter</h2>
+
+<h4>Bienvenue! Connectez-vous pour accéder au site web</h4>
+<h4>Vous avez oublié votre <%= render "devise/shared/links" %></h4>
+
+
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -13,8 +18,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in"%>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
