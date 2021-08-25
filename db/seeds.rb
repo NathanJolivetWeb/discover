@@ -55,7 +55,7 @@ roadtrip1.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip1.save
 
 file = URI.open('https://www.touraineloirevalley.com/wp-content/uploads/wpetourisme/--visuel-2021-MD-770x490.jpg')
-roadtrip2 = Roadtrip.new(title: "Weekend en Touraine", status: "Terminé")
+roadtrip2 = Roadtrip.new(title: "Weekend en Touraine", status: "En cours")
 roadtrip2.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip2.save
 
@@ -65,7 +65,7 @@ roadtrip3.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip3.save
 
 file = URI.open('https://images.unsplash.com/photo-1503751192943-5537c30ba181?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
-roadtrip4 = Roadtrip.new(title: "5 jours dans les Alpes", status: "Terminé")
+roadtrip4 = Roadtrip.new(title: "5 jours dans les Alpes", status: "En cours")
 roadtrip4.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip4.save
 
@@ -125,6 +125,7 @@ puts "Congrats, #{Partner.count} partners was created!"
 puts "=============================="
 
 # #Create messages
-# puts "Creating some messages"
+puts "Creating some messages"
 # #<Message:0x00007fe60eefece0 id: nil, content: nil, user_id: nil, roadtrip_id: nil, created_at: nil, updated_at: nil>
-# message1 = Message.new(content:"", user:, roadtrip_id:)
+message1 = Message.new(content:"Très beau voyage, merci les copains.", user: maxence, roadtrip: roadtrip4)
+message1.save
