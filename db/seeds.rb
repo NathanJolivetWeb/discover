@@ -1,5 +1,5 @@
 # Cleaning all DB model
-puts "Cleaning user database..."
+puts "Cleaning database..."
 User.destroy_all
 Roadtrip.destroy_all
 Partner.destroy_all
@@ -49,13 +49,24 @@ puts "=============================="
 # Create roadtrips
 puts "Creating some roadtrips..."
 
+file = URI.open('https://images.unsplash.com/photo-1534515888774-0cf3a63a14f7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
 roadtrip1 = Roadtrip.new(title: "3 jours dans les Ardennes belges", status: "Terminé")
+roadtrip1.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip1.save
+
+file = URI.open('https://www.touraineloirevalley.com/wp-content/uploads/wpetourisme/--visuel-2021-MD-770x490.jpg')
 roadtrip2 = Roadtrip.new(title: "Weekend en Touraine", status: "Terminé")
+roadtrip2.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip2.save
-roadtrip3 = Roadtrip.new(title: "5 jours dans les Alpes", status: "En cours")
+
+file = URI.open('https://images.unsplash.com/photo-1570651851409-93d5add773d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')
+roadtrip3 = Roadtrip.new(title: "2 jours au bord de la mer", status: "Terminé")
+roadtrip3.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip3.save
-roadtrip4 = Roadtrip.new(title: "2 jours au bord de la mer", status: "En cours")
+
+file = URI.open('https://images.unsplash.com/photo-1503751192943-5537c30ba181?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
+roadtrip4 = Roadtrip.new(title: "5 jours dans les Alpes", status: "Terminé")
+roadtrip4.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip4.save
 
 puts "Congrats, #{Roadtrip.count} roadtrips was created!"
@@ -74,7 +85,7 @@ partner3.save
 
 # Partners roadtrip 2
 partner1 = Partner.new(user: maxence, roadtrip: roadtrip2)
-partner2.save
+partner1.save
 partner2 = Partner.new(user: violette, roadtrip: roadtrip2)
 partner2.save
 partner3 = Partner.new(user: luc, roadtrip: roadtrip2)
@@ -86,7 +97,7 @@ partner5.save
 
 # Partners roadtrip 3
 partner1 = Partner.new(user: christophe, roadtrip: roadtrip3)
-partner2.save
+partner1.save
 partner2 = Partner.new(user: violette, roadtrip: roadtrip3)
 partner2.save
 partner3 = Partner.new(user: luc, roadtrip: roadtrip3)
@@ -99,6 +110,16 @@ partner6 = Partner.new(user: nathan, roadtrip: roadtrip3)
 partner6.save
 partner7 = Partner.new(user: estelle, roadtrip: roadtrip3)
 partner7.save
+
+# Partners roadtrip 4
+partner1 = Partner.new(user: nathan, roadtrip: roadtrip4)
+partner1.save
+partner2 = Partner.new(user: christophe, roadtrip: roadtrip4)
+partner2.save
+partner3 = Partner.new(user: luc, roadtrip: roadtrip4)
+partner3.save
+partner3 = Partner.new(user: dany, roadtrip: roadtrip4)
+partner3.save
 
 puts "Congrats, #{Partner.count} partners was created!"
 puts "=============================="
