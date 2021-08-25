@@ -11,25 +11,37 @@
         <img src="https://images.unsplash.com/photo-1518097884217-a59822450508?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" />
         <div class="card-product-container">
           <div class="card-product-infos">
+          <% if roadtrip.status == "En cours" %>
             <div class="card-product-infos-text">
               <h2> <%= roadtrip.title %> </h2>
               <p><%= roadtrip.status %></p>
             </div>
+          <% else  %>
+             <div class="card-product-infos-text-terminer">
+              <h2> <%= roadtrip.title %> </h2>
+              <p><%= roadtrip.status %></p>
+            </div>
+          <% end %>
             <div class="card-product-infos-avatars">
               <img src="https://avatars.githubusercontent.com/u/85166333?v=4" alt="" class="avatar-bordered">
               <img src="https://avatars.githubusercontent.com/u/45171753?v=4" alt="" class="avatar-bordered">
               <img src="https://avatars.githubusercontent.com/u/85315784?v=4" alt="" class="avatar-bordered">
               <img src="https://avatars.githubusercontent.com/u/80858493?v=4" alt="" class="avatar-bordered">
             </div>
+     <%#        <div class="card-product-infos-avatars">
+            <% roadtrip.users.each do %>
+            <%# <%= cl_image_tag current_user.photo.key, class: "avatar-bordered" %>
+            <%# <% end %>
+            <%# </div> %>
           </div>
           <div class="card-product-bottom">
-            <div>
-              <p> date du trip </p>
-              <p> nombre de km du trip </p>
+            <div class="card-product-bottom-infos">
+              <h2>  <i class="fas fa-calendar-alt"></i> date du trip </h2>
+              <h2> nombre de km </h2>
             </div>
             <div class="card-product-buttons">
-              <%= link_to "Consulter ce trip", roadtrip_path(roadtrip) %>
-              <%= link_to "Supprimer ce trip", roadtrip_path(roadtrip), confirm: 'Are you sure?', method: :delete %>
+              <%= link_to "Supprimer ce trip", roadtrip_path(roadtrip), confirm: 'Are you sure?', method: :delete, class: "button-green" %>
+              <%= link_to "Consulter ce trip", roadtrip_path(roadtrip), class: "button-green" %>
             </div>
           </div>
         </div>
