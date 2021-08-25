@@ -1,7 +1,8 @@
 // Specific CSS for your home-page
-.container-hp{
+.contain-homepage{
   overflow-x: hidden;
 }
+
 
 .banner{
 background-image: asset-url('img-homepage.jpeg'), linear-gradient(90deg, rgba(2,0,36,0.6054796918767507) 0%, rgba(0,0,0,0.09007352941176472) 99%, rgba(0,0,0,0) 100%);;
@@ -10,12 +11,12 @@ background-position: center;
 height: 550px;
 margin-top: -73px;
 display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-family: 'Work Sans', sans-serif;
-  position: relative;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+color: white;
+font-family: 'Work Sans', sans-serif;
+position: relative;
 }
 
 .title-banner h1{
@@ -25,7 +26,7 @@ display: flex;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-.title-banner p{
+.title-banner span{
   font-size: 25px;
   text-align: center;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -42,11 +43,14 @@ display: flex;
 
 .cards-contain{
   margin-top: 130px;
-  margin-bottom: 230px;
+  margin-bottom: 350px;
   display: flex;
   justify-content: center;
 }
 
+.sous-titre{
+  color: white;
+}
 .card{
   width: 195px;
   height: 221px;
@@ -58,14 +62,44 @@ display: flex;
 } p{
   text-align: center;
 }
+.card-link:hover{
+  text-decoration: none;
+}
 
 .card h3{
   color: #84A98C;
 } i{
   font-size: 35px;
+  color: black;
+}
+
+.descript-card{
+  color: black;
 }
 
 .ameuble{
   height: 700px;
   background-color: #52796F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.citation{
+  background-color: #f4f4f4;
+  height: 110px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trans2{
+  width: 100vw;
+  background-color: #52796F;
+  height: 100px;
+  transform: skew(3deg, -3deg);
+  position: absolute;
+  top: -48px;
 }

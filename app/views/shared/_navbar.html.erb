@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-discover">
+<div class="navbar navbar-expand-sm navbar-light navbar-discover fixed-top <%= current_page?(root_path) ? "transparent" : "white"%>">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo.png" %>
     <% end %>
@@ -32,7 +32,7 @@
           <%= link_to "Se connecter", new_user_session_path, class: "nav-link text-danger" %>
         </li>
         <li class="nav-item">
-          <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link" %>
+          <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link text-danger" %>
         </li>
       <% end %>
     </ul>
