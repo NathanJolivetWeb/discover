@@ -1,12 +1,20 @@
-<div>
-  <h1>Paramètres</h1>
-</div>
-<div>
-  <a href="">Profile</a>
-  <a href="">Notifications</a>
-  <a href="">Vie privée</a>
-</div>
+<div class="container">
+  <div>
+    <h1>Paramètres</h1>
+  </div>
+  <div class="">
 
-<h2>Profile</h2>
+  <ul class="list-menu">
+    <li><a href="#">Profile</a></li>
+    <li><a href="#">Notifications</a></li>
+    <li><a href="#">Vie privée</a></li>
+  </ul>
+    
+  </div>
 
-<%= cl_image_tag current_user.photo.key, class: "avatar-profile" %>
+  <div class="d-flex flex-column ">
+    <h2>Profile</h2>
+    <%= cl_image_tag current_user.photo.key, class: "avatar-profile" %>
+    <%= current_user.username %>
+  </div>
+</div>
