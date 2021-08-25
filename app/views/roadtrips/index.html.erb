@@ -1,7 +1,14 @@
 <div class="container">
-  <div class="d-flex justify-content-end">
-    <% plus = '<i class="mt-4 fas fa-plus-circle text-danger" style="font-size: 24px"></i>' %>
-    <p class="text-danger" style="font-size: 24px">  <%= link_to plus.html_safe, new_roadtrip_path, class: "text-danger", style: "font-size: 24px" %> Ajouter un trip </p>
+  <div class="index-top">
+    <div class="index-top-buttons">
+      <button class="button-orange">Trips en cours</button>
+      <button class="button-lightgrey">Trips réalisés</button>
+      <button class="button-green-all">Tout les trips</button>
+    </div>
+    <div class="index-top-add">
+      <% plus = '<i class="mt-4 fas fa-plus-circle text-danger" style="font-size: 24px"></i>' %>
+      <p class="text-danger" style="font-size: 24px">  <%= link_to plus.html_safe, new_roadtrip_path, class: "text-danger", style: "font-size: 24px" %> Ajouter un trip </p>
+    </div>
   </div>
   <div>
     <% @roadtrips.each do |roadtrip| %>
