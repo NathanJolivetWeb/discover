@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   end
 
   def index
+    @messages = Message.all
   end
 
   def show
