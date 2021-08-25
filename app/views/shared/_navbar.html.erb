@@ -15,7 +15,7 @@
           <%= link_to "Roadtrips", roadtrips_path, class: "discover-nav-link nav-link mr-2" %>
         </li>
         <li class="nav-item align-self-center">
-          <%= link_to "Messagerie", roadtrip_messages_path(:roadtrip_id), class: "discover-nav-link nav-link mr-2" %>
+          <%= render 'shared/modalmessagerie' %>
         </li>
         <li class="nav-item align-self-center">
           <%= link_to "Amis", "#", class: "discover-nav-link nav-link mr-4" %>
