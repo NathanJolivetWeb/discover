@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :messages, only: :delete
   resources :itineraries, only: %i[delete update edit show index]
   resources :partners, only: :delete
+  resources :profiles, only: %i[update edit show index]
 end
