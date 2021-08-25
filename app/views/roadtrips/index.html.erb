@@ -9,11 +9,29 @@
     <% @roadtrips.each do |roadtrip| %>
       <div class="card-product">
         <img src="https://images.unsplash.com/photo-1518097884217-a59822450508?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" />
-        <div class="card-product-infos">
-          <h2> <%= roadtrip.title %> </h2>
-          <p><%= roadtrip.status %></p>
-          <%= link_to "Consulter ce trip", roadtrip_path(roadtrip) %>
-          <%= link_to "Supprimer ce trip", roadtrip_path(roadtrip), confirm: 'Are you sure?', method: :delete %>
+        <div class="card-product-container">
+          <div class="card-product-infos">
+            <div class="card-product-infos-text">
+              <h2> <%= roadtrip.title %> </h2>
+              <p><%= roadtrip.status %></p>
+            </div>
+            <div class="card-product-infos-avatars">
+              <img src="https://avatars.githubusercontent.com/u/85166333?v=4" alt="" class="avatar-bordered">
+              <img src="https://avatars.githubusercontent.com/u/45171753?v=4" alt="" class="avatar-bordered">
+              <img src="https://avatars.githubusercontent.com/u/85315784?v=4" alt="" class="avatar-bordered">
+              <img src="https://avatars.githubusercontent.com/u/80858493?v=4" alt="" class="avatar-bordered">
+            </div>
+          </div>
+          <div class="card-product-bottom">
+            <div>
+              <p> date du trip </p>
+              <p> nombre de km du trip </p>
+            </div>
+            <div class="card-product-buttons">
+              <%= link_to "Consulter ce trip", roadtrip_path(roadtrip) %>
+              <%= link_to "Supprimer ce trip", roadtrip_path(roadtrip), confirm: 'Are you sure?', method: :delete %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
