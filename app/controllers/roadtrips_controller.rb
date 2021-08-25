@@ -1,7 +1,7 @@
 class RoadtripsController < ApplicationController
   before_action :roadtrip_id, only: %i[show edit update destroy]
   def index
-    @roadtrips = Roadtrip.all
+    @roadtrips = current_user.roadtrips
   end
 
   def show
@@ -25,6 +25,7 @@ class RoadtripsController < ApplicationController
 
   def destroy
     @roadtrip.destroy
+    redirect_to roadtrips_path
   end
 
   private
