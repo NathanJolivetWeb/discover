@@ -1,39 +1,57 @@
-<div class="container-hp">
+
+  <div class="contain-homepage">
 
   <div class="banner">
 
     <div class="title-banner">
       <h1>DISCOVER</h1>
-      <p>Plan roadtrip with friends</p>
+      <p class="sous-titre">Plan roadtrip with friends</p>
     </div>
-  <div class="trans"></div>
+    <div class="trans"></div>
   </div>
 
 
   <div class="cards-contain">
-
+    <%= link_to new_user_session_path, class: "card-link"  do %>
     <div class="card">
       <i class="fas fa-users"></i>
       <h3>Connecte toi</h3>
-      <p>Connecte toi sur l'application</p>
+      <p class="descript-card">Connecte toi sur l'application</p>
     </div>
+    <% end %>
+
+    <%= link_to new_user_session_path, class: "card-link"  do %>
     <div class="card">
     <i class="far fa-handshake"></i>
       <h3>Partage</h3>
-      <p>Invite tes amis à rejoindre le trip</p>
+      <p class="descript-card">Invite tes amis à rejoindre le trip</p>
     </div>
+    <% end %>
+
+    <%= link_to new_user_session_path, class: "card-link"  do %>
     <div class="card">
       <i class="fas fa-map-marked-alt"></i>
       <h3>Roadtrip</h3>
-      <p>Plannifiez votre voyage, de l'itinéraire à la checklist</p>
+      <p class="descript-card">Plannifiez votre voyage, de l'itinéraire à la checklist</p>
     </div>
+    <% end %>
+
+    <%= link_to new_user_session_path, class: "card-link"  do %>
     <div class="card">
       <i class="fas fa-motorcycle"></i>
       <h3>Roule</h3>
-      <p>Partez vivre votre aventure</p>
+      <p class="descript-card">Partez vivre votre aventure</p>
     </div>
+    <% end %>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
-  <div class="ameuble"></div>
-</div>
+  <div class="ameuble">
+    <div class="trans2"></div>
+    <div class="citation">
+      <h1><i class="fas fa-angle-double-left"></i> Le bonheur n’est pas une destination, mais une façon de voyager.<i class="fas fa-angle-double-right"></i></h1>
+    </div>
+
+  </div>
+  </div>
