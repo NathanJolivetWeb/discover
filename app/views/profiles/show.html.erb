@@ -1,5 +1,26 @@
 <h1>Profiles</h1>
 
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-<span>Est-ce votre page ?</span>
-<%= params[:id].to_i == current_user.id%>
+  <div class="form-inputs">
+    <%= f.input :first_name,
+                input_html: { autocomplete: :first_name }%>
+    <%= f.input :last_name,
+                input_html: { autocomplete: :last_name }%>
+    <%= f.input :username,
+                input_html: { autocomplete: :username }%>
+    <%= f.input :email,
+                input_html: { autocomplete: :email }%>
+    <%= f.input :password,
+                required: false,
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "S'inscrire", class: "btn-signin"  %>
+  </div>
+<% end %>
