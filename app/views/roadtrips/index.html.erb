@@ -2,13 +2,13 @@
   <div class="d-flex">
 
     <%= link_to new_roadtrip_path do %>
-     <p> <i class="fas fa-plus-circle"></i> Ajouter un trip </p>
+     <p class="text-danger"> <i class="mt-4 fas fa-plus-circle text-danger"></i> Ajouter un trip </p>
     <% end %>
   </div>
   <div>
     <% @roadtrips.each do |roadtrip| %>
       <div class="card-product">
-        <img src="https://images.unsplash.com/photo-1518097884217-a59822450508?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" />
+        <%= cl_image_tag roadtrip.photo.key, crop: :fill, class: "card-img"%>
         <div class="card-product-container">
           <div class="card-product-infos">
           <% if roadtrip.status == "En cours" %>
