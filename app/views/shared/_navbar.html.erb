@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-discover fixed-top <%= current_page?(root_path) ? "transparent" : "white"%>">
+<div class="navbar navbar-expand-sm navbar-light navbar-discover <%= current_page?(root_path) ? "transparent fixed-top" : "white"%>">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo.png" %>
     <% end %>
@@ -15,7 +15,7 @@
           <%= link_to "Roadtrips", roadtrips_path, class: "discover-nav-link nav-link mr-2" %>
         </li>
         <li class="nav-item align-self-center">
-          <%= link_to "Messagerie", roadtrip_messages_path(:roadtrip_id), class: "discover-nav-link nav-link mr-2" %>
+          <%= render 'shared/modalmessagerie' %>
         </li>
         <li class="nav-item align-self-center">
           <%= link_to "Amis", "#", class: "discover-nav-link nav-link mr-4" %>

@@ -25,13 +25,14 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initUpdateNavbarOnScroll } from '../components/navbar'
-import { textWrapper } from '../components/homepage'
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { textWrapperHomePage } from '../components/homepage'
+import { modalMessagerie } from '../components/modalmessagerie'
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initUpdateNavbarOnScroll();
-  textWrapper();
+  textWrapperHomePage();
+  modalMessagerie();
 });
