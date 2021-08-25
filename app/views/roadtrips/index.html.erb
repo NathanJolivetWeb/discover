@@ -23,21 +23,15 @@
             </div>
           <% end %>
             <div class="card-product-infos-avatars">
-              <img src="https://avatars.githubusercontent.com/u/85166333?v=4" alt="" class="avatar-bordered">
-              <img src="https://avatars.githubusercontent.com/u/45171753?v=4" alt="" class="avatar-bordered">
-              <img src="https://avatars.githubusercontent.com/u/85315784?v=4" alt="" class="avatar-bordered">
-              <img src="https://avatars.githubusercontent.com/u/80858493?v=4" alt="" class="avatar-bordered">
+              <% roadtrip.users.each do |user| %>
+                <%= cl_image_tag user.photo.key, class: "avatar-bordered" %>
+              <% end %>
             </div>
-     <%#        <div class="card-product-infos-avatars">
-            <% roadtrip.users.each do %>
-            <%# <%= cl_image_tag current_user.photo.key, class: "avatar-bordered" %>
-            <%# <% end %>
-            <%# </div> %>
           </div>
           <div class="card-product-bottom">
             <div class="card-product-bottom-infos">
-              <h2>  <i class="fas fa-calendar-alt"></i> date du trip </h2>
-              <h2> nombre de km </h2>
+              <h2> <i class="fas fa-calendar-alt" id="calendrier-fa"></i> date du trip </h2>
+              <h2> <i class="fas fa-road" id="road-fa"></i> nombre de km </h2>
             </div>
             <div class="card-product-buttons">
               <%= link_to "Supprimer ce trip", roadtrip_path(roadtrip), confirm: 'Are you sure?', method: :delete, class: "button-green" %>
