@@ -9,11 +9,35 @@
     <% @roadtrips.each do |roadtrip| %>
       <div class="card-product">
         <img src="https://images.unsplash.com/photo-1518097884217-a59822450508?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" />
-        <div class="card-product-infos">
-          <h2> <%= roadtrip.title %> </h2>
-          <p><%= roadtrip.status %></p>
-          <%= link_to "Consulter ce trip", roadtrip_path(roadtrip) %>
-          <%= link_to "Supprimer ce trip", roadtrip_path(roadtrip), confirm: 'Are you sure?', method: :delete %>
+        <div class="card-product-container">
+          <div class="card-product-infos">
+          <% if roadtrip.status == "En cours" %>
+            <div class="card-product-infos-text">
+              <h2> <%= roadtrip.title %> </h2>
+              <p><%= roadtrip.status %></p>
+            </div>
+          <% else  %>
+             <div class="card-product-infos-text-terminer">
+              <h2> <%= roadtrip.title %> </h2>
+              <p><%= roadtrip.status %></p>
+            </div>
+          <% end %>
+            <div class="card-product-infos-avatars">
+              <% roadtrip.users.each do |user| %>
+                <%= cl_image_tag user.photo.key, class: "avatar-bordered" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="card-product-bottom">
+            <div class="card-product-bottom-infos">
+              <h2> <i class="fas fa-calendar-alt" id="calendrier-fa"></i> date du trip </h2>
+              <h2> <i class="fas fa-road" id="road-fa"></i> nombre de km </h2>
+            </div>
+            <div class="card-product-buttons">
+              <%= link_to "Supprimer ce trip", roadtrip_path(roadtrip), confirm: 'Are you sure?', method: :delete, class: "button-green" %>
+              <%= link_to "Consulter ce trip", roadtrip_path(roadtrip), class: "button-green" %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
