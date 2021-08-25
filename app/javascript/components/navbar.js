@@ -1,5 +1,5 @@
 const initUpdateNavbarOnScroll = () => {
-  const navbar = document.querySelector('.transparent');
+  const navbar = document.querySelector('.navbar-discover');
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= window.innerHeight /2) {
