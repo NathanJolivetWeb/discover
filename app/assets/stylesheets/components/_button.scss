@@ -13,6 +13,22 @@
   }
 }
 
+.button-green-show {
+  background-color: #84A98C;
+  background-size: auto;
+  width: 150px;
+  text-align: center;
+  border-radius: 4px;
+  color: white;
+  margin: 12px 24px;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    transition: 1s;
+    background-color: #52796F;
+  }
+}
+
 .button-orange {
   background-color: #D99912;
   background-size: auto;
