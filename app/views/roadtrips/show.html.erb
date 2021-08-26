@@ -1,11 +1,58 @@
-<div class='container-show-map'>
-  <div class="one">Un</div>
-  <div id="map"
-       style="width: 100%; height: 100%;"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="container">
+  <div>
+    <h1> <%= @roadtrip.title %> </h1>
+    <div class="card-product-infos-avatars">
+      <% @roadtrip.users.each do |user| %>
+        <%= cl_image_tag user.photo.key, class: "avatar-bordered" %>
+      <% end %>
+    </div>
   </div>
+  <div class="show-roadtrip-core">
+    <div class="roadtrip-itineraries">
+      <div>
+        <h2>Itinéraires</h2>
+        <p>Ajouter un participant</p>
+      </div>
+      <div class="card-map">
+        <div class="card-map-top">
+          <h3><%= @roadtrip.title %></h3>
+        </div>
+        <div class="card-map-content">
+          <img src="https://amtlarochelle.com/wp-content/uploads/2015/03/trajet.jpg" alt="L'itinéraire du jour">
+        </div>
+        <div class="card-map-bottom">
+          <p>Distance</p>
+          <p>Jour</p>
+          <p>Durée</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="roadtrip-itineraries">
+      <div>
+        <h2>Itinéraires</h2>
+        <p>Ajouter un participant</p>
+      </div>
+      <div class="card-map">
+        <div class="card-map-top">
+          <h3><%= @roadtrip.title %></h3>
+        </div>
+        <div class="card-map-content">
+          <img src="https://amtlarochelle.com/wp-content/uploads/2015/03/trajet.jpg" alt="L'itinéraire du jour">
+        </div>
+        <div class="card-map-bottom">
+          <p>Distance</p>
+          <p>Jour</p>
+          <p>Durée</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist">
+      <div class="rectangle-test">
+        <p>présent pour tester le placement des divs</p>
+      </div>
+    </div>
+  </div>
+
 </div>
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-<div id="map"></div>
