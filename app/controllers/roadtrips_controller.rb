@@ -16,6 +16,12 @@ class RoadtripsController < ApplicationController
 
   def create
     @roadtrip = Roadtrip.new(roadtrip_params)
+
+    if @roadtrip.save
+      redirect_to roadtrip_path(@roadtrip)
+    else
+      render "new"
+    end
   end
 
   def edit
