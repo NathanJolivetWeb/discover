@@ -2,6 +2,11 @@
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <% @messages = Message.all %>
+    <% @roadtrips = Roadtrip.all %>
+    <% @messages.each do |message| %>
+      <%= cl_image_tag message.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <%= message.content %>
+    <% end %>
   </div>
 </div>
