@@ -38,6 +38,7 @@ class RoadtripsController < ApplicationController
   end
 
   private
+
   def roadtrip_id
     @roadtrip = Roadtrip.find(params[:id])
   end
