@@ -49,8 +49,21 @@
     </div>
 
     <div class="checklist">
-      <div class="rectangle-test">
-        <p>présent pour tester le placement des divs</p>
+      <div class="checklist-box bgw">
+        <h2 class="text-center pt-2">Check-list</h2>
+        <div>
+          <% @roadtrip.tasks.each do |task|  %>
+          <p>
+            <input type="checkbox">
+            <span><%= task.content %></span>
+          </p>
+
+          <% end %>
+        </div>
+        <%= @roadtrip.id %>
+        <%= link_to roadtrip_tasks_path(@roadtrip.id), class: "btn" do %>
+          <i class="fas fa-plus"></i>
+        <% end %>
       </div>
     </div>
   </div>
