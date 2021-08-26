@@ -4,7 +4,7 @@
 }
 
 .banner{
-  background-image: asset-url('img-homepage.jpeg'), linear-gradient(90deg, rgba(2,0,36,0.6054796918767507) 0%, rgba(0,0,0,0.09007352941176472) 99%, rgba(0,0,0,0) 100%);;
+  background-image: radial-gradient(circle, rgba(242,242,242,0) 0%, rgba(0,0,0,1) 99%), asset-url('img-homepage.jpeg');
   background-size: cover;
   background-position: center;
   height: 550px;
@@ -25,9 +25,14 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-.title-banner span{
+.sous-titre{
   font-size: 25px;
   text-align: center;
+  color: white;
+}
+
+.letter{
+  color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
@@ -39,16 +44,14 @@
   position: absolute;
   bottom: -52px;
 }
+// fin de la banner //
 
+// 4 cards sous la banner //
 .cards-contain{
   margin-top: 130px;
   margin-bottom: 350px;
   display: flex;
   justify-content: center;
-}
-
-.sous-titre{
-  color: white;
 }
 
 .card{
@@ -77,9 +80,11 @@
 .descript-card{
   color: black;
 }
+// fin cards //
 
+// partie verte sous les cards //
 .ameuble{
-  height: 700px;
+  height: 600px;
   background-color: #52796F;
   display: flex;
   justify-content: center;
@@ -93,6 +98,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 80px;
 }
 
 .trans2{
@@ -110,3 +116,34 @@
     color: #f4f4f4;
   }
 }
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  width: 825px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: absolute;
+  bottom: 50px;
+} .btn-sign{
+  color: white;
+  background-color: rgba(245, 243, 243, 0.412);
+  font-weight: bold;
+  padding: 8px 16px;
+}
+
+.btn-sign:hover{
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+// fin partie verte //
