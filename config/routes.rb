@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :roadtrips do
     resources :tasks, only: :create
     resources :messages, only: %i[index create]
-    resources :itineraries, only: :create
+    resources :itineraries, only: %i[create new]
     resources :partners, only: :create
   end
   resources :tasks, only: :delete do

@@ -7,6 +7,7 @@ class RoadtripsController < ApplicationController
   end
 
   def show
+    @itinerary = Itinerary.new
   end
 
   def new
@@ -15,6 +16,12 @@ class RoadtripsController < ApplicationController
 
   def create
     @roadtrip = Roadtrip.new(roadtrip_params)
+    if @roadtrip.save
+      @partner = Partner.create!(user: current_user, roadtrip: @roadtrip)
+      redirect_to roadtrip_path(@roadtrip)
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -31,6 +38,7 @@ class RoadtripsController < ApplicationController
   end
 
   private
+
   def roadtrip_id
     @roadtrip = Roadtrip.find(params[:id])
   end
