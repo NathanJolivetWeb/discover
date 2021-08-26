@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -27,6 +28,7 @@ import "bootstrap";
 import { initUpdateNavbarOnScroll } from '../components/navbar'
 import { textWrapperHomePage } from '../components/homepage'
 import { modalMessagerie } from '../components/modalmessagerie'
+import { initMapbox } from '../components/showmap'
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -35,4 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   textWrapperHomePage();
   modalMessagerie();
+  initMapbox();
 });
