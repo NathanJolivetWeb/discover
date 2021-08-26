@@ -123,9 +123,9 @@ partner3.save
 
 puts "Congrats, #{Partner.count} partners was created!"
 puts "=============================="
- 
+
 # Create messages
 puts "Creating some messages"
 # <Message:0x00007fe60eefece0 id: nil, content: nil, user_id: nil, roadtrip_id: nil, created_at: nil, updated_at: nil>
-message1 = Message.new(content:"Très beau voyage, merci les copains.", user: maxence, roadtrip: roadtrip4)
+message1 = Message.new(content: "Très beau voyage, merci les copains.", user: maxence, roadtrip: roadtrip4)
 message1.save
