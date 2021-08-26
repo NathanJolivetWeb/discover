@@ -1,3 +1,5 @@
+import anime from 'animejs/lib/anime.es.js';
+
 const textWrapperHomePage = () => {
   const textWrapper = document.querySelector('.sous-titre');
   if (textWrapper) {
