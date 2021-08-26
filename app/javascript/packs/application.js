@@ -25,10 +25,12 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
 import { initUpdateNavbarOnScroll } from '../components/navbar'
 import { textWrapperHomePage } from '../components/homepage'
 import { modalMessagerie } from '../components/modalmessagerie'
-import { initMapbox } from '../components/showmap'
+import { initMapbox } from '../components/initmap'
+import { searchMapbox } from '../components/searchmap'
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -38,4 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   textWrapperHomePage();
   modalMessagerie();
   initMapbox();
+  searchMapbox();
 });

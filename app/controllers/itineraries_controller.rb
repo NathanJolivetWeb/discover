@@ -3,9 +3,11 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    @itineraries = Itinerary.all
   end
 
   def index
+    @itineraries = Itinerary.all
   end
 
   def edit
