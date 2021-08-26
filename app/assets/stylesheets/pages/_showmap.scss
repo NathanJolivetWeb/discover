@@ -1,0 +1,15 @@
+.container-show-map {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+.one {
+  background-color:lightgray ;
+  height: 90vh;
+  width: 100%;
+}
+.two {
+  background-color: grey;
+  height: 90vh;
+  width: 100%;
+}
