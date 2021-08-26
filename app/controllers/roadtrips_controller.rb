@@ -18,7 +18,7 @@ class RoadtripsController < ApplicationController
     @roadtrip = Roadtrip.new(roadtrip_params)
 
     if @roadtrip.save
-      redirect_to roadtrip_path(@roadtrip.id)
+      redirect_to roadtrip_path(@roadtrip)
     else
       render "new"
     end
