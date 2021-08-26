@@ -1,0 +1,5 @@
+<div class="container">
+  <% @friendships.each do |friendship| %>
+    <%= friendship.user.first_name %>
+  <% end %>
+</div>
