@@ -24,6 +24,13 @@
     <h3>Informations</h3>
     <hr />
 
+    <%= simple_form_for(@user) do |f| %>
 
+        <div class="form-inputs">
+          <%= f.input :email %>
+        
+        </div>
+
+      <% end %>
   </div>
 </div>
