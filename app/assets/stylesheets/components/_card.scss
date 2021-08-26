@@ -124,3 +124,71 @@ a {
   font-size: 18px;
   margin-right: 16px;
 }
+
+
+.plus-fa {
+  color: white;
+  font-size: 24px;
+}
+
+.card-map {
+  height: 200px;
+  width: 250px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 16px 24px;
+  border-radius: 4px;
+}
+
+.card-map-content img {
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+}
+
+.card-map-bottom {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card-map-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card-map-bottom-middle {
+  width: 33%;
+  background-color: #84A98C;
+}
+
+.card-map-bottom-right {
+  width: 33%;
+}
+
+.card-map-bottom-left {
+  width: 33%;
+}
+
+.card-map-add {
+  height: 200px;
+  width: 250px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 16px 24px;
+  border-radius: 4px;
+  background-color: #84A98C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-map-avatars {
+  display: flex;
+  justify-content: start;
+}
+
+.card-map-avatars img {
+  margin-right: 20px;
+  margin-bottom: 16px;
+}

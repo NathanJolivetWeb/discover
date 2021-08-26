@@ -1,0 +1,30 @@
+.itineraries {
+  display: grid;
+  grid: 1fr 1fr;
+  width: 50%;
+}
+
+.checklist {
+  width: 50%;
+}
+
+.show-roadtrip-core {
+  display: flex;
+  width: 100%;
+}
+
+.rectangle-test {
+  width: 400px;
+  height: 600px;
+}
+
+.roadtrip-itineraries-top-infos {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.show-roadtrip-top {
+  display: flex;
+  justify-content: space-between;
+}
