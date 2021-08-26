@@ -125,6 +125,7 @@ a {
   margin-right: 16px;
 }
 
+
 .plus-fa {
   color: white;
   font-size: 24px;
@@ -136,7 +137,7 @@ a {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 8px 16px;
+  margin: 16px 24px;
   border-radius: 4px;
 }
 
@@ -157,7 +158,6 @@ a {
 }
 
 .card-map-bottom-middle {
-  border-right: 1px solid black;
   width: 33%;
   background-color: #84A98C;
 }
@@ -167,7 +167,6 @@ a {
 }
 
 .card-map-bottom-left {
-  border-right: 1px solid black;
   width: 33%;
 }
 
@@ -176,10 +175,20 @@ a {
   width: 250px;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 8px 16px;
+  margin: 16px 24px;
   border-radius: 4px;
   background-color: #84A98C;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.card-map-avatars {
+  display: flex;
+  justify-content: start;
+}
+
+.card-map-avatars img {
+  margin-right: 20px;
+  margin-bottom: 16px;
 }
