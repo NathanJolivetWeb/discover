@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-discover fixed-top <%= current_page?(root_path) ? "transparent" : "white"%>">
+<div class="navbar navbar-expand-sm navbar-light navbar-discover <%= current_page?(root_path) ? "transparent fixed-top" : "white"%>">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo.png" %>
-    <% end %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@
           <%= link_to "Roadtrips", roadtrips_path, class: "discover-nav-link nav-link mr-2" %>
         </li>
         <li class="nav-item align-self-center">
-          <%= link_to "Messagerie", roadtrip_messages_path(:roadtrip_id), class: "discover-nav-link nav-link mr-2" %>
+          <%= render 'shared/modalmessagerie' %>
         </li>
         <li class="nav-item align-self-center">
           <%= link_to "Amis", "#", class: "discover-nav-link nav-link mr-4" %>
@@ -23,7 +23,7 @@
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Compte", "#", class: "dropdown-item" %>
+            <%= link_to "Compte", profile_path(current_user.id), class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

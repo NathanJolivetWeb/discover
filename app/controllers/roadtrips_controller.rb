@@ -2,6 +2,8 @@ class RoadtripsController < ApplicationController
   before_action :roadtrip_id, only: %i[show edit update destroy]
   def index
     @roadtrips = current_user.roadtrips
+    @roadtrips_status_en_cours = @roadtrips.where(status: "En cours")
+    @roadtrips_status_termine = @roadtrips.where(status: "Terminé")
   end
 
   def show

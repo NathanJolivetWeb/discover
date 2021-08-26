@@ -1,0 +1,12 @@
+<div id="myBtn" class="discover-nav-link nav-link mr-2">Messagerie</div>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <% @messages = Message.all %>
+    <% @roadtrips = Roadtrip.all %>
+    <% @messages.each do |message| %>
+      <%= cl_image_tag message.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <%= message.content %>
+    <% end %>
+  </div>
+</div>
