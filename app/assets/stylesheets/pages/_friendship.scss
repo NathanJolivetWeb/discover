@@ -1,9 +1,41 @@
-.friends {
-  ul {
-    text-decoration: none;
-    list-style: none;
-  }
-  li {
-    list-style: none;
-  }
+
+.contain-all{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  box-shadow: 0 0 15px rgb(172, 194, 178);
+  height: 500px;
+  border-radius: 8px;
+}
+
+.names{
+  display: flex;
+  width: 180px;
+  align-items: center;
+  color: black;
+}
+
+.contain-avatar{
+  width: 200px;
+  margin-right: 200px;
+  display: flex;
+  justify-content: flex-start;
+  color: black;
+}
+
+.total{
+  display: flex;
+  align-items: center;
+  width: 650px;
+  border-bottom: 4px solid #52796F;
+}
+.total p:hover{
+  text-decoration: none;
+}
+
+.amis-title{
+  text-align: center;
+  font-family: headers-font;
 }
