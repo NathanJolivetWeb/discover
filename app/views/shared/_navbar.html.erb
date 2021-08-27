@@ -18,7 +18,7 @@
           <%= render 'shared/modalmessagerie' %>
         </li>
         <li class="nav-item align-self-center">
-          <%= link_to "Amis", friendships_index_path, class: "discover-nav-link nav-link mr-4 text-danger" %>
+          <%= link_to "Amis", "friendships_index_path", class: "discover-nav-link nav-link mr-4 text-danger" %>
         </li>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
