@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :params_id, only: %i[destroy]
+  before_action :params_id, only: :destroy
   before_action :roadtrip_id, only: %i[create]
 
   def create
