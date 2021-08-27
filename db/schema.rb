@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_100001) do
+ActiveRecord::Schema.define(version: 2021_08_27_095408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,11 +46,11 @@ ActiveRecord::Schema.define(version: 2021_08_25_100001) do
   end
 
   create_table "itineraries", force: :cascade do |t|
-    t.string "address_start"
-    t.string "address_end"
     t.bigint "roadtrip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.integer "order", default: 0
     t.index ["roadtrip_id"], name: "index_itineraries_on_roadtrip_id"
   end
 
@@ -89,6 +89,15 @@ ActiveRecord::Schema.define(version: 2021_08_25_100001) do
     t.string "status", default: "En cours"
   end
 
+  create_table "steps", force: :cascade do |t|
+    t.integer "order"
+    t.string "address"
+    t.bigint "itinerary_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["itinerary_id"], name: "index_steps_on_itinerary_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "content"
     t.bigint "roadtrip_id", null: false
@@ -122,5 +131,6 @@ ActiveRecord::Schema.define(version: 2021_08_25_100001) do
   add_foreign_key "partner_tasks", "tasks"
   add_foreign_key "partners", "roadtrips"
   add_foreign_key "partners", "users"
+  add_foreign_key "steps", "itineraries"
   add_foreign_key "tasks", "roadtrips"
 end
