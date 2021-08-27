@@ -1,2 +1,26 @@
-<h1>Roadtrips#new</h1>
-<p>Find me in app/views/roadtrips/new.html.erb</p>
+    <div class="petit-mot">
+      C'est ici que tout commence !
+    </div>
+<div class="contain-form">
+
+  <div class="formulaire">
+
+
+    <div class="screen-2">
+      <%= simple_form_for @roadtrip do |f| %>
+        <div class="form-inputs">
+          <%= f.input :title, label: 'Nom du RoadTrip' %>
+        </div>
+
+          <div class="form-actions">
+            <%= f.submit "Créer RoadTrip", class: "btn-signin" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+
+    <div class="imageForm2">
+    </div>
+
+</div>

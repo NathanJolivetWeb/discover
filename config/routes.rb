@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'friendships/index'
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -17,4 +18,5 @@ Rails.application.routes.draw do
   resources :itineraries, only: %i[destroy update edit show index]
   resources :partners, only: :destroy
   resources :profiles, only: %i[update edit show]
+  resources :friendships, only: :index
 end
