@@ -1,2 +1,14 @@
-<h1>Itineraries#new</h1>
-<p>Find me in app/views/itineraries/new.html.erb</p>
+<div class='container-show-map'>
+  <div class="one">
+  <%= simple_form_for [@roadtrip, @itinerary] do |f| %>
+  <%= f.input :address_start, id:'address-start'%>
+  <%= f.input :address_end %>
+  <%= f.submit %>
+  <% end %>
+  </div>
+  <div id="map"
+       style="width: 100%; height: 100%;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
