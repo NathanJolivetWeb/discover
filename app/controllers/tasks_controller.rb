@@ -9,7 +9,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to roadtrip_path(@roadtrip)
     else
-      redirect_to roadtrip_path(@roadtrip)
+      render "roadtrips/show"
     end
   end
 
