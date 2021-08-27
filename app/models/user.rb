@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :addressed_friendships, class_name: 'Friendship', foreign_key: 'addressed_id'
   has_many :partners, dependent: :destroy
   has_many :roadtrips, through: :partners, dependent: :destroy
+  has_many :friendships
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

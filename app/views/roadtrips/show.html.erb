@@ -9,7 +9,7 @@
       </div>
       <div>
         <% add_partners =  '<i class="mt-1 fas fa-plus-circle text-danger" style="font-size: 24px"></i>' %>
-        <p class="text-danger" style="font-size: 24px">  <%= link_to add_partners.html_safe, edit_roadtrip_path(@roadtrip), class: "text-danger", style: "font-size: 24px" %> Ajouter un participant </p>
+        <p class="text-danger" style="font-size: 24px">  <%= link_to add_partners.html_safe, new_roadtrip_partner_path(@roadtrip), class: "text-danger", style: "font-size: 24px" %> Ajouter un participant </p>
       </div>
     </div>
   </div>
