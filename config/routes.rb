@@ -9,13 +9,15 @@ Rails.application.routes.draw do
     resources :itineraries, only: %i[create new]
     resources :partners, only: %i[create new]
   end
-  
+
   resources :tasks, only: :destroy do
     resources :partnertasks, only: :create
   end
 
   resources :messages, only: :destroy
-  resources :itineraries, only: %i[destroy update edit show index]
+  resources :itineraries, only: %i[destroy update edit show index] do
+    resources :steps, only: %i[create]
+  end
   resources :partners, only: :destroy
   resources :profiles, only: %i[update edit show]
   resources :friendships, only: :index
