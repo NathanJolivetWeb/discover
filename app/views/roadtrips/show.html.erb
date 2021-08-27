@@ -84,17 +84,22 @@
         <h2 class="text-center pt-2">Check-list</h2>
         <div>
           <% @roadtrip.tasks.each do |task|  %>
-          <p>
-            <input type="checkbox">
-            <span><%= task.content %></span>
-          </p>
-
+            <p>
+              <input type="checkbox">
+              <span><%= task.content %></span>
+              <%= link_to task_path(task.id), method: :delete, data: { confirm: "Are you sure you want to remove this task ?"}, class: "btn" do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            </p>
           <% end %>
         </div>
-        <%= @roadtrip.id %>
-        <%= link_to roadtrip_tasks_path(@roadtrip.id), class: "btn" do %>
-          <i class="fas fa-plus"></i>
-        <% end %>
+        <div>
+          <%= simple_form_for [ @roadtrip, @task ] do |f|%>
+          <%= f.input :content %>
+          <%= f.submit class: "btn btn-warning text-white" %>
+          <% end %>
+        </div>
+
       </div>
     </div>
   </div>

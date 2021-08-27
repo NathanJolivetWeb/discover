@@ -3,16 +3,18 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :roadtrips do
-    resources :tasks, only: %i[new create]
+    resources :tasks, only: %i[create]
     resources :messages, only: %i[index create]
     resources :itineraries, only: %i[create new]
-    resources :partners, only: :create
+    resources :partners, only: %i[create new]
   end
-  resources :tasks, only: :delete do
+  
+  resources :tasks, only: :destroy do
     resources :partnertasks, only: :create
   end
-  resources :messages, only: :delete
-  resources :itineraries, only: %i[delete update edit show index]
-  resources :partners, only: :delete
+
+  resources :messages, only: :destroy
+  resources :itineraries, only: %i[destroy update edit show index]
+  resources :partners, only: :destroy
   resources :profiles, only: %i[update edit show]
 end

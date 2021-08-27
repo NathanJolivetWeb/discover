@@ -8,6 +8,7 @@ class RoadtripsController < ApplicationController
 
   def show
     @itinerary = Itinerary.new
+    @task = Task.new
   end
 
   def new
