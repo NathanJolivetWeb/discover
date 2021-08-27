@@ -12,13 +12,13 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item align-self-center">
-          <%= link_to "Roadtrips", roadtrips_path, class: "discover-nav-link nav-link mr-2" %>
+          <%= link_to "Roadtrips", roadtrips_path, class: "discover-nav-link nav-link mr-2 text-danger" %>
         </li>
         <li class="nav-item align-self-center">
           <%= render 'shared/modalmessagerie' %>
         </li>
         <li class="nav-item align-self-center">
-          <%= link_to "Amis", "#", class: "discover-nav-link nav-link mr-4" %>
+          <%= link_to "Amis", "#", class: "discover-nav-link nav-link mr-4 text-danger" %>
         </li>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
