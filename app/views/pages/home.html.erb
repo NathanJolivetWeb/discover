@@ -5,44 +5,40 @@
 
     <div class="title-banner">
       <h1>DISCOVER</h1>
-      <p class="sous-titre">Plan roadtrip with friends</p>
+      <p class="sous-titre">Planifiez vos roadtrips entres amis</p>
     </div>
     <div class="trans"></div>
   </div>
 
 
   <div class="cards-contain">
-    <%= link_to new_user_session_path, class: "card-link"  do %>
+
     <div class="card">
       <i class="fas fa-users"></i>
       <h3>Connecte toi</h3>
       <p class="descript-card">Connecte toi sur l'application</p>
     </div>
-    <% end %>
 
-    <%= link_to new_user_session_path, class: "card-link"  do %>
+
     <div class="card">
+      <i class="fas fa-map-marked-alt"></i>
+      <h3>Roadtrip</h3>
+      <p class="descript-card">Plannifie votre voyage, de l'itinéraire à la checklist</p>
+    </div>
+
+
+     <div class="card">
     <i class="far fa-handshake"></i>
       <h3>Partage</h3>
       <p class="descript-card">Invite tes amis à rejoindre le trip</p>
     </div>
-    <% end %>
 
-    <%= link_to new_user_session_path, class: "card-link"  do %>
-    <div class="card">
-      <i class="fas fa-map-marked-alt"></i>
-      <h3>Roadtrip</h3>
-      <p class="descript-card">Plannifiez votre voyage, de l'itinéraire à la checklist</p>
-    </div>
-    <% end %>
 
-    <%= link_to new_user_session_path, class: "card-link"  do %>
     <div class="card">
       <i class="fas fa-motorcycle"></i>
       <h3>Roule</h3>
-      <p class="descript-card">Partez vivre votre aventure</p>
+      <p class="descript-card">Partez vivre votre aventure ensemble</p>
     </div>
-    <% end %>
   </div>
 
 
@@ -54,7 +50,7 @@
 
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597766752709-6725aae388f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80)">
       <p>Rejoignez Discover pour de folles aventures<p>
-      <%= link_to "Inscripiton", new_user_session_path, class: "btn-sign" %>
+      <%= link_to "Inscription", new_user_session_path, class: "btn-sign" %>
     </div>
   </div>
 
