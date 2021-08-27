@@ -80,8 +80,26 @@
     </div>
 
     <div class="checklist">
-      <div class="rectangle-test">
-        <p>présent pour tester le placement des divs</p>
+      <div class="checklist-box bgw">
+        <h2 class="text-center pt-2">Check-list</h2>
+        <div>
+          <% @roadtrip.tasks.each do |task|  %>
+            <p>
+              <input type="checkbox">
+              <span><%= task.content %></span>
+              <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure you want to remove this task ?"} do %>
+                <i class="far fa-trash-alt fa-trash-size"></i>
+              <% end %>
+            </p>
+          <% end %>
+        </div>
+        <div>
+          <%= simple_form_for [ @roadtrip, @task ] do |f|%>
+          <%= f.input :content %>
+          <%= f.submit class: "btn btn-warning text-white" %>
+          <% end %>
+        </div>
+
       </div>
     </div>
   </div>
