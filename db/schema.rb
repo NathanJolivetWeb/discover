@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_27_101610) do
+ActiveRecord::Schema.define(version: 2021_08_27_113556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 2021_08_27_101610) do
     t.index ["roadtrip_id"], name: "index_itineraries_on_roadtrip_id"
   end
 
+  create_table "itinerary_steps", force: :cascade do |t|
+    t.bigint "step_id", null: false
+    t.bigint "itinerary_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["itinerary_id"], name: "index_itinerary_steps_on_itinerary_id"
+    t.index ["step_id"], name: "index_itinerary_steps_on_step_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
@@ -92,12 +101,10 @@ ActiveRecord::Schema.define(version: 2021_08_27_101610) do
   create_table "steps", force: :cascade do |t|
     t.integer "order", default: 0
     t.string "address"
-    t.bigint "itinerary_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
-    t.index ["itinerary_id"], name: "index_steps_on_itinerary_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -127,12 +134,13 @@ ActiveRecord::Schema.define(version: 2021_08_27_101610) do
   add_foreign_key "friendships", "users", column: "addressed_id"
   add_foreign_key "friendships", "users", column: "requester_id"
   add_foreign_key "itineraries", "roadtrips"
+  add_foreign_key "itinerary_steps", "itineraries"
+  add_foreign_key "itinerary_steps", "steps"
   add_foreign_key "messages", "roadtrips"
   add_foreign_key "messages", "users"
   add_foreign_key "partner_tasks", "partners"
   add_foreign_key "partner_tasks", "tasks"
   add_foreign_key "partners", "roadtrips"
   add_foreign_key "partners", "users"
-  add_foreign_key "steps", "itineraries"
   add_foreign_key "tasks", "roadtrips"
 end
