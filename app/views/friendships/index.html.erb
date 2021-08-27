@@ -1,9 +1,26 @@
+
 <div class="container friends">
-  <% @friendships.each do |friendship| %>
-    <ul>
-      <% if friendship.requester == current_user %>
-        <li><p>  <%= cl_image_tag friendship.addressed.photo.key, class: "avatar-bordered" %> <%= friendship.addressed.first_name %> <%= friendship.addressed.last_name %> <%= friendship.addressed.username %>  </p> </li>
-      <% end %>
-    </ul>
-  <% end %>
+
+
+  <div class="contain-all">
+  <h1 class="amis-title">Mes amis</h1>
+      <% @friendships.each do |friendship| %>
+
+          <% if friendship.requester == current_user %>
+
+            <div class="total">
+                <div class="contain-avatar">
+                     <%= link_to "#" do %>
+                  <p>  <%= cl_image_tag friendship.addressed.photo.key, class: "avatar-bordered abatar" %>
+                     <% end %>
+                  <%= friendship.addressed.username %>
+                </div>
+                  <div class="names">
+                    <%= friendship.addressed.first_name %>
+                    <%= friendship.addressed.last_name %> </p>
+                  </div>
+            </div>
+        <% end %>
+    <% end %>
+  </div>
 </div>
