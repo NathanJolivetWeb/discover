@@ -1,0 +1,31 @@
+.checklist-box {
+  width: 400px;
+  margin: 24px;
+  background-color: #fff;
+  padding: 16px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
+
+  p{
+    display: flex;
+    position: relative;
+    align-items: center;
+    background-color: #eee;
+    border: 1px solid #bbb; 
+    text-align: left;
+    padding-left: 16px;
+    font-size: 24px;
+
+    a{
+      position: absolute;
+      right: 16px;
+    }
+    span{
+      color: black;
+      padding-left: 16px;
+    }
+  }
+}
+.fa-trash-size{
+  font-size: 24px;
+}
