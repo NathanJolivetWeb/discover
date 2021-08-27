@@ -19,62 +19,32 @@
         <h2 class="mt-3">Itinéraires</h2>
         <button class="button-green-show"> Consulter le trajet complet </button>
       </div>
-      <div class="card-map-grid">
-        <div class="card-map">
-          <div class="card-map-content">
-            <img src="https://amtlarochelle.com/wp-content/uploads/2015/03/trajet.jpg" alt="L'itinéraire du jour">
-          </div>
-          <div class="card-map-bottom">
-            <div class="card-map-bottom-left">
-              <p>438 km</p>
-            </div>
-            <div class="card-map-bottom-middle">
-              <p>Jour 1</p>
-            </div>
-            <div class="card-map-bottom-right">
-              <p>4h52</p>
-            </div>
-          </div>
-        </div>
+        <div class="card-map-grid">
 
-
-        <div class="card-map">
-          <div class="card-map-content">
-            <img src="https://amtlarochelle.com/wp-content/uploads/2015/03/trajet.jpg" alt="L'itinéraire du jour">
-          </div>
-          <div class="card-map-bottom">
-            <div class="card-map-bottom-left">
-              <p>238 km</p>
+        <% @roadtrip.itineraries.each do |itinerary| %>
+          <%= link_to itinerary_path(itinerary) do %>
+            <div class="card-map">
+              <div class="card-map-content">
+                <img src="https://amtlarochelle.com/wp-content/uploads/2015/03/trajet.jpg" alt="L'itinéraire du jour">
+              </div>
+              <div class="card-map-bottom">
+                <div class="card-map-bottom-left">
+                  <p> <%= itinerary.name %> </p>
+                </div>
+                <div class="card-map-bottom-middle">
+                  <p>Jour 1</p>
+                </div>
+                <div class="card-map-bottom-right">
+                  <p>4h52</p>
+                </div>
+              </div>
             </div>
-            <div class="card-map-bottom-middle">
-              <p>Jour 2</p>
-            </div>
-            <div class="card-map-bottom-right">
-              <p>2h35</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-map">
-          <div class="card-map-content">
-            <img src="https://amtlarochelle.com/wp-content/uploads/2015/03/trajet.jpg" alt="L'itinéraire du jour">
-          </div>
-          <div class="card-map-bottom">
-            <div class="card-map-bottom-left">
-              <p>389 km</p>
-            </div>
-            <div class="card-map-bottom-middle">
-              <p>Jour 3</p>
-            </div>
-            <div class="card-map-bottom-right">
-              <p>3h49</p>
-            </div>
-          </div>
-        </div>
+          <% end %>
+        <% end %>
 
           <div class="card-map-add">
           <% add_itinerary =  '<i class="fas fa-plus plus-fa"></i>' %>
-          <%= link_to add_itinerary.html_safe, new_roadtrip_itinerary_path(@roadtrip) %>
+          <%= link_to add_itinerary.html_safe, roadtrip_itineraries_path(@roadtrip), method: :post %>
           </div>
       </div>
     </div>

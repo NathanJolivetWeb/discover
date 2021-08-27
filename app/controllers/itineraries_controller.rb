@@ -17,12 +17,12 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    @itinerary = Itinerary.new(itinerary_params)
-    @itinerary.roadtrip = @roadtrip
+    @itinerary = Itinerary.new(name: "Nouveau Itinéraire")
+    @itinerary.roadtrip_id = @roadtrip.id
     if @itinerary.save
-      redirect_to itineraries_path
+      redirect_to roadtrip_path(@roadtrip)
     else
-      render 'new'
+      redirect_to roadtrip_path(@roadtrip)
     end
   end
 
