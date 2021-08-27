@@ -49,19 +49,20 @@
 // 4 cards sous la banner //
 .cards-contain{
   margin-top: 130px;
-  margin-bottom: 350px;
+  margin-bottom: 250px;
   display: flex;
   justify-content: center;
 }
 
 .card{
-  width: 195px;
+  width: 210px;
   height: 221px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin: 0 30px;
-  border-radius: 10px;
+  margin: 0 50px;
+  border: none;
+  background-color: #f4f4f4;
 } p{
   text-align: center;
 }
@@ -79,6 +80,7 @@
 
 .descript-card{
   color: black;
+  font-weight: bold;
 }
 // fin cards //
 
