@@ -19,12 +19,20 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(name: "Nouveau Itinéraire")
     @itinerary.roadtrip_id = @roadtrip.id
-    @last_step_of_previous_itinerary = @roadtrip.itineraries.last.steps.last
-    if @itinerary.save
-      ItineraryStep.create!(step: @last_step_of_previous_itinerary, itinerary: @itinerary)
-      redirect_to roadtrip_path(@roadtrip)
+    if @roadtrip.itineraries.size.zero?
+      if @itinerary.save
+        redirect_to roadtrip_path(@roadtrip)
+      else
+        redirect_to roadtrip_path(@roadtrip)
+      end
     else
-      redirect_to roadtrip_path(@roadtrip)
+      @last_step_of_previous_itinerary = @roadtrip.itineraries.last.steps.last
+      if @itinerary.save
+        ItineraryStep.create!(step: @last_step_of_previous_itinerary, itinerary: @itinerary)
+        redirect_to roadtrip_path(@roadtrip)
+      else
+        redirect_to roadtrip_path(@roadtrip)
+      end
     end
   end
 
