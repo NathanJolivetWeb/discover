@@ -6,7 +6,9 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-    @itineraries = Itinerary.all
+    @itinerary = Itinerary.find(params[:id])
+    @step = Step.new
+    @markers = @itinerary.steps.map{ |step| {lat: step.latitude, lng: step.longitude}}
   end
 
   def index
