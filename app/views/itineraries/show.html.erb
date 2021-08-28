@@ -6,7 +6,7 @@
     <% end %>
     <p>steps</p>
     <% @itinerary.steps.each do |step| %>
-    <p><%= step.address %></p>
+    <p><%= step.address.capitalize %></p>
     <% end %>
   </div>
   <div id="map"
