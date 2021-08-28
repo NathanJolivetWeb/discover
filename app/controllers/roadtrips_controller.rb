@@ -17,6 +17,7 @@ class RoadtripsController < ApplicationController
 
   def create
     @roadtrip = Roadtrip.new(roadtrip_params)
+    @roadtrip.owner = current_user.id
     if @roadtrip.save
       @partner = Partner.create!(user: current_user, roadtrip: @roadtrip)
       redirect_to roadtrip_path(@roadtrip)
@@ -45,6 +46,6 @@ class RoadtripsController < ApplicationController
   end
 
   def roadtrip_params
-    params.require(:roadtrip).permit(:title)
+    params.require(:roadtrip).permit(:title, :owner)
   end
 end
