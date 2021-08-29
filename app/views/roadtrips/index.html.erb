@@ -1,10 +1,9 @@
 <div class="container">
   <div class="index-top">
     <div class="index-top-buttons">
-    <button onclick="myFunction()" class="button-orange">En cours</button>
-    <%= link_to "Trips en cours", roadtrips_path(search: {status: "En cours"}), class: "button-orange", remote: true %>
-    <%= link_to "Trips réalisés", roadtrips_path(search: {status: "Terminé"}), class: "button-lightgrey", remote: true %>
-    <%= link_to "Tous les trips", roadtrips_path, class: "button-green-all" %>
+      <button class="button-orange btn-pending">En cours</button>
+      <button class="button-lightgrey btn-done">Terminé</button>
+      <button class="button-green-all btn-all">Tous les roadtrips</button>
     </div>
     <div class="index-top-add">
       <% plus = '<i class="mt-4 fas fa-plus-circle text-danger" style="font-size: 24px"></i>' %>
@@ -27,7 +26,7 @@
               <p><%= roadtrip.status %></p>
             </div>
           <% else  %>
-             <div class="card-product-infos-text-terminer">
+             <div class="card-product-infos-text-terminer finished">
               <h2> <%= roadtrip.title %> </h2>
               <p><%= roadtrip.status %></p>
             </div>
