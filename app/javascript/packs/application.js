@@ -36,9 +36,9 @@ import { myFunction } from '../components/roadtripsindex'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initMapbox();
   initUpdateNavbarOnScroll();
   textWrapperHomePage();
   modalMessagerie();
-  initMapbox();
   myFunction();
 });
