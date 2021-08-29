@@ -30,13 +30,15 @@ import { initUpdateNavbarOnScroll } from '../components/navbar'
 import { textWrapperHomePage } from '../components/homepage'
 import { modalMessagerie } from '../components/modalmessagerie'
 import { initMapbox } from '../components/initmap'
+import { filterStatus } from '../components/roadtripsindex'
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  initMapbox();
   initUpdateNavbarOnScroll();
   textWrapperHomePage();
   modalMessagerie();
+  filterStatus();
+  // initMapbox();
 });

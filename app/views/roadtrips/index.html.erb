@@ -1,9 +1,9 @@
 <div class="container">
   <div class="index-top">
     <div class="index-top-buttons">
-      <button class="button-orange">Trips en cours</button>
-      <button class="button-lightgrey">Trips réalisés</button>
-      <button class="button-green-all">Tout les trips</button>
+      <button class="button-orange btn-pending">En cours</button>
+      <button class="button-lightgrey btn-done">Terminé</button>
+      <button class="button-green-all btn-all">Tous les roadtrips</button>
     </div>
     <div class="index-top-add">
       <% plus = '<i class="mt-4 fas fa-plus-circle text-danger" style="font-size: 24px"></i>' %>
@@ -12,43 +12,77 @@
   </div>
   <div>
     <% @roadtrips.each do |roadtrip| %>
-      <div class="card-product">
-        <% if roadtrip.photo.present? %>
-          <%= cl_image_tag roadtrip.photo.key, crop: :fill, class: "card-img"%>
-        <% else  %>
-          <img class="card-img" src="https://images.unsplash.com/photo-1519817914152-22d216bb9170?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=401&q=80" alt="">
-        <% end %>
-        <div class="card-product-container">
-          <div class="card-product-infos">
-          <% if roadtrip.status == "En cours" %>
-            <div class="card-product-infos-text">
-              <h2> <%= roadtrip.title %> </h2>
-              <p><%= roadtrip.status %></p>
-            </div>
+      <% if roadtrip.status == "En cours" %>
+        <div class="card-product pending" id="card-roadtrip">
+          <% if roadtrip.photo.present? %>
+            <%= cl_image_tag roadtrip.photo.key, crop: :fill, class: "card-img"%>
           <% else  %>
-             <div class="card-product-infos-text-terminer">
-              <h2> <%= roadtrip.title %> </h2>
-              <p><%= roadtrip.status %></p>
-            </div>
+            <img class="card-img" src="https://images.unsplash.com/photo-1519817914152-22d216bb9170?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=401&q=80" alt="">
           <% end %>
-            <div class="card-product-infos-avatars">
-              <% roadtrip.users.each do |user| %>
-                <%= cl_image_tag user.photo.key, class: "avatar-bordered" %>
+          <div class="card-product-container">
+            <div class="card-product-infos">
+              <div class="card-product-infos-text">
+                <h2> <%= roadtrip.title %> </h2>
+                <p><%= roadtrip.status %></p>
+              </div>
+              <div class="card-product-infos-avatars">
+                <% roadtrip.users.each do |user| %>
+                  <%= cl_image_tag user.photo.key, class: "avatar-bordered" %>
+                <% end %>
+              </div>
+            </div>
+            <div class="card-product-bottom">
+              <div class="card-product-bottom-infos">
+                <h2 class="m-2"> <i class="fas fa-calendar-alt" id="calendrier-fa"></i> date du trip </h2>
+                <h2 class="m-2"> <i class="fas fa-road" id="road-fa"></i> nombre de km </h2>
+              </div>
+              <div class="card-product-buttons">
+              <% if roadtrip.owner == current_user.id %>
+              <% trash = '<i class="fas fa-trash trash-fa"></i>' %>
+                <%= link_to trash.html_safe, roadtrip_path(roadtrip), confirm: 'Are you sure?', method: :delete %>
               <% end %>
-            </div>
-          </div>
-          <div class="card-product-bottom">
-            <div class="card-product-bottom-infos">
-              <h2 class="m-2"> <i class="fas fa-calendar-alt" id="calendrier-fa"></i> date du trip </h2>
-              <h2 class="m-2"> <i class="fas fa-road" id="road-fa"></i> nombre de km </h2>
-            </div>
-            <div class="card-product-buttons">
-              <%= link_to "Supprimer ce trip", roadtrip_path(roadtrip), confirm: 'Are you sure?', method: :delete, class: "button-green" %>
-              <%= link_to "Consulter ce trip", roadtrip_path(roadtrip), class: "button-green" %>
+              <% show = '<i class="far fa-eye eye-fa"></i>' %>
+                <%= link_to show.html_safe, roadtrip_path(roadtrip)%>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% else %>
+        <div class="card-product finished" id="card-roadtrip">
+          <% if roadtrip.photo.present? %>
+            <%= cl_image_tag roadtrip.photo.key, crop: :fill, class: "card-img"%>
+          <% else  %>
+            <img class="card-img" src="https://images.unsplash.com/photo-1519817914152-22d216bb9170?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=401&q=80" alt="">
+          <% end %>
+          <div class="card-product-container">
+            <div class="card-product-infos">
+              <div class="card-product-infos-text-terminer">
+                <h2> <%= roadtrip.title %> </h2>
+                <p><%= roadtrip.status %></p>
+              </div>
+              <div class="card-product-infos-avatars">
+                <% roadtrip.users.each do |user| %>
+                  <%= cl_image_tag user.photo.key, class: "avatar-bordered" %>
+                <% end %>
+              </div>
+            </div>
+            <div class="card-product-bottom">
+              <div class="card-product-bottom-infos">
+                <h2 class="m-2"> <i class="fas fa-calendar-alt" id="calendrier-fa"></i> date du trip </h2>
+                <h2 class="m-2"> <i class="fas fa-road" id="road-fa"></i> nombre de km </h2>
+              </div>
+              <div class="card-product-buttons">
+              <% if roadtrip.owner == current_user.id %>
+              <% trash = '<i class="fas fa-trash trash-fa"></i>' %>
+                <%= link_to trash.html_safe, roadtrip_path(roadtrip), confirm: 'Are you sure?', method: :delete %>
+              <% end %>
+              <% show = '<i class="far fa-eye eye-fa"></i>' %>
+                <%= link_to show.html_safe, roadtrip_path(roadtrip)%>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
