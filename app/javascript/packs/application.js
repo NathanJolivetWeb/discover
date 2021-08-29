@@ -30,6 +30,7 @@ import { initUpdateNavbarOnScroll } from '../components/navbar'
 import { textWrapperHomePage } from '../components/homepage'
 import { modalMessagerie } from '../components/modalmessagerie'
 import { initMapbox } from '../components/initmap'
+import { myFunction } from '../components/roadtripsindex'
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -39,4 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   textWrapperHomePage();
   modalMessagerie();
   initMapbox();
+  myFunction();
 });
