@@ -35,8 +35,8 @@ import { initMapbox } from '../components/initmap'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initMapbox();
   initUpdateNavbarOnScroll();
   textWrapperHomePage();
   modalMessagerie();
-  initMapbox();
 });
