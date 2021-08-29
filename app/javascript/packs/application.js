@@ -40,5 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   textWrapperHomePage();
   modalMessagerie();
   filterStatus();
-  // initMapbox();
+  initMapbox();
 });

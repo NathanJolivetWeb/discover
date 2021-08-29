@@ -7,9 +7,10 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 };
 
-const map = document.getElementById('map');
+
 
 const initMapbox = () => {
+  const map = document.getElementById('map');
   if (map) {
 
     const mapbox = document.getElementById('map')
