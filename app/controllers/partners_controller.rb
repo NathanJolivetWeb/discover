@@ -1,5 +1,7 @@
 class PartnersController < ApplicationController
   def new
+    @addressed = Friendship.where(addressed: current_user.id)
+    @requester = Friendship.where(requester: current_user.id)
     @roadtrip = Roadtrip.find(params[:roadtrip_id])
     @partner = Partner.new
   end

@@ -1,0 +1,11 @@
+<div class="container">
+  <ul>
+  <% square = '<i class="far fa-square"></i>' %>
+    <%  @addressed.each do |friendship| %>
+      <li class="d-flex" style="justify-content: space-between"> <p> <%= friendship.requester.username %> </p> <span> <%= square.html_safe %> </span> </li>
+    <% end %>
+    <%  @requester.each do |friendship| %>
+      <li class="d-flex" style="justify-content: space-between"> <p> <%= friendship.addressed.username %> </p> <span> <%= square.html_safe %> </span> </li>
+    <% end %>
+  </ul>
+</div>
