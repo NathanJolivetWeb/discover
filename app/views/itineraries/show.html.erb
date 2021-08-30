@@ -1,18 +1,21 @@
 <div class='container-show-map'>
   <div class="one">
-    <p>Ajoutez des étapes (maximum 5)</p>
-    <% if @itinerary.steps.count < 5 %>
-      <%= simple_form_for [@itinerary, @step] do |f|%>
-      <div class='form-show'>
-          <div>
-            <%= f.input :address, label:false, placeholder:'étape'%>
-          </div>
-          <div>
-            <%= f.submit 'Ajouter', class:'button-green-show-map'%>
-          </div>
-      </div>
+    <div class="add-step">
+      <p>Ajoutez des étapes (maximum 5)</p>
+      <% if @itinerary.steps.count < 5 %>
+        <%= simple_form_for [@itinerary, @step] do |f|%>
+        <div class='form-show'>
+            <div>
+              <%= f.input :address, label:false, placeholder:'étape'%>
+            </div>
+            <div>
+              <%= f.submit 'Ajouter', class:'button-green-show-map'%>
+            </div>
+        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+
     <div class='steps'>
       <h3>Etapes</h3>
       <% @itinerary.steps.each do |step| %>
@@ -25,12 +28,14 @@
         </div>
       <% end %>
     </div>
+
     <div class='infos-itinerary'>
       <h3>Informations de l'itinéraire</h3>
       <hr>
       <div id='distance'>Distance: </div>
       <div id='duration'>Durée: </div>
     </div>
+
   </div>
   <div id="map"
        style="width: 100%; height: 100%;"
