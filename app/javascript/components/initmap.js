@@ -25,7 +25,7 @@ const initMapbox = () => {
     markers.forEach((marker) => {
       const step = [marker.lng, marker.lat]
       steps += `${step};`
-      new mapboxgl.Marker()
+      new mapboxgl.Marker({ "color": "#52796F" })
         .setLngLat([marker.lng, marker.lat])
         .addTo(map);
     });
@@ -72,9 +72,9 @@ const initMapbox = () => {
               'line-cap': 'round'
             },
             paint: {
-              'line-color': '#3887be',
+              'line-color': '#84A98C',
               'line-width': 5,
-              'line-opacity': 0.75
+              'line-opacity': 1
             }
           });
         }
