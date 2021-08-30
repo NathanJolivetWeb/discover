@@ -11,6 +11,12 @@ class ItinerariesController < ApplicationController
     @markers = @itinerary.steps.map{ |step| {lat: step.latitude, lng: step.longitude}}
   end
 
+  def update
+    @itinerary = Itinerary.find(params[:id])
+    @itinerary.update(itinerary_params)
+    redirect_to itineraries_path
+  end
+
   def index
     @itineraries = Itinerary.all
   end
@@ -45,7 +51,7 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_params
-    params.require(:itinerary).permit(:address_start, :address_end)
+    params.require(:itinerary).permit(:name, :distance)
   end
 
 end

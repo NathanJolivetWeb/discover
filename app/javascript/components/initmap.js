@@ -44,10 +44,13 @@ const initMapbox = () => {
         const distance = Math.round(data.distance/1000);
         distanceDisplay.innerHTML = `Distance: <strong class='strong-show'> ${distance} kilomètres </strong>`;
         distanceDisplay.dataset.distance = distance;
+        console.log(distance);
 
         const durationDisplay = document.getElementById('duration');
         const duration = Math.round(data.duration/3600);
         durationDisplay.innerHTML = `Durée: <strong class='strong-show'> ${duration} heures </strong>`;
+        durationDisplay.dataset.duration = duration;
+        console.log(duration);
 
         const route = data.geometry.coordinates;
         const geojson = {
@@ -82,8 +85,20 @@ const initMapbox = () => {
         }
       }
 
+      const updateItineraryDistance = () => {
+        fetchWithToken("/itineraries/2", {
+          method: "PATCH",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          distance: 3
+        })
+      };
+
       map.on('load', () => {
         getRoute();
+        updateItineraryDistance();
       });
 
       fitMapToMarkers(map, markers);
