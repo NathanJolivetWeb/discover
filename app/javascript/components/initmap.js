@@ -7,8 +7,6 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 };
 
-
-
 const initMapbox = () => {
   const map = document.getElementById('map');
   if (map) {
@@ -27,7 +25,7 @@ const initMapbox = () => {
     markers.forEach((marker) => {
       const step = [marker.lng, marker.lat]
       steps += `${step};`
-      new mapboxgl.Marker()
+      new mapboxgl.Marker({ "color": "#52796F" })
         .setLngLat([marker.lng, marker.lat])
         .addTo(map);
     });
@@ -40,6 +38,12 @@ const initMapbox = () => {
         );
         const json = await query.json();
         const data = json.routes[0];
+        const distanceDisplay = document.getElementById('distance');
+        const distance = Math.round(data.distance/1000);
+        distanceDisplay.innerHTML = `Distance: ${distance} kilomètres`;
+        const durationDisplay = document.getElementById('duration');
+        const duration = Math.round(data.duration/3600);
+        durationDisplay.innerHTML = `Durée: ${duration} heures`;
         const route = data.geometry.coordinates;
         const geojson = {
           type: 'Feature',
@@ -65,9 +69,9 @@ const initMapbox = () => {
               'line-cap': 'round'
             },
             paint: {
-              'line-color': '#3887be',
+              'line-color': '#84A98C',
               'line-width': 5,
-              'line-opacity': 0.75
+              'line-opacity': 1
             }
           });
         }

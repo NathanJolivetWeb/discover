@@ -30,13 +30,13 @@ import { textWrapperHomePage } from '../components/homepage'
 import { modalMessagerie } from '../components/modalmessagerie'
 import { initMapbox } from '../components/initmap'
 import { filterStatus } from '../components/roadtripsindex'
+import { initAutocomplete } from '../plugins/init_autocomplete'
 
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
   textWrapperHomePage();
   modalMessagerie();
   filterStatus();
   initMapbox();
+  initAutocomplete();
 });
