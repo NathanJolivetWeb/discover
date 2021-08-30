@@ -1,5 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { fetchWithToken } from "../utils/fetch_with_token";
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
@@ -38,12 +39,16 @@ const initMapbox = () => {
         );
         const json = await query.json();
         const data = json.routes[0];
+
         const distanceDisplay = document.getElementById('distance');
         const distance = Math.round(data.distance/1000);
         distanceDisplay.innerHTML = `Distance: <strong class='strong-show'> ${distance} kilomètres </strong>`;
+        distanceDisplay.dataset.distance = distance;
+
         const durationDisplay = document.getElementById('duration');
         const duration = Math.round(data.duration/3600);
         durationDisplay.innerHTML = `Durée: <strong class='strong-show'> ${duration} heures </strong>`;
+
         const route = data.geometry.coordinates;
         const geojson = {
           type: 'Feature',
