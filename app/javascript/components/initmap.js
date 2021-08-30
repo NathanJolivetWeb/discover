@@ -38,8 +38,19 @@ const initMapbox = () => {
           `https://api.mapbox.com/directions/v5/mapbox/driving/${steps.substring(0,steps.length-1)}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
           { method: 'GET' }
         );
+
         const json = await query.json();
         const data = json.routes[0];
+
+
+        console.log(data.duration/3600);
+        console.log(data.distance/1000);
+        const distanceDisplay = document.getElementById('km')
+        const distance = data.distance/1000
+        distanceDisplay.innerHTML = `${distance}`;
+
+
+
         const route = data.geometry.coordinates;
         const geojson = {
           type: 'Feature',
