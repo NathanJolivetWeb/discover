@@ -200,6 +200,7 @@ a:hover {
 .card-map-avatars {
   display: flex;
   justify-content: start;
+  flex-wrap: wrap;
 }
 
 .card-map-avatars img {
@@ -228,5 +229,8 @@ a:hover {
   .index-top-add{
     display: flex;
     flex-direction: column;
+  }
+  .card-map-grid{
+    grid-template-columns: 1fr;
   }
 }

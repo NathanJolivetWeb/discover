@@ -16,3 +16,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media(max-width: 992px) {
+  .show-roadtrip-core{
+    display: flex;
+    flex-direction: column;
+  }
+  .avatar-wrap{
+    height: 40px;
+  }
+}
