@@ -16,7 +16,11 @@
 <div class="container d-flex">
   <div class="d-flex flex-column col-4 profile-left align-items-center">
     <h3>Profile</h3>
-    <%= cl_image_tag current_user.photo.key, class: "avatar-profile mt-3" %>
+    <% if current_user.photo.present? %>
+      <%= cl_image_tag current_user.photo.key, class: "avatar-profile mt-3" %>
+    <% else %>
+      <%= image_tag "default_user_image.png", class: "avatar-profile mt-3" %>
+    <% end %>
     <p class="username-style mt-3"><%= current_user.username %></p>
   </div>
 

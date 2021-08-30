@@ -27,7 +27,11 @@
               </div>
               <div class="card-product-infos-avatars">
                 <% roadtrip.users.each do |user| %>
-                  <%= cl_image_tag user.photo.key, class: "avatar-bordered" %>
+                  <% if current_user.photo.present? %>
+                    <%= cl_image_tag current_user.photo.key, class: "avatar-bordered" %>
+                  <% else %>
+                    <%= image_tag "default_user_image.png", class: "avatar-bordered" %>
+                  <% end %>
                 <% end %>
               </div>
             </div>
