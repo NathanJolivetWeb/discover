@@ -5,10 +5,16 @@
       <button class="button-lightgrey btn-done">Terminé</button>
       <button class="button-green-all btn-all">Tous les roadtrips</button>
     </div>
+
     <div class="index-top-add">
-      <% plus = '<i class="mt-4 fas fa-plus-circle text-danger" style="font-size: 24px"></i>' %>
-      <p class="text-danger" style="font-size: 24px">  <%= link_to plus.html_safe, new_roadtrip_path, class: "text-danger", style: "font-size: 24px" %> Ajouter un trip </p>
+      <%= link_to new_roadtrip_path, class: "d-block" do %>
+        <i class="fas fa-plus-circle text-danger"></i>
+      <% end %>
+       <%= link_to new_roadtrip_path, class: "d-block" do %>
+        <p class="text-danger add-trip"> Ajouter un trip </p>
+      <% end %>
     </div>
+
   </div>
   <div>
     <% @roadtrips.each do |roadtrip| %>

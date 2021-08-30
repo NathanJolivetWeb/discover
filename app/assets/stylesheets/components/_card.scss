@@ -206,3 +206,27 @@ a:hover {
   margin-right: 20px;
   margin-bottom: 16px;
 }
+
+
+// media queries //
+
+@media(max-width: 992px) {
+  .card-img{
+    display: none;
+  }
+  .card-product{
+    height: 230px;
+  }
+  .button-lightgrey{
+    width: 75px;
+    font-size: 14px;
+  }
+  .button-green-all{
+    width: 75px;
+    font-size: 14px;
+  }
+  .index-top-add{
+    display: flex;
+    flex-direction: column;
+  }
+}
