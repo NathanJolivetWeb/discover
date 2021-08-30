@@ -105,3 +105,18 @@
 .end-border {
   border-radius: 0 4px 4px 0;
 }
+
+.button-danger{
+  background-color: #c82333;
+  text-align: center;
+  border-radius: 4px;
+  color: white;
+  margin-bottom: 12px;
+
+  &:hover {
+    text-decoration: none;
+    color: white;
+    transition: 1s;
+    background-color: #ac3844;
+  }
+}
