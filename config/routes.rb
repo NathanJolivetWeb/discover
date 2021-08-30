@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :itineraries, only: %i[destroy update edit show index] do
     resources :steps, only: %i[create]
   end
+  resources :steps, only: :destroy
   resources :partners, only: :destroy
   resources :profiles, only: %i[update edit show]
   resources :friendships, only: :index

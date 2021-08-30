@@ -42,14 +42,12 @@ const initMapbox = () => {
         const json = await query.json();
         const data = json.routes[0];
 
-
-        console.log(data.duration/3600);
-        console.log(data.distance/1000);
-        const distanceDisplay = document.getElementById('km')
-        const distance = data.distance/1000
-        distanceDisplay.innerHTML = `${distance}`;
-
-
+        const distanceDisplay = document.getElementById('distance');
+        const distance = Math.round(data.distance/1000);
+        distanceDisplay.innerHTML = `${distance} kilomètres`;
+        const durationDisplay = document.getElementById('duration');
+        const duration = Math.round(data.duration/3600);
+        durationDisplay.innerHTML = `${duration} heures`;
 
         const route = data.geometry.coordinates;
         const geojson = {
