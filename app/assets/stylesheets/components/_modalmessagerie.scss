@@ -15,10 +15,10 @@
 .modal-content {
   background-color: #fefefe;
   margin: auto;
-  padding: 20px;
   border: 1px solid #888;
   width: 90%;
   height: 90%;
+  border-radius: 8px;
 }
 
 .close {
@@ -33,4 +33,32 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.modal-roadtrip{
+  height: 100%;
+}
+
+.roadtrip-title{
+  padding: 8px 0;
+  cursor: default !important;
+}
+
+.roadtrip-message{
+  background-color: lightgrey;
+  border-radius: 8px;
+}
+
+.roadtrip-button{
+  cursor: pointer;
+  border-bottom: 1px solid lightgrey;
+  padding: 8px;
+  p{
+    margin: 0;
+    text-align: start;
+  }
+}
+
+.last-message{
+  color: grey;
 }

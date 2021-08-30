@@ -1,12 +1,36 @@
 <div id="myBtn" class="discover-nav-link nav-link mr-2 text-danger">Messagerie</div>
 <div id="myModal" class="modal">
   <div class="modal-content">
-    <span class="close">&times;</span>
-    <% @messages = Message.all %>
-    <% @roadtrips = Roadtrip.all %>
-    <% @messages.each do |message| %>
-      <%= cl_image_tag message.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <%= message.content %>
-    <% end %>
+    <div class="d-flex modal-roadtrip">
+
+      <div class="col-4 roadtrips-room p-0">
+        <div class="roadtrip-button roadtrip-title">
+          <h3>Roadtrips chat</h3>
+        </div>
+        <% current_user.roadtrips.each do |roadtrip| %>
+
+          <div class="roadtrip-button d-flex">
+            <% if roadtrip.messages.last.present? %>
+              <%= cl_image_tag roadtrip.messages.last.user.photo.key, class: "avatar" %>
+            <% else %>
+              <%= image_tag "default_user_image.png", class: "avatar" %>
+            <% end %>
+            <div class="ml-2">
+              <p><%= roadtrip.title %></p>
+              <% if roadtrip.messages.last.present? %>
+                <p class="last-message"><%= roadtrip.messages.last.content %></p>
+              <% else %>
+                <p class="last-message">Il n'ya aucun messages</p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      
+      <div class="col-8 roadtrip-message">
+
+      </div>
+
+    </div>
   </div>
 </div>
