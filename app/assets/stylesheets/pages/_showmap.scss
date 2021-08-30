@@ -15,7 +15,7 @@
   font-weight: bold;
 }
 .two {
-  background-color: grey;
+  background-color: white;
   height: 90vh;
   width: 100%;
 }
@@ -27,7 +27,8 @@
 }
 .form-show {
   display: grid;
-  grid-template-columns: 75% 25%;
+  justify-content: center;
+  grid-template-columns: 65% 20%;
   grid-gap: 10px;
 }
 .step {
@@ -39,9 +40,12 @@
   text-overflow: ellipsis;
 }
 .add-step{
+  padding-top: 10px;
   width: 90%;
   grid-row: 1;
   margin-top: 20px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  border-radius: 4px;
   align-self: start;
   justify-self: center;
 }
@@ -59,11 +63,32 @@
   grid-row: 3;
   align-self: end;
   justify-self: center;
-  margin-bottom: 20px;
   padding: 10px 20px;
   border-radius: 4px;
   text-align: center;
   box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+.back-roadtrip {
+  grid-row: 4;
+  align-self: end;
+  justify-self: center;
+  margin-bottom: 20px;
+}
+.back-roadtrip a {
+  text-decoration: none !important;
+  color: #84A98C;
+  &:hover {
+    text-decoration: none !important;
+    color: #52796F;
+  }
+}
+.undo-show-map {
+  font-size: 1em;
+  color: #84A98C;
+  margin-right: 5px;
+  &:hover{
+    color: #52796F;
+  }
 }
 .trash-show-map {
   font-size: 0.8em;
@@ -84,4 +109,8 @@
   &:hover {
     color: #52796F;
   }
+}
+#map {
+  border-top-left-radius: 4px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
