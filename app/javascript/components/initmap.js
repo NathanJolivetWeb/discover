@@ -36,17 +36,14 @@ const initMapbox = () => {
           `https://api.mapbox.com/directions/v5/mapbox/driving/${steps.substring(0,steps.length-1)}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
           { method: 'GET' }
         );
-
         const json = await query.json();
         const data = json.routes[0];
-
         const distanceDisplay = document.getElementById('distance');
         const distance = Math.round(data.distance/1000);
         distanceDisplay.innerHTML = `Distance: ${distance} kilomètres`;
         const durationDisplay = document.getElementById('duration');
         const duration = Math.round(data.duration/3600);
         durationDisplay.innerHTML = `Durée: ${duration} heures`;
-
         const route = data.geometry.coordinates;
         const geojson = {
           type: 'Feature',

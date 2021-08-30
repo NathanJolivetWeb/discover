@@ -12,7 +12,6 @@
   background-size: cover;
   background-position: center;
   height: 550px;
-  margin-top: -73px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -153,3 +152,19 @@
   transition: 0.3s;
 }
 // fin partie verte //
+
+
+// media queries //
+
+@media(max-width: 992px) {
+  .cards-contain {
+    flex-wrap: wrap;
+  }
+  .title-banner h1{
+    font-size: 70px;
+    text-align: center;
+  }
+  .a-wrap{
+    font-size: 16px;
+  }
+}
