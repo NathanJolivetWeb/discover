@@ -31,6 +31,7 @@ import { textWrapperHomePage } from '../components/homepage'
 import { modalMessagerie } from '../components/modalmessagerie'
 import { initMapbox } from '../components/initmap'
 import { filterStatus } from '../components/roadtripsindex'
+import { initAutocomplete } from '../plugins/init_autocomplete'
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -39,4 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   modalMessagerie();
   filterStatus();
   initMapbox();
+  initAutocomplete();
 });

@@ -2,17 +2,18 @@
   <div class="one">
 
     <%= simple_form_for [@itinerary, @step] do |f|%>
-    <%= f.input :address %>
+    <%= f.input :address%>
     <%= f.submit %>
     <% end %>
+
     <p>steps</p>
     <% @itinerary.steps.each do |step| %>
-      <p>
+      <div class='step'>
         <%= step.address.capitalize %>
         <%= link_to step_path(step), method: :delete, data: { confirm: "Are you sure you want to remove your step ?"} do %>
-          <i class="far fa-trash-alt"></i>
+          Delete
         <% end %>
-      </p>
+      </div>
     <% end %>
 
     <div id='distance'></div>
