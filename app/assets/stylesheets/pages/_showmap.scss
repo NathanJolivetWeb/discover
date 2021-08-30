@@ -59,11 +59,32 @@
   grid-row: 3;
   align-self: end;
   justify-self: center;
-  margin-bottom: 20px;
   padding: 10px 20px;
   border-radius: 4px;
   text-align: center;
   box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+.back-roadtrip {
+  grid-row: 4;
+  align-self: end;
+  justify-self: center;
+  margin-bottom: 10px;
+}
+.back-roadtrip a {
+  text-decoration: none !important;
+  color: #84A98C;
+  &:hover {
+    text-decoration: none !important;
+    color: #52796F;
+  }
+}
+.undo-show-map {
+  font-size: 1em;
+  color: #84A98C;
+  margin-right: 5px;
+  &:hover{
+    color: #52796F;
+  }
 }
 .trash-show-map {
   font-size: 0.8em;
