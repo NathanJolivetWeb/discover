@@ -4,6 +4,11 @@
   grid-template-columns: 30% 70%;
 }
 .one {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   background-color:white;
   height: 90vh;
   width: 100%;
@@ -12,4 +17,24 @@
   background-color: grey;
   height: 90vh;
   width: 100%;
+}
+.infos-itinerary {
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  text-align: center;
+}
+.one h3 {
+  font-size: 1.5em;
+}
+#distance {
+  padding: 10px;
+}
+#duration {
+  padding: 10px;
+}
+.form-show {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-gap: 10px;
 }

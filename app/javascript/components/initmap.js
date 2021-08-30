@@ -7,8 +7,6 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 };
 
-
-
 const initMapbox = () => {
   const map = document.getElementById('map');
   if (map) {
@@ -44,10 +42,10 @@ const initMapbox = () => {
 
         const distanceDisplay = document.getElementById('distance');
         const distance = Math.round(data.distance/1000);
-        distanceDisplay.innerHTML = `${distance} kilomètres`;
+        distanceDisplay.innerHTML = `Distance: ${distance} kilomètres`;
         const durationDisplay = document.getElementById('duration');
         const duration = Math.round(data.duration/3600);
-        durationDisplay.innerHTML = `${duration} heures`;
+        durationDisplay.innerHTML = `Durée: ${duration} heures`;
 
         const route = data.geometry.coordinates;
         const geojson = {
