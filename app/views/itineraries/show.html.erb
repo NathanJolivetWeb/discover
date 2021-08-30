@@ -1,30 +1,33 @@
 <div class='container-show-map'>
   <div class="one">
     <p>Ajoutez des étapes (maximum 5)</p>
-    <%= simple_form_for [@itinerary, @step] do |f|%>
-    <div class='form-show'>
-        <div>
-          <%= f.input :address, label:false, placeholder:'étape'%>
-        </div>
-        <div>
-          <%= f.submit 'Ajouter', class:'button-green-show-map'%>
-        </div>
-    </div>
+    <% if @itinerary.steps.count < 5 %>
+      <%= simple_form_for [@itinerary, @step] do |f|%>
+      <div class='form-show'>
+          <div>
+            <%= f.input :address, label:false, placeholder:'étape'%>
+          </div>
+          <div>
+            <%= f.submit 'Ajouter', class:'button-green-show-map'%>
+          </div>
+      </div>
+      <% end %>
     <% end %>
     <div class='steps'>
       <h3>Etapes</h3>
       <% @itinerary.steps.each do |step| %>
         <div class='step'>
+          <i class="fas fa-map-marker-alt marker-show-map"></i>
           <%= link_to step_path(step, itinerary:@itinerary.id), method: :delete do %>
-            <i class="fas fa-trash trash-show-map align-self-end"></i>
+            <i class="fas fa-trash trash-show-map"></i>
           <% end %>
-          -
           <%= step.address.capitalize %>
         </div>
       <% end %>
     </div>
     <div class='infos-itinerary'>
       <h3>Informations de l'itinéraire</h3>
+      <hr>
       <div id='distance'>Distance: </div>
       <div id='duration'>Durée: </div>
     </div>
