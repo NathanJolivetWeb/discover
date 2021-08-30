@@ -40,10 +40,10 @@ const initMapbox = () => {
         const data = json.routes[0];
         const distanceDisplay = document.getElementById('distance');
         const distance = Math.round(data.distance/1000);
-        distanceDisplay.innerHTML = `Distance: ${distance} kilomètres`;
+        distanceDisplay.innerHTML = `Distance: <strong class='strong-show'> ${distance} kilomètres </strong>`;
         const durationDisplay = document.getElementById('duration');
         const duration = Math.round(data.duration/3600);
-        durationDisplay.innerHTML = `Durée: ${duration} heures`;
+        durationDisplay.innerHTML = `Durée: <strong class='strong-show'> ${duration} heures </strong>`;
         const route = data.geometry.coordinates;
         const geojson = {
           type: 'Feature',
