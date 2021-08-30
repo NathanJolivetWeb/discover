@@ -7,7 +7,7 @@
   padding-top: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   background-color:white;
   height: 90vh;
@@ -19,12 +19,15 @@
   width: 100%;
 }
 .infos-itinerary {
-  padding: 10px;
-  border: 1px solid lightgray;
+  position: absolute;
+  bottom: 20px;
+  padding: 10px 20px;
   border-radius: 4px;
   text-align: center;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 .one h3 {
+  text-align: center;
   font-size: 1.5em;
 }
 #distance {
@@ -37,4 +40,23 @@
   display: grid;
   grid-template-columns: 70% 30%;
   grid-gap: 10px;
+}
+.step {
+  text-align: start !important;
+  margin-top: 10px;
+}
+.steps {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+.trash-show-map {
+  font-size: 0.8em;
+  margin-right: 5px;
+  color: #84A98C;
+  &:hover {
+    color: #52796F;
+  }
 }

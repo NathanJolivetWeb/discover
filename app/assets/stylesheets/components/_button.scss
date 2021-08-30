@@ -80,3 +80,20 @@
     background-color: #52796F;
   }
 }
+
+.button-green-show-map {
+  background-color: #84A98C;
+  background-size: auto;
+  text-align: center;
+  border-radius: 4px;
+  border: 0;
+  color: white;
+  padding: 2px 16px;
+  margin-top: 5px;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    transition: 1s;
+    background-color: #52796F;
+  }
+}
