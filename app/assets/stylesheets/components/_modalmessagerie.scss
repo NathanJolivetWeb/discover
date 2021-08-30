@@ -1,3 +1,4 @@
+// Model part
 .modal {
   display: none;
   position: fixed;
@@ -39,26 +40,64 @@
   height: 100%;
 }
 
-.roadtrip-title{
-  padding: 8px 0;
-  cursor: default !important;
-}
+// Left part (Roadtrips)
+.roadtrips-chat-title{
+  padding: 8px;
+  border-bottom: 1px solid lightgrey;
 
-.roadtrip-message{
-  background-color: lightgrey;
-  border-radius: 8px;
+  h3{
+    margin: 0;
+  }
 }
 
 .roadtrip-button{
   cursor: pointer;
   border-bottom: 1px solid lightgrey;
   padding: 8px;
-  p{
-    margin: 0;
-    text-align: start;
+  position: relative;
+
+  &:hover{
+    background-color: #ddd;
   }
 }
 
 .last-message{
   color: grey;
+}
+
+.roadtrip-lastmessage{
+  p{
+    margin: 0;
+    text-align: start;
+    color: grey;
+  }
+}
+
+.roadtrip-lastmessage-date{
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  right: 8px;
+  p{
+    margin: 0;
+    color: grey;
+  }
+}
+
+.roadtrip-title{
+  color: black !important;
+}
+
+// Right part (Messages)
+.roadtrip-message{
+  background-color: lightgrey;
+  border-radius: 8px;
+  padding: 0;
+}
+
+.modal-green-top{
+  background-color: $danger;
+  height: 50.6px;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
 }
