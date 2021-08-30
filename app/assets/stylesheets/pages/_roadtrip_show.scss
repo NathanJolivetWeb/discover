@@ -6,23 +6,51 @@
 .show-roadtrip-core {
   display: flex;
   width: 100%;
+  justify-content: space-around;
 }
 .roadtrip-itineraries-top-infos {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  h2{
+    padding: 0 26px;
+  }
 }
 .show-roadtrip-top {
   display: flex;
   justify-content: space-between;
 }
 
-@media(max-width: 992px) {
+.contain-checklist{
+  margin-left: 120px;
+  margin-top: 65px;
+  padding: 0 30px;
+}
+
+.separation{
+  height: 600px;
+  background-color: lightgray;
+  width: 1px;
+  margin-left: 70px;
+  position: absolute;
+
+}
+
+
+
+
+@media(max-width: 768px) {
   .show-roadtrip-core{
     display: flex;
     flex-direction: column;
   }
   .avatar-wrap{
     height: 40px;
+  }
+  .separation{
+    display: none;
+  }
+  .contain-checklist{
+    margin-left: -42px;
   }
 }

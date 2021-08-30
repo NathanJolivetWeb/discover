@@ -13,6 +13,8 @@
             </div>
         </div>
         <% end %>
+      <% else %>
+        <p class="text-secondary">Limite de 5 étapes atteinte</p>
       <% end %>
     </div>
 
@@ -32,8 +34,13 @@
     <div class='infos-itinerary'>
       <h3>Informations de l'itinéraire</h3>
       <hr>
-      <div id='distance'>Distance: </div>
+      <div data-distance=0 id='distance'>Distance: </div>
       <div id='duration'>Durée: </div>
+    </div>
+
+    <div class="back-roadtrip">
+      <i class="fas fa-undo undo-show-map"></i>
+      <%= link_to "Retour au Roadtrip", roadtrip_path(@itinerary.roadtrip) %>
     </div>
 
   </div>
