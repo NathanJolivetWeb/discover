@@ -51,7 +51,6 @@
   background-color: #D6D6D6;
   background-size: auto;
   text-align: center;
-  border-radius: 4px;
   border: 0px solid #D6D6D6;
   color: white;
   margin: 24px 0;
@@ -60,7 +59,25 @@
     text-decoration: none;
     color: white;
     transition: 1s;
-    background-color: #52796F;
+    background-color: #84A98C;
+  }
+}
+
+
+.button-orange-roadtrips {
+  background-color: #E4B85A;
+  background-size: auto;
+  text-align: center;
+  border: 0px solid #D6D6D6;
+  color: white;
+  opacity: 0.6;
+  margin: 24px 0;
+  padding: 2px 16px;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    transition: 1s;
+    opacity: 1;
   }
 }
 
@@ -79,4 +96,12 @@
     transition: 1s;
     background-color: #52796F;
   }
+}
+
+.start-border {
+  border-radius: 4px 0 0 4px;
+}
+
+.end-border {
+  border-radius: 0 4px 4px 0;
 }
