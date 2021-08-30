@@ -8,4 +8,11 @@
       <li class="d-flex" style="justify-content: space-between"> <p> <%= friendship.addressed.username %> </p> <span> <%= square.html_safe %> </span> </li>
     <% end %>
   </ul>
+
+  <%= console %>
+
+  <form id="new_partner" class ="partners-roadtrip">
+    <input type="text" id="partner_username">
+    <input type="submit" value="Create partner">
+  </form>
 </div>

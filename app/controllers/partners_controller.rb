@@ -8,6 +8,12 @@ class PartnersController < ApplicationController
 
   def create
     @partner = Partner.new(partner_params)
+    @partner.roadtrip_id = @roadtrip
+    if @partner.save
+      render json: { success: true }
+    else
+      render json: { success: false, errors: @partner.errors.messages }, status: :unprocessable_entity
+    end
   end
 
   private

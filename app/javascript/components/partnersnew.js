@@ -1,21 +1,28 @@
 import { fetchWithToken } from "../utils/fetch_with_token";
 
-const newRestaurantForm = document.querySelector("#new_restaurant");
-const restaurantNameInput = document.querySelector("#restaurant_name");
+const createPartner = () => {
+  const roadtripPartner = document.querySelector('partners-roadtrip');
+  if(roadtripPartner) {
+    const newPartnerForm = document.getElementById("new_partner");
+    const partnerUsername = document.getElementById("partner_username");
 
-newRestaurantForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+    newPartnerForm.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-  fetchWithToken("/restaurants", {
-    method: "POST",
-    headers: {
-      "Accept": "application/json",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ restaurant: { name: restaurantNameInput.value } })
-  })
-    .then(response => response.json())
-    .then((data) => {
-      // handle JSON response from server
+      fetchWithToken("/roadtrips/:id/partners/new", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ partners: { username: partnerUsername.value } })
+      })
+        .then(response => response.json())
+        .then((data) => {
+          console.log(data);
+        });
     });
-});
+  };
+}
+
+export { createPartner };
