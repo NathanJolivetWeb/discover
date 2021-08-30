@@ -1,25 +1,25 @@
 const filterStatus = () => {
-  const map = document.getElementById('card-roadtrip')
-  if (map){
+  const roadtrips = document.getElementById('card-roadtrip')
+  if (roadtrips){
     const btnPending = document.querySelector('.btn-pending');
     const btnDone = document.querySelector('.btn-done');
     const btnAll = document.querySelector('.btn-all');
-    const pending = document.querySelector('.pending');
-    const done = document.querySelector('.finished');
-    const card = document.querySelector('.card-product');
+    const pendings = document.querySelectorAll('.pending');
+    const finisheds = document.querySelectorAll('.finished');
+    const cards = document.querySelectorAll('.card-product');
 
     btnPending.addEventListener('click', () => {
-     card.style.display = 'none';
-     pending.style.display = 'flex';
+     cards.forEach((card) => card.style.display = 'none');
+     pendings.forEach((pending) => pending.style.display = 'flex');
     });
 
     btnDone.addEventListener('click', () => {
-     card.style.display = 'flex';
-     pending.style.display = 'none';
+      cards.forEach((card) => card.style.display = 'none');
+      finisheds.forEach((finished) => finished.style.display = 'flex');
     });
 
     btnAll.addEventListener('click', () => {
-     card.style.display = 'flex';
+      cards.forEach((card) => card.style.display = 'flex');
     });
    };
   }
