@@ -18,7 +18,7 @@ class StepsController < ApplicationController
 
   def destroy
     @step.destroy
-    redirect_to itinerary_path(@itinerary)
+    redirect_to itinerary_path(@itinerary_step)
   end
 
     private

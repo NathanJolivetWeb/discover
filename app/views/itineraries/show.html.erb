@@ -7,8 +7,12 @@
     <% end %>
     <p>steps</p>
     <% @itinerary.steps.each do |step| %>
-    <p><%= step.address.capitalize %></p>
-    <%= link_to "delete", step_path(step), confirm: 'Are you sure?', method: :delete %>
+      <p>
+        <%= step.address.capitalize %>
+        <%= link_to step_path(step), method: :delete, data: { confirm: "Are you sure you want to remove your step ?"} do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      </p>
     <% end %>
 
     <div id='distance'></div>
