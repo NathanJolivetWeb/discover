@@ -38,7 +38,10 @@
       <div id='duration'>Durée: </div>
     </div>
 
-    <div class="back-roadtrip"><i class="fas fa-undo undo-show-map"></i><%= link_to "Retour au Roadtrip", roadtrip_path(@itinerary.roadtrip) %></div>
+    <div class="back-roadtrip">
+      <i class="fas fa-undo undo-show-map"></i>
+      <%= link_to "Retour au Roadtrip", roadtrip_path(@itinerary.roadtrip) %>
+    </div>
 
   </div>
   <div id="map"
