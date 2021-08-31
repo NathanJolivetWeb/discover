@@ -1,6 +1,6 @@
 class ItinerariesController < ApplicationController
-
   before_action :roadtrip_id, only: %i[new create]
+
   def new
     @itinerary = Itinerary.new
   end
@@ -9,6 +9,11 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.find(params[:id])
     @step = Step.new
     @markers = @itinerary.steps.map{ |step| {lat: step.latitude, lng: step.longitude}}
+  end
+
+  def update
+    @itinerary = Itinerary.find(params[:id])
+    @itinerary.update(itinerary_params)
   end
 
   def index
@@ -45,7 +50,7 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_params
-    params.require(:itinerary).permit(:address_start, :address_end)
+    params.require(:itinerary).permit(:name, :distance, :duration)
   end
 
 end

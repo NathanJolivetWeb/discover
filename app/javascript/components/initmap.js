@@ -48,6 +48,17 @@ const initMapbox = () => {
         const durationDisplay = document.getElementById('duration');
         const duration = Math.round(data.duration/3600);
         durationDisplay.innerHTML = `Durée: <strong class='strong-show'> ${duration} heures </strong>`;
+        durationDisplay.dataset.duration = duration;
+
+        const url = window.location.pathname
+        fetchWithToken(url, {
+          method: "PATCH",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ itinerary: { distance: distance, duration: duration } })
+        })
 
         const route = data.geometry.coordinates;
         const geojson = {
@@ -87,7 +98,19 @@ const initMapbox = () => {
       });
 
       fitMapToMarkers(map, markers);
-    };
+
+    }
+    else {
+      const url = window.location.pathname
+      fetchWithToken(url, {
+        method: "PATCH",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ itinerary: { distance: 0, duration: 0 } })
+      })
+    }
   };
 };
 
