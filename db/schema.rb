@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(version: 2021_08_31_110610) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "status", default: "En cours"
     t.integer "owner"
+    t.string "start_date"
+    t.string "end_date"
   end
 
   create_table "steps", force: :cascade do |t|

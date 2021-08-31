@@ -9,10 +9,20 @@ class RoadtripsController < ApplicationController
   def show
     @itinerary = Itinerary.new
     @task = Task.new
+    @message = Message.new
+    @roadtrips = Roadtrip.all
   end
 
   def new
     @roadtrip = Roadtrip.new
+
+    @roadtrips = Roadtrip.all
+    @roadtrips_dates = @roadtrips.map do |roadtrip|
+      {
+        from: roadtrip.start_date,
+        to: roadtrip.end_date
+      }
+    end
   end
 
   def create
@@ -46,6 +56,6 @@ class RoadtripsController < ApplicationController
   end
 
   def roadtrip_params
-    params.require(:roadtrip).permit(:title, :owner)
+    params.require(:roadtrip).permit(:title, :owner, :start_date, :end_date)
   end
 end
