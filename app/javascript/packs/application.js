@@ -23,8 +23,8 @@ require("channels")
 // ----------------------------------------------------
 
 // External imports
-import "bootstrap";
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
+import "bootstrap"
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder'
 import { textWrapperHomePage } from '../components/homepage'
 import { modalMessagerie } from '../components/modalmessagerie'
 import { initMapbox } from '../components/initmap'
