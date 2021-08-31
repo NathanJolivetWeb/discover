@@ -94,7 +94,7 @@ const initMapbox = () => {
       }
       map.on('load', () => {
         getRoute();
-        map.invalidateSize();
+        map.resize();
         fitMapToMarkers(map, markers);
       });
     }
@@ -110,7 +110,7 @@ const initMapbox = () => {
         body: JSON.stringify({ itinerary: { distance: 0, duration: 0 } })
       })
       map.on('load', () => {
-        map.invalidateSize();
+        map.resize();
         fitMapToMarkers(map, markers);
       });
     }
