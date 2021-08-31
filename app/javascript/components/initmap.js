@@ -1,5 +1,4 @@
 import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import { fetchWithToken } from "../utils/fetch_with_token";
 
 const fitMapToMarkers = (map, markers) => {
@@ -16,7 +15,7 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapbox.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10',
+      style: 'mapbox://styles/mapbox/streets-v11',
       center: [2.398782, 47.081012],
       zoom: 5
     });
@@ -48,6 +47,17 @@ const initMapbox = () => {
         const durationDisplay = document.getElementById('duration');
         const duration = Math.round(data.duration/3600);
         durationDisplay.innerHTML = `Durée: <strong class='strong-show'> ${duration} heures </strong>`;
+        durationDisplay.dataset.duration = duration;
+
+        const url = window.location.pathname
+        fetchWithToken(url, {
+          method: "PATCH",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ itinerary: { distance: distance, duration: duration } })
+        })
 
         const route = data.geometry.coordinates;
         const geojson = {
@@ -87,7 +97,19 @@ const initMapbox = () => {
       });
 
       fitMapToMarkers(map, markers);
-    };
+
+    }
+    else {
+      const url = window.location.pathname
+      fetchWithToken(url, {
+        method: "PATCH",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ itinerary: { distance: 0, duration: 0 } })
+      })
+    }
   };
 };
 

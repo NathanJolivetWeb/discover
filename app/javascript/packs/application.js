@@ -32,6 +32,7 @@ import { initMapbox } from '../components/initmap'
 import { filterStatus } from '../components/roadtripsindex'
 import { initAutocomplete } from '../plugins/init_autocomplete'
 import { initFlatpickr } from '../plugins/flatpickr';
+import { initSelect2 } from '../components/init_select2';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -41,4 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initFlatpickr();
+  initSelect2();
 });
