@@ -2,7 +2,6 @@ const modalMessagerie = () => {
   let modal = document.getElementById("myModal");
   let btn = document.getElementById("myBtn");
   let span = document.getElementsByClassName("close")[0];
-  let roadtripButton = document.getElementsByClassName("roadtrip-button")[0];
 
   btn.onclick = function () {
     modal.classList.remove("d-none");
