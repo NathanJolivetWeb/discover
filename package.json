@@ -9,10 +9,13 @@
     "@rails/webpacker": "4.3.0",
     "animejs": "^3.2.1",
     "bootstrap": "4.6",
+    "flatpickr": "^4.6.9",
     "jquery": "^3.6.0",
+    "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^2.4.1",
     "places.js": "^1.19.0",
     "popper.js": "^1.16.1",
+    "select2": "^4.1.0-rc.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

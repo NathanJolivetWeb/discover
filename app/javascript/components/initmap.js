@@ -2,21 +2,21 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { fetchWithToken } from "../utils/fetch_with_token";
 
-const fitMapToMarkers = (map, markers) => {
-  const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
-};
-
 const initMapbox = () => {
   const map = document.getElementById('map');
   if (map) {
+
+    const fitMapToMarkers = (map, markers) => {
+      const bounds = new mapboxgl.LngLatBounds();
+      markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+      map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+    };
 
     const mapbox = document.getElementById('map')
     mapboxgl.accessToken = mapbox.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10',
+      style: 'mapbox://styles/mapbox/streets-v9',
       center: [2.398782, 47.081012],
       zoom: 5
     });
@@ -48,6 +48,17 @@ const initMapbox = () => {
         const durationDisplay = document.getElementById('duration');
         const duration = Math.round(data.duration/3600);
         durationDisplay.innerHTML = `Durée: <strong class='strong-show'> ${duration} heures </strong>`;
+        durationDisplay.dataset.duration = duration;
+
+        const url = window.location.pathname
+        fetchWithToken(url, {
+          method: "PATCH",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ itinerary: { distance: distance, duration: duration } })
+        })
 
         const route = data.geometry.coordinates;
         const geojson = {
@@ -81,13 +92,30 @@ const initMapbox = () => {
           });
         }
       }
-
       map.on('load', () => {
         getRoute();
+        map.resize();
+        fitMapToMarkers(map, markers);
       });
+    }
 
-      fitMapToMarkers(map, markers);
-    };
+    else {
+      const url = window.location.pathname
+      fetchWithToken(url, {
+        method: "PATCH",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ itinerary: { distance: 0, duration: 0 } })
+      })
+      map.on('load', () => {
+        map.resize();
+        fitMapToMarkers(map, markers);
+      });
+    }
+
+    fitMapToMarkers(map, markers);
   };
 };
 

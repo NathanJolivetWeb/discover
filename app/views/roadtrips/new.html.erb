@@ -1,26 +1,33 @@
 <div class="contain-form">
-  <div class="patch1"> </div>
-  <div class="formulaire">
-
-
-    <div class="screen-2">
-      <%= simple_form_for @roadtrip do |f| %>
-        <div class="form-inputs">
-          <%= f.input :title, label: 'Nom du RoadTrip' %>
+  <div class="contain-formulaire">
+    <div class="formulaire">
+      <div class="screen-2">
+      </div>
+      <div class="container">
+        <div class="form-wrapper">
+          <%= simple_form_for @roadtrip do |f| %>
+            <div class="form-inputs">
+              <%= f.input :title, label: 'Nom du RoadTrip' %>
+            </div>
+            <%= f.input :start_date, label: "Sélectionnez vos dates:",
+                                    as: :string,
+                                    required: false,
+                                    input_html: { id: "range_start", class: "d-none" } %>
+            <%= f.input :end_date, label: false,
+                                  as: :string,
+                                  required: false,
+                                  input_html: { id: "range_end", class: "d-none" } %>
+              <div class="form-actions">
+                <%= f.submit "Créer RoadTrip", class: "btn-signin" %>
+              </div>
+          <% end %>
         </div>
-
-          <div class="form-actions">
-            <%= f.submit "Créer RoadTrip", class: "btn-signin" %>
-          </div>
-      <% end %>
+      </div>
     </div>
   </div>
 
-
     <div class="imageForm2">
     </div>
-
-
-
 </div>
-<div class="patch2"> </div>
+  <div id="roadtrip-form-div"
+  data-roadtrips="<%= @roadtrips_dates.to_json %>">

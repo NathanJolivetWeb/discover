@@ -1,6 +1,9 @@
 <div class="container">
   <div>
-    <h1 class="m-3"> <%= @roadtrip.title %> </h1>
+    <div class="title-dates">
+      <h1 class="m-3"> <%= @roadtrip.title %> </h1>
+      <p class="p-dates"> <%= @roadtrip.start_date %> / <%= @roadtrip.end_date %></p>
+    </div>
     <div class="show-roadtrip-top mt-2 mb-3 container">
       <div class="card-map-avatars">
         <% @roadtrip.users.each do |user| %>
