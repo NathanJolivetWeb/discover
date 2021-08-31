@@ -1,21 +1,24 @@
 import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import { fetchWithToken } from "../utils/fetch_with_token";
 
-const fitMapToMarkers = (map, markers) => {
-  const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
-};
+
 
 const initMapbox = () => {
+
+  const fitMapToMarkers = (map, markers) => {
+    const bounds = new mapboxgl.LngLatBounds();
+    markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+    map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+  };
+
   const map = document.getElementById('map');
   if (map) {
-
     const mapbox = document.getElementById('map')
     mapboxgl.accessToken = mapbox.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/mapbox/streets-v9',
       center: [2.398782, 47.081012],
       zoom: 5
     });
