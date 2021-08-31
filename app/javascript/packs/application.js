@@ -9,7 +9,6 @@ require("@rails/activestorage").start()
 require("channels")
 
 
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -27,20 +26,22 @@ require("channels")
 import "bootstrap";
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
 import { textWrapperHomePage } from '../components/homepage'
-// import { modalMessagerie } from '../components/modalmessagerie'
+import { modalMessagerie } from '../components/modalmessagerie'
 import { initMapbox } from '../components/initmap'
 import { filterStatus } from '../components/roadtripsindex'
 import { initAutocomplete } from '../plugins/init_autocomplete'
+import { initRoadtripCable } from '../channels/roadtrip_channel'
 import { initFlatpickr } from '../plugins/flatpickr';
 import { initSelect2 } from '../components/init_select2';
 
 
 document.addEventListener('turbolinks:load', () => {
   textWrapperHomePage();
-  // modalMessagerie();
+  modalMessagerie();
   filterStatus();
   initMapbox();
   initAutocomplete();
+  initRoadtripCable();
   initFlatpickr();
   initSelect2();
 });
