@@ -1,6 +1,6 @@
 class ItinerariesController < ApplicationController
-
   before_action :roadtrip_id, only: %i[new create]
+
   def new
     @itinerary = Itinerary.new
   end
