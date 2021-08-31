@@ -15,23 +15,28 @@
           <div class="d-flex justify-content-center">
             <div class="w-50">
               <%= f.input :first_name,
+                label: "Prénom",
               required: false %>
             </div>
             <div class="w-50">
               <%= f.input :last_name,
-              required: false %>
+                label: "Nom",
+                required: false %>
             </div>
           </div>
           <%= f.input :username,
+                      label: "Pseudo",
                       required: false %>
           <%= f.input :email,
                       required: false,
                       input_html: { autocomplete: "email" }%>
           <%= f.input :password,
+                      label: "Mot de passe",
                       required: false,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                       input_html: { autocomplete: "new-password" } %>
           <%= f.input :password_confirmation,
+                      label: "Confirmation mot de passe",
                       required: false,
                       input_html: { autocomplete: "new-password" } %>
           <%= f.input :photo, as: :file, class: "file-upload-field" %>
