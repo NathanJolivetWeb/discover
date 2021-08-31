@@ -97,6 +97,7 @@ const initMapbox = () => {
 
       map.on('load', () => {
         getRoute();
+        map.resize();
       });
 
       fitMapToMarkers(map, markers);
