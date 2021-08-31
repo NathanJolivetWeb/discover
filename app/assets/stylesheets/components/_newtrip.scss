@@ -1,8 +1,6 @@
 .contain-form{
   display: flex;
   justify-content: space-between;
-  align-items: center;
-
 }
 
 .imageForm2{
@@ -13,9 +11,9 @@
 }
 
 .formulaire{
-  width: 600px;
-  margin-left: 300px;
-
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
 }
 
 .form-inputs{
