@@ -35,23 +35,11 @@
         <% end %>
       </div>
       
-      <div class="col-8 roadtrip-message" data-chatroom-id="<%= @roadtrip.id %>">
+      <div class="col-8 roadtrip-message"  %>">
         <span class="close">&times;</span>
         <div class="modal-green-top"></div>
 
-        <p>Conversation commencé le <%= @roadtrip.created_at.strftime('%c') %></p>
-        <div class="messages-box">
-          <% @roadtrip.messages.each do |message| %>
-            
-          <% end %>
-          <div class="mt-1">
-          <%= simple_form_for [ @roadtrip, @message ], remote: true do |f| %>
-            <%= f.input :content, label: false, placeholder: "Message ##{@roadtrip.title}" %>
-            <%= f.submit %>
-          <% end %>
-          </div>
-
-        </div>
+     
 
       </div>
 
