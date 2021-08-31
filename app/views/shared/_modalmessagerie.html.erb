@@ -1,5 +1,5 @@
 <div id="myBtn" class="discover-nav-link nav-link mr-2 text-danger">Messagerie</div>
-<div id="myModal" class="modal">
+<div id="myModal" class="modal <%= "d-none" unless params[:room].present? %>">
   <div class="modal-content">
     <div class="d-flex modal-roadtrip">
 
@@ -7,39 +7,66 @@
         <div class="roadtrips-chat-title">
           <h3>Roadtrips chat</h3>
         </div>
-        <% current_user.roadtrips.each do |roadtrip| %>
-          <div class="roadtrip-button d-flex">
-            <div>
-              <% if roadtrip.messages.last.present? %>
-                <%= cl_image_tag roadtrip.messages.last.user.photo.key, class: "avatar" %>
-              <% else %>
-                <%= image_tag "default_user_image.png", class: "avatar" %>
-              <% end %> 
-            </div>
-            <div class="roadtrip-lastmessage ml-2">
-              <p class="roadtrip-title"><%= roadtrip.title %></p>
-              <% if roadtrip.messages.last.present? %>
-                <p class="last-message"><%= roadtrip.messages.last.content %></p>
-              <% else %>
-                <p class="last-message">Il n'y a aucun messages.</p>
-              <% end %>
-            </div>
-            <div class="roadtrip-lastmessage-date">
-              <% if roadtrip.messages.last.present? %>
-                <p><%= roadtrip.messages.last.created_at.strftime('%a %d') %></p>
-              <% else %>
-                <p><%= roadtrip.created_at.strftime('%a %d') %></p>
-              <% end %>
-            </div>
-          </div>
+        <% if current_user.roadtrips.last.present? %>
+          <% current_user.roadtrips.each do |roadtrip| %>
+            <%= link_to params.permit(:allroom).merge(room: roadtrip.id) do %>
+              <div class="roadtrip-button d-flex">
+                <div>
+                  <% if roadtrip.messages.last.present? %>
+                    <%= cl_image_tag roadtrip.messages.last.user.photo.key, class: "avatar" %>
+                  <% else %>
+                    <%= image_tag "default_user_image.png", class: "avatar" %>
+                  <% end %> 
+                </div>
+                <div class="roadtrip-lastmessage ml-2">
+                  <p class="roadtrip-title"><%= roadtrip.title %></p>
+                  <% if roadtrip.messages.last.present? %>
+                    <p class="last-message"><%= roadtrip.messages.last.content %></p>
+                  <% else %>
+                    <p class="last-message">Il n'y a aucun messages.</p>
+                  <% end %>
+                </div>
+                <div class="roadtrip-lastmessage-date">
+                  <% if roadtrip.messages.last.present? %>
+                    <p><%= roadtrip.messages.last.created_at.strftime('%a %d') %></p>
+                  <% else %>
+                    <p><%= roadtrip.created_at.strftime('%a %d') %></p>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <p>Commencer par rejoindre un roadtrip pour accéder à sa chatroom</p>
         <% end %>
       </div>
       
-      <div class="col-8 roadtrip-message"  %>">
-        <span class="close">&times;</span>
-        <div class="modal-green-top"></div>
+      <div class="col-8 roadtrip-message" data-chatroom-id="<%= @roadtrip.id %>">
+        <div class="modal-green-top">
+          <span class="close">&times;</span>
+        </div>
+        <% if params[:room].present? %>
+          <p class="roadtrip-start-paragraph text-center">Conversation commencé le <%= @roadtrip.created_at.strftime('%c') %></p>
+        <% end %>
 
-     
+        <div class="messages-box">
+          <% if params[:room].present? %>
+            <div class="message-and-input">
+              <% @roadtrip.messages.each do |message| %>
+                <div class="message-box-content" id="message-<%= message.id %>">
+                  <%= cl_image_tag message.user.photo.key, class: "avatar-bordered-small avatar-wrap" %>
+                  <p><%= message.content %></p>
+                </div>
+              <% end %>
+              <div class="mt-1 simple-textarea">
+              <%= simple_form_for [ @roadtrip, @message ] do |f| %>
+                <%= f.input :content, label: false, placeholder: "Message ..." %>
+                <%= f.submit "Envoyer", class: "btn button-green m-0" %>
+              <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
 
       </div>
 

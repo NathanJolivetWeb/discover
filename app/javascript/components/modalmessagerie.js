@@ -2,18 +2,19 @@ const modalMessagerie = () => {
   let modal = document.getElementById("myModal");
   let btn = document.getElementById("myBtn");
   let span = document.getElementsByClassName("close")[0];
+  let roadtripButton = document.getElementsByClassName("roadtrip-button")[0];
 
   btn.onclick = function () {
-    modal.style.display = "block";
+    modal.classList.remove("d-none");
   }
 
   span.onclick = function () {
-    modal.style.display = "none";
+    modal.classList.add("d-none");
   }
 
   window.onclick = function (event) {
     if (event.target == modal) {
-      modal.style.display = "none";
+      modal.classList.add("d-none");
     }
   };
 };

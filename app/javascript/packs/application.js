@@ -31,6 +31,7 @@ import { modalMessagerie } from '../components/modalmessagerie'
 import { initMapbox } from '../components/initmap'
 import { filterStatus } from '../components/roadtripsindex'
 import { initAutocomplete } from '../plugins/init_autocomplete'
+import { initRoadtripCable } from '../channels/roadtrip_channel'
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -39,4 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   filterStatus();
   initMapbox();
   initAutocomplete();
+  initRoadtripCable();
 });
