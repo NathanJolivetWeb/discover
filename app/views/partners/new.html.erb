@@ -1,0 +1,6 @@
+<div class="container">
+  <%= simple_form_for [@roadtrip, @partner] do |f| %>
+  <%= f.input :user_id, collection: current_user.friends, label: "Username de l'ami", label_method: :username %>
+  <%= f.submit %>
+  <% end %>
+</div>

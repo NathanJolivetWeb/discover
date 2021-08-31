@@ -157,69 +157,26 @@ friendship10 = Friendship.new(requester: maxence, addressed: violette)
 friendship10.save
 friendship11 = Friendship.new(requester: maxence, addressed: christophe)
 friendship11.save
-friendship12 = Friendship.new(requester: maxence, addressed: nathan)
+friendship12 = Friendship.new(requester: estelle, addressed: dany)
 friendship12.save
-friendship13 = Friendship.new(requester: estelle, addressed: dany)
+friendship13 = Friendship.new(requester: estelle, addressed: luc)
 friendship13.save
-friendship14 = Friendship.new(requester: estelle, addressed: luc)
+friendship14 = Friendship.new(requester: estelle, addressed: violette)
 friendship14.save
-friendship15 = Friendship.new(requester: estelle, addressed: violette)
+friendship15 = Friendship.new(requester: estelle, addressed: christophe)
 friendship15.save
-friendship16 = Friendship.new(requester: estelle, addressed: christophe)
+friendship16 = Friendship.new(requester: dany, addressed: violette)
 friendship16.save
-friendship17 = Friendship.new(requester: estelle, addressed: maxence)
+friendship17 = Friendship.new(requester: dany, addressed: luc)
 friendship17.save
-friendship18 = Friendship.new(requester: estelle, addressed: nathan)
+friendship18 = Friendship.new(requester: dany, addressed: christophe)
 friendship18.save
-friendship19 = Friendship.new(requester: dany, addressed: violette)
+friendship19 = Friendship.new(requester: luc, addressed: christophe)
 friendship19.save
-friendship20 = Friendship.new(requester: dany, addressed: luc)
+friendship20 = Friendship.new(requester: luc, addressed: violette)
 friendship20.save
-friendship21 = Friendship.new(requester: dany, addressed: christophe)
+friendship21 = Friendship.new(requester: christophe, addressed: violette)
 friendship21.save
-friendship22 = Friendship.new(requester: dany, addressed: maxence)
-friendship22.save
-friendship23 = Friendship.new(requester: dany, addressed: nathan)
-friendship23.save
-friendship24 = Friendship.new(requester: dany, addressed: estelle)
-friendship24.save
-friendship25 = Friendship.new(requester: luc, addressed: christophe)
-friendship25.save
-friendship26 = Friendship.new(requester: luc, addressed: dany)
-friendship26.save
-friendship27 = Friendship.new(requester: luc, addressed: nathan)
-friendship27.save
-friendship28 = Friendship.new(requester: luc, addressed: estelle)
-friendship28.save
-friendship29 = Friendship.new(requester: luc, addressed: violette)
-friendship29.save
-friendship30 = Friendship.new(requester: luc, addressed: maxence)
-friendship30.save
-friendship31 = Friendship.new(requester: christophe, addressed: maxence)
-friendship31.save
-friendship32 = Friendship.new(requester: christophe, addressed: luc)
-friendship32.save
-friendship33 = Friendship.new(requester: christophe, addressed: nathan)
-friendship33.save
-friendship34 = Friendship.new(requester: christophe, addressed: violette)
-friendship34.save
-friendship35 = Friendship.new(requester: christophe, addressed: estelle)
-friendship35.save
-friendship36 = Friendship.new(requester: christophe, addressed: dany)
-friendship36.save
-friendship37 = Friendship.new(requester: violette, addressed: maxence)
-friendship37.save
-friendship38 = Friendship.new(requester: violette, addressed: nathan)
-friendship38.save
-friendship39 = Friendship.new(requester: violette, addressed: luc)
-friendship39.save
-friendship40 = Friendship.new(requester: violette, addressed: dany)
-friendship40.save
-friendship41 = Friendship.new(requester: violette, addressed: christophe)
-friendship41.save
-friendship42 = Friendship.new(requester: violette, addressed: estelle)
-friendship42.save
-
 
 puts "Congrats, #{Friendship.count} friendships were created!"
 puts "=============================="

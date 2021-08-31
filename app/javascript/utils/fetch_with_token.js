@@ -5,6 +5,7 @@ const fetchWithToken = (url, options) => {
     "X-CSRF-Token": csrfToken(),
     ...options.headers
   };
+  options.credentials = "same-origin";
 
   return fetch(url, options);
 }

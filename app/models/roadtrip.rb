@@ -6,5 +6,4 @@ class Roadtrip < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :users, through: :partners
   scope :filter_by_status, ->(status) { where status: status }
-
 end
