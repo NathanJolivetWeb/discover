@@ -1,18 +1,6 @@
 <div class="container">
-  <ul>
-  <% square = '<i class="far fa-square"></i>' %>
-    <%  @addressed.each do |friendship| %>
-      <li class="d-flex" style="justify-content: space-between"> <p> <%= friendship.requester.username %> </p> <span> <%= square.html_safe %> </span> </li>
-    <% end %>
-    <%  @requester.each do |friendship| %>
-      <li class="d-flex" style="justify-content: space-between"> <p> <%= friendship.addressed.username %> </p> <span> <%= square.html_safe %> </span> </li>
-    <% end %>
-  </ul>
-
-  <%= console %>
-
-  <form id="new_partner" class ="partners-roadtrip">
-    <input type="text" id="partner_username">
-    <input type="submit" value="Create partner">
-  </form>
+  <%= simple_form_for [@roadtrip, @partner] do |f| %>
+  <%= f.input :user_id, collection: current_user.friends, label: "Username de l'ami", label_method: :username %>
+  <%= f.submit %>
+  <% end %>
 </div>

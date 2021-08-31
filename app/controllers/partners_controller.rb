@@ -8,17 +8,19 @@ class PartnersController < ApplicationController
 
   def create
     @partner = Partner.new(partner_params)
-    @partner.roadtrip_id = @roadtrip
+    @roadtrip = Roadtrip.find(params[:roadtrip_id])
+    @partner.roadtrip = @roadtrip
+
     if @partner.save
-      render json: { success: true }
+      redirect_to new_roadtrip_partner_path(@roadtrip)
     else
-      render json: { success: false, errors: @partner.errors.messages }, status: :unprocessable_entity
+      render 'new'
     end
   end
 
   private
 
   def partner_params
-    params.require(:partner).permit(:user, :roadtrip)
+    params.require(:partner).permit(:user_id)
   end
 end

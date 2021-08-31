@@ -8,4 +8,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :photo
   validates :username, uniqueness: true
+
+  def friends
+    @addressed = Friendship.where(addressed: self.id)
+    @requester = Friendship.where(requester: self.id)
+    @friends = []
+    @friends << @addressed.map { |friendship| friendship.requester }
+    @friends << @requester.map { |friendship| friendship.addressed }
+    @friends.flatten
+  end
 end
