@@ -14,7 +14,6 @@ class ItinerariesController < ApplicationController
   def update
     @itinerary = Itinerary.find(params[:id])
     @itinerary.update(itinerary_params)
-    redirect_to itineraries_path
   end
 
   def index

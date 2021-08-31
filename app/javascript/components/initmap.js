@@ -8,23 +8,6 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 };
 
-const updateItineraryDistance = () => {
-  const map = document.getElementById('map');
-  if (map) {
-    console.log("updatingitinerarydistance")
-    const distance = document.getElementById('distance').dataset.distance;
-    console.log(distance);
-    fetchWithToken("/itineraries/2", {
-      method: "PATCH",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ itinerary: { distance: distance } })
-    })
-  };
-};
-
 const initMapbox = () => {
   const map = document.getElementById('map');
   if (map) {
@@ -67,6 +50,15 @@ const initMapbox = () => {
         durationDisplay.innerHTML = `Durée: <strong class='strong-show'> ${duration} heures </strong>`;
         durationDisplay.dataset.duration = duration;
 
+        const url = window.location.pathname
+        fetchWithToken(url, {
+          method: "PATCH",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ itinerary: { distance: distance } })
+        })
 
         const route = data.geometry.coordinates;
         const geojson = {
@@ -103,9 +95,10 @@ const initMapbox = () => {
 
       map.on('load', () => {
         getRoute();
-        updateItineraryDistance();
       });
+
       fitMapToMarkers(map, markers);
+
     };
   };
 };
