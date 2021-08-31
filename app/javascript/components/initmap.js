@@ -57,7 +57,7 @@ const initMapbox = () => {
             "Accept": "application/json",
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({ itinerary: { distance: distance } })
+          body: JSON.stringify({ itinerary: { distance: distance, duration: duration } })
         })
 
         const route = data.geometry.coordinates;
@@ -99,7 +99,18 @@ const initMapbox = () => {
 
       fitMapToMarkers(map, markers);
 
-    };
+    }
+    else {
+      const url = window.location.pathname
+      fetchWithToken(url, {
+        method: "PATCH",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ itinerary: { distance: 0, duration: 0 } })
+      })
+    }
   };
 };
 

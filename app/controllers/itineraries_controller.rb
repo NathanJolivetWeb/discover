@@ -50,7 +50,7 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_params
-    params.require(:itinerary).permit(:name, :distance)
+    params.require(:itinerary).permit(:name, :distance, :duration)
   end
 
 end
