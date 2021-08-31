@@ -10,7 +10,6 @@ class PartnersController < ApplicationController
     @partner = Partner.new(partner_params)
     @roadtrip = Roadtrip.find(params[:roadtrip_id])
     @partner.roadtrip = @roadtrip
-
     if @partner.save
       redirect_to new_roadtrip_partner_path(@roadtrip)
     else
