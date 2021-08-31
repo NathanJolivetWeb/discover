@@ -1,5 +1,4 @@
 import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import { fetchWithToken } from "../utils/fetch_with_token";
 
 const fitMapToMarkers = (map, markers) => {
