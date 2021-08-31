@@ -7,14 +7,14 @@ class PartnersController < ApplicationController
   end
 
   def create
-    @partner = Partner.new(partner_params)
+    @ids = params[:partner][:user]
     @roadtrip = Roadtrip.find(params[:roadtrip_id])
-    @partner.roadtrip = @roadtrip
-    if @partner.save
-      redirect_to new_roadtrip_partner_path(@roadtrip)
-    else
-      render 'new'
+    @ids.shift
+    @ids.each do |id|
+      @partner = Partner.new(user_id: id, roadtrip: @roadtrip)
+      @partner.save!
     end
+    redirect_to new_roadtrip_partner_path(@roadtrip)
   end
 
   private

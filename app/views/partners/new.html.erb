@@ -1,6 +1,7 @@
 <div class="container">
   <%= simple_form_for [@roadtrip, @partner] do |f| %>
-  <%= f.input :user_id, collection: current_user.friends, label: "Username de l'ami", label_method: :username %>
-  <%= f.submit %>
+    <% ids = current_user.friends.difference(@roadtrip.users).map {|friend| [friend.username, friend.id]} %>
+    <%= f.input :user, collection: ids , label: "", as: :check_boxes, required: false %>
+    <%= f.submit %>
   <% end %>
 </div>
