@@ -36,13 +36,10 @@
               </div>
               <div class="card-map-bottom">
                 <div class="card-map-bottom-left">
-                  <p> <%= itinerary.name %> </p>
-                </div>
-                <div class="card-map-bottom-middle">
-                  <p>Jour 1</p>
+                  <p><%= itinerary.distance.to_i %> km</p>
                 </div>
                 <div class="card-map-bottom-right">
-                  <p>4h52</p>
+                  <p><%= itinerary.duration.to_i %> heures</p>
                 </div>
               </div>
             </div>
