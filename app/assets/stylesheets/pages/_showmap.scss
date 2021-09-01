@@ -41,40 +41,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.add-step{
-  padding-top: 10px;
-  width: 90%;
-  grid-row: 1;
-  margin-top: 20px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.5);
-  border-radius: 4px;
-  align-self: start;
-  justify-self: center;
-}
-.steps {
-  width: 90%;
-  grid-row: 2;
-  align-self: center;
-  justify-self: center;
-  box-shadow: 0 0 2px rgba(0,0,0,0.5);
-  padding: 10px 20px;
-  border-radius: 4px;
-}
-.infos-itinerary {
-  width: 90%;
-  grid-row: 3;
-  align-self: end;
-  justify-self: center;
-  padding: 10px 20px;
-  border-radius: 4px;
-  text-align: center;
-  box-shadow: 0 0 2px rgba(0,0,0,0.5);
-}
 .back-roadtrip {
-  grid-row: 4;
-  align-self: end;
-  justify-self: center;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  grid-row: 1;
+  align-self: start;
+  justify-self: start;
+  margin-left: 30px;
 }
 .back-roadtrip a {
   text-decoration: none !important;
@@ -83,6 +55,35 @@
     text-decoration: none !important;
     color: #52796F;
   }
+}
+.add-step{
+  padding-top: 10px;
+  width: 90%;
+  grid-row: 2;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  border-radius: 4px;
+  align-self: start;
+  justify-self: center;
+}
+.steps {
+  width: 90%;
+  grid-row: 3;
+  align-self: center;
+  justify-self: center;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+.infos-itinerary {
+  width: 90%;
+  grid-row: 4;
+  align-self: end;
+  justify-self: center;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 .undo-show-map {
   font-size: 1em;

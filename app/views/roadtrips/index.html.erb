@@ -9,16 +9,16 @@
 
     <div class="index-top-add">
       <%= link_to new_roadtrip_path, class: "d-block" do %>
-        <i class="fas fa-plus-circle text-danger"></i>
+        <p class="text-danger add-trip mr-2">Créer un roadtrip</p>
       <% end %>
-       <%= link_to new_roadtrip_path, class: "d-block" do %>
-        <p class="text-danger add-trip"> Ajouter un trip </p>
+      <%= link_to new_roadtrip_path, class: "d-block" do %>
+        <i class="fas fa-plus-circle text-danger mr-5"></i>
       <% end %>
     </div>
 
   </div>
   <div>
-    <% @roadtrips.each do |roadtrip| %>
+    <% @roadtrips.sort_by(&:created_at).reverse.each do |roadtrip| %>
       <% if roadtrip.status == "En cours" %>
         <% if roadtrip.owner == current_user.id %>
           <div class="card-product-owner pending owners" id="card-roadtrip">
