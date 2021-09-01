@@ -33,10 +33,10 @@ import { filterStatus } from '../components/roadtripsindex'
 import { initRoadtripCable } from '../channels/roadtrip_channel'
 import { initFlatpickr } from '../plugins/flatpickr';
 import { initSelect2 } from '../components/init_select2';
+import { createPartner } from '../components/partnersnew';
 import { textareaEnterKey } from '../components/textarea_enter_key';
 import { activeButton } from '../components/activeButton';
 //import { deletepartner } from '../components/deletepartner';
-import { createPartner } from '../components/partnersnew';
 
 document.addEventListener('turbolinks:load', () => {
   initAutocomplete();

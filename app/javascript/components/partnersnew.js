@@ -4,7 +4,7 @@ const createPartner = () => {
   const roadtripPartner = document.querySelector('.partners-roadtrip');
 
   if(roadtripPartner) {
-    const newPartners = document.querySelectorAll(".avatar-bordered");
+    const newPartners = document.querySelectorAll(".partner-margin");
     const roadtripId = document.querySelector('.partners-roadtrip').dataset.roadtripId
     newPartners.forEach((partner) => {
       partner.addEventListener("click", (event) => {
