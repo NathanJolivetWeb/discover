@@ -5,19 +5,10 @@ class PartnersController < ApplicationController
     @requester = Friendship.where(requester: current_user.id)
     @roadtrip = Roadtrip.find(params[:roadtrip_id])
     @partner = Partner.new
-    # @friends = current_user.friends.map{ |friend| friend.id }.flatten
     @partners = @roadtrip.users.map { |partner| partner.id }
   end
 
   def create
-    # @ids = params[:partner][:user]
-    # @roadtrip = Roadtrip.find(params[:roadtrip_id])
-    # @ids.shift
-    # @ids.each do |id|
-    #  @partner = Partner.new(user_id: id, roadtrip: @roadtrip)
-    #  @partner.save!
-    # end
-    # redirect_to roadtrip_path(@roadtrip)
     @partner = Partner.new(partner_params)
     @roadtrip = Roadtrip.find(params[:roadtrip_id])
     @partner.roadtrip = @roadtrip
