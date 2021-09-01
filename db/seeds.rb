@@ -4,6 +4,7 @@ Friendship.destroy_all
 User.destroy_all
 Roadtrip.destroy_all
 Partner.destroy_all
+Itinerary.destroy_all
 puts "=============================="
 
 # Create users
@@ -44,6 +45,26 @@ maxence = User.new(email: "maxence@lewagon.fr", password: "password", first_name
 maxence.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 maxence.save
 
+file = URI.open('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+sebastien = User.new(email: "sebastien@lewagon.fr", password: "password", first_name: "Sebastien", last_name: "Legris", username: "Eldirector")
+sebastien.photo.attach(io: file, filename: 'avatar', content_type: 'image')
+sebastien.save
+
+file = URI.open('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=334&q=80')
+elodie = User.new(email: "elodie@lewagon.fr", password: "password", first_name: "Elodie", last_name: "Lahaie", username: "Elo62")
+elodie.photo.attach(io: file, filename: 'avatar', content_type: 'image')
+elodie.save
+
+file = URI.open('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHVzZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+alexia = User.new(email: "alexia@lewagon.fr", password: "password", first_name: "Alexia", last_name: "Laverte", username: "Alexx")
+alexia.photo.attach(io: file, filename: 'avatar', content_type: 'image')
+alexia.save
+
+file = URI.open('https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')
+jean = User.new(email: "jean@lewagon.fr", password: "password", first_name: "Jean", last_name: "Lebleu", username: "Jeang")
+jean.photo.attach(io: file, filename: 'avatar', content_type: 'image')
+jean.save
+
 puts "Congrats, #{User.count} users was created!"
 puts "=============================="
 
@@ -70,6 +91,26 @@ roadtrip4 = Roadtrip.new(title: "5 jours dans les Alpes", status: "En cours")
 roadtrip4.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip4.save
 
+file = URI.open('https://images.unsplash.com/photo-1559131463-f9386f12e2db?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y290ZSUyMGQnb3BhbGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+roadtrip5 = Roadtrip.new(title: "Escapade en montagne", status: "Terminé", owner: christophe)
+roadtrip5.photo.attach(io: file, filename: 'avatar', content_type: 'image')
+roadtrip5.save
+
+file = URI.open('https://images.unsplash.com/photo-1559131463-f9386f12e2db?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y290ZSUyMGQnb3BhbGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+roadtrip6 = Roadtrip.new(title: "La route des vins", status: "Terminé", owner: nathan)
+roadtrip6.photo.attach(io: file, filename: 'avatar', content_type: 'image')
+roadtrip6.save
+
+file = URI.open('https://images.unsplash.com/photo-1559131463-f9386f12e2db?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y290ZSUyMGQnb3BhbGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+roadtrip7 = Roadtrip.new(title: "Week-end dans les ardennes", status: "Terminé", owner: maxence)
+roadtrip7.photo.attach(io: file, filename: 'avatar', content_type: 'image')
+roadtrip7.save
+
+file = URI.open('https://images.unsplash.com/photo-1559131463-f9386f12e2db?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y290ZSUyMGQnb3BhbGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+roadtrip8 = Roadtrip.new(title: "Balade sur la côte d'opale", status: "En cours", owner: nathan)
+roadtrip8.photo.attach(io: file, filename: 'avatar', content_type: 'image')
+roadtrip8.save
+
 puts "Congrats, #{Roadtrip.count} roadtrips was created!"
 puts "=============================="
 
@@ -93,7 +134,7 @@ partner3 = Partner.new(user: luc, roadtrip: roadtrip2)
 partner3.save
 partner4 = Partner.new(user: dany, roadtrip: roadtrip2)
 partner4.save
-partner5 = Partner.new(user: nathan, roadtrip: roadtrip2)
+partner5 = Partner.new(user: christophe, roadtrip: roadtrip2)
 partner5.save
 
 # Partners roadtrip 3
@@ -107,13 +148,11 @@ partner4 = Partner.new(user: dany, roadtrip: roadtrip3)
 partner4.save
 partner5 = Partner.new(user: maxence, roadtrip: roadtrip3)
 partner5.save
-partner6 = Partner.new(user: nathan, roadtrip: roadtrip3)
-partner6.save
 partner7 = Partner.new(user: estelle, roadtrip: roadtrip3)
 partner7.save
 
 # Partners roadtrip 4
-partner1 = Partner.new(user: nathan, roadtrip: roadtrip4)
+partner1 = Partner.new(user: maxence, roadtrip: roadtrip4)
 partner1.save
 partner2 = Partner.new(user: christophe, roadtrip: roadtrip4)
 partner2.save
@@ -121,6 +160,44 @@ partner3 = Partner.new(user: luc, roadtrip: roadtrip4)
 partner3.save
 partner3 = Partner.new(user: dany, roadtrip: roadtrip4)
 partner3.save
+
+# Partners roadtrip 5
+partner1 = Partner.new(user: christophe, roadtrip: roadtrip5)
+partner1.save
+partner2 = Partner.new(user: sebastien, roadtrip: roadtrip5)
+partner2.save
+partner3 = Partner.new(user: nathan, roadtrip: roadtrip5)
+partner3.save
+
+# Partners roadtrip 6
+partner1 = Partner.new(user: christophe, roadtrip: roadtrip6)
+partner1.save
+partner2 = Partner.new(user: alexia, roadtrip: roadtrip6)
+partner2.save
+partner3 = Partner.new(user: nathan, roadtrip: roadtrip6)
+partner3.save
+partner4 = Partner.new(user: jean, roadtrip: roadtrip6)
+partner4.save
+
+# Partners roadtrip 7
+partner1 = Partner.new(user: maxence, roadtrip: roadtrip7)
+partner1.save
+partner2 = Partner.new(user: estelle, roadtrip: roadtrip7)
+partner2.save
+partner3 = Partner.new(user: nathan, roadtrip: roadtrip7)
+partner3.save
+partner4 = Partner.new(user: violette, roadtrip: roadtrip7)
+partner4.save
+
+# Partners roadtrip 8
+partner1 = Partner.new(user: nathan, roadtrip: roadtrip8)
+partner1.save
+partner2 = Partner.new(user: elodie, roadtrip: roadtrip8)
+partner2.save
+partner3 = Partner.new(user: christophe, roadtrip: roadtrip8)
+partner3.save
+partner4 = Partner.new(user: dany, roadtrip: roadtrip8)
+partner4.save
 
 puts "Congrats, #{Partner.count} partners was created!"
 puts "=============================="
@@ -177,6 +254,14 @@ friendship20 = Friendship.new(requester: luc, addressed: violette)
 friendship20.save
 friendship21 = Friendship.new(requester: christophe, addressed: violette)
 friendship21.save
+friendship22 = Friendship.new(requester: nathan, addressed: sebastien)
+friendship22.save
+friendship23 = Friendship.new(requester: nathan, addressed: jean)
+friendship23.save
+friendship24 = Friendship.new(requester: elodie, addressed: nathan)
+friendship24.save
+friendship25 = Friendship.new(requester: alexia, addressed: nathan)
+friendship25.save
 
 puts "Congrats, #{Friendship.count} friendships were created!"
 puts "=============================="

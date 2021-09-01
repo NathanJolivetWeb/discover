@@ -1,6 +1,7 @@
 .partners-roadtrip {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  justify-content: center;
 }
 
 .partners-roadtrips-infos {
@@ -21,9 +22,18 @@
 }
 
 .partners-form {
-  padding-top: 150px;
+  width: 100%;
+  padding-top: 80px;
   padding-left: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.partners-form-text{
+  margin-top: 4px;
+  padding-top: 1px;
+  padding-bottom: 5px;
+  width: 30%;
+  font-size: 18px;
 }
