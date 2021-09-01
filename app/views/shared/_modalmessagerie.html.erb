@@ -3,6 +3,7 @@
   <div class="modal-content">
     <div class="d-flex modal-roadtrip">
 
+      <%# LEFT PART %>
       <div class="col-4 roadtrips-room p-0">
         <div class="roadtrips-chat-title">
           <h3>Roadtrips chat</h3>
@@ -42,19 +43,20 @@
         <% end %>
       </div>
       
+      <%# RIGHT PART %>
       <div class="col-8 roadtrip-message">
         <div class="modal-green-top">
           <span class="close">&times;</span>
         </div>
         <% if params[:room].present? %>
-          <p class="roadtrip-start-paragraph text-center">Conversation commencé le <%= @roadtrip.created_at.strftime('%c') %></p>
+          <p class="roadtrip-start-paragraph text-center">Conversation commencé le <%= Roadtrip.find(params[:room]).created_at.strftime('%c') %></p>
         <% end %>
 
         <div class="messages-box">
           <% if params[:room].present? %>
             <div class="message-and-input">
-              <div id="messages" data-chatroom-id="<%= @roadtrip.id %>">
-                <% @roadtrip.messages.each do |message| %>
+              <div id="messages" data-chatroom-id="<%= Roadtrip.find(params[:room]).id %>">
+                <% Roadtrip.find(params[:room]).messages.each do |message| %>
                   <% if ( message.user.id != current_user.id ) %>
                     <div class="message-box-content" id="message-<%= message.id %>">
                       <p>
@@ -72,7 +74,7 @@
                 <% end %> 
               </div>
               <div class="mt-3 simple-textarea message-form">
-              <%= simple_form_for [ @roadtrip, @message ] do |f| %>
+              <%= simple_form_for [ Roadtrip.find(params[:room]), @message ] do |f| %>
                 <%= f.input :content, label: false, placeholder: "Message..." %>
                 <%= f.submit "Envoyer", class: "btn button-dark-green m-0" %>
               <% end %>
