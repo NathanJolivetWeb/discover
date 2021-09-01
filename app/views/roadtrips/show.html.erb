@@ -1,9 +1,11 @@
 <div class="container">
+
   <div>
     <div class="title-dates">
       <h1 class="m-3"> <%= @roadtrip.title %> </h1>
       <p class="p-dates"> <%= @roadtrip.start_date %> / <%= @roadtrip.end_date %></p>
     </div>
+
     <div class="show-roadtrip-top mt-2 mb-3 container">
       <div class="card-map-avatars">
         <% @roadtrip.users.each do |user| %>
@@ -20,13 +22,14 @@
       </div>
     </div>
   </div>
+
   <div class="show-roadtrip-core">
     <div class="roadtrip-itineraries">
       <div class="roadtrip-itineraries-top-infos">
         <h2 class="mt-3">Itinéraires</h2>
         <button class="button-green-show"> Consulter le trajet complet </button>
       </div>
-        <div class="card-map-grid">
+      <div class="card-map-grid">
 
         <% @roadtrip.itineraries.each do |itinerary| %>
           <%= link_to itinerary_path(itinerary) do %>
@@ -45,6 +48,7 @@
             </div>
           <% end %>
         <% end %>
+
         <% if @roadtrip.itineraries.size < 5  %>
           <% if @roadtrip.itineraries.size.zero? || (@roadtrip.itineraries.last && @roadtrip.itineraries.last.steps.size >= 2) %>
             <div class="card-map-add">
@@ -54,33 +58,41 @@
           <% end %>
         <% end %>
       </div>
-    </div>
-      <div class="container">
-      <div class="separation"> </div>
-      </div>
 
-      <div class="container contain-checklist">
-        <div class="checklist-box background-white checkbox-wrap">
-          <h2 class="text-center">Check-list</h2>
+    </div>
+
+    <div>
+      <div class="separation">
+      </div>
+    </div>
+
+    <div class="contain-checklist">
+      <div class="checklist-box background-white checkbox-wrap">
+        <h2 class="text-center">Liste de tâches</h2>
+        <hr />
+        <div>
+          <% @roadtrip.tasks.each do |task| %>
+            <p>
+              <input type="checkbox">
+              <span><%= task.content %></span>
+              <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure you want to remove this task ?"} do %>
+                <i class="far fa-trash-alt fa-trash-size"></i>
+              <% end %>
+            </p>
+          <% end %>
+        </div>
+        <div>
+          <%= simple_form_for [ @roadtrip, @task ] do |f| %>
           <div>
-            <% @roadtrip.tasks.each do |task|  %>
-              <p>
-                <input type="checkbox">
-                <span><%= task.content %></span>
-                <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure you want to remove this task ?"} do %>
-                  <i class="far fa-trash-alt fa-trash-size"></i>
-                <% end %>
-              </p>
-            <% end %>
-          </div>
-          <div>
-            <%= simple_form_for [ @roadtrip, @task ] do |f| %>
-            <%= f.input :content %>
-            <%= f.submit class: "btn button-green" %>
-            <% end %>
+            <div class="mt-1 simple-form-input">
+              <%= f.input :content, label: false %>
+              <%= f.submit "+" ,class: "btn button-green font-weight-bold" %>
+              <% end %>
+            </div>
           </div>
         </div>
+      </div>
     </div>
-  </div>
 
+  </div>
 </div>
