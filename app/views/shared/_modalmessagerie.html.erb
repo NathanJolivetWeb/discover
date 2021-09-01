@@ -73,7 +73,7 @@
               </div>
               <div class="mt-1 simple-textarea">
               <%= simple_form_for [ @roadtrip, @message ] do |f| %>
-                <%= f.input :content, label: false, placeholder: "Message ..." %>
+                <%= f.input :content, label: false, placeholder: "Message..." %>
                 <%= f.submit "Envoyer", class: "btn button-green m-0" %>
               <% end %>
               </div>
