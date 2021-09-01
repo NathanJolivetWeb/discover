@@ -20,10 +20,12 @@
   width: 100%;
 }
 #distance {
-  padding: 10px;
+  color: #84A98C;
+  font-weight: bold;
 }
 #duration {
-  padding: 10px;
+  color: #84A98C;
+  font-weight: bold;
 }
 .form-show {
   display: grid;
@@ -100,7 +102,7 @@
 }
 .strong-show {
   color: #84A98C;
-  font-size: 18px;
+  font-size: 32px;
 }
 .marker-show-map {
   font-size: 1.5em;
