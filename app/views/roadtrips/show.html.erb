@@ -27,7 +27,6 @@
     <div class="roadtrip-itineraries">
       <div class="roadtrip-itineraries-top-infos">
         <h2 class="mt-3">Itinéraires</h2>
-        <button class="button-green-show"> Consulter le trajet complet </button>
       </div>
       <div class="card-map-grid">
 
@@ -35,18 +34,38 @@
           <%= link_to itinerary_path(itinerary) do %>
             <div class="card-map">
               <div class="card-map-content">
+              <div class="card-map-top">
+                <% if itinerary.steps[0] == nil %>
+                  <p>Ajouter des étapes</p>
+                <% else %>
+                  <% if itinerary.steps.count > 1 %>
+                    <p>
+                      <%= itinerary.steps[0].address.split.first.delete_suffix(',') %>
+                      <i class="fas fa-long-arrow-alt-right ml-2 mr-2" style="font-size:18px;color:#5C846A;vertical-align:-2px;"></i>
+                      <%= itinerary.steps[-1].address.split.first.delete_suffix(',') %>
+                    </p>
+                  <% else %>
+                    <p class="d-flex justify-content-center">
+                      <%= itinerary.steps[0].address.split.first.delete_suffix(',') %>
+                    </p>
+                  <% end %>
+                <% end %>
+              </div>
+
+
               <% if itinerary.steps[0] == nil %>
-                <img src="https://amtlarochelle.com/wp-content/uploads/2015/03/trajet.jpg" alt="L'itinéraire du jour">
-              <% else %>
+                <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.398782,47.081012,2/500x300?access_token=pk.eyJ1IjoibmF0aGFuam9saXZldHdlYiIsImEiOiJja3JxOWJ5bnkya3RsMnVydjRybGJmaW80In0.MVD8QTxtS8nqAIHNQ3X_bg">
+                <% else %>
                 <%longitude = itinerary.steps[0].longitude%>
                 <%latitude = itinerary.steps[0].latitude %>
-                <img alt='static Mapbox map of the San Francisco bay area' src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/<%=longitude%>,<%=latitude%>,9.67,0.00,0.00/1000x600@2x?access_token=pk.eyJ1IjoibmF0aGFuam9saXZldHdlYiIsImEiOiJja3JxOWJ5bnkya3RsMnVydjRybGJmaW80In0.MVD8QTxtS8nqAIHNQ3X_bg" >
+                <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/<%=longitude%>,<%=latitude%>,9.67,0.00,0.00/1000x600@2x?access_token=pk.eyJ1IjoibmF0aGFuam9saXZldHdlYiIsImEiOiJja3JxOWJ5bnkya3RsMnVydjRybGJmaW80In0.MVD8QTxtS8nqAIHNQ3X_bg" >
               <% end %>
               </div>
               <div class="card-map-bottom">
                 <div class="card-map-bottom-left">
                   <p><%= itinerary.distance.to_i %> km</p>
                 </div>
+                <div><p>|</p></div>
                 <div class="card-map-bottom-right">
                   <p><%= itinerary.duration.to_i %> heures</p>
                 </div>
