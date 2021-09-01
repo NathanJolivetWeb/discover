@@ -13,6 +13,20 @@
   }
 }
 
+.button-dark-green{
+  background-color: white;
+  border-radius: 4px;
+  color: $danger;
+  margin-bottom: 12px;
+  border: 2px solid $danger;
+
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: $danger;
+  }
+}
+
 .button-green-show {
   background-color: #84A98C;
   background-size: auto;
