@@ -50,14 +50,13 @@
 
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597766752709-6725aae388f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80)">
       <p class="a-wrap">Rejoignez Discover pour de folles aventures<p>
-      <%= link_to "Nouveau RoadTrip", new_roadtrip_path, class: "btn-sign" %>
+      <%= link_to "Nouveau roadtrip", new_roadtrip_path, class: "btn-sign" %>
     </div>
   </div>
 
   <div class="ameuble2">
     <div class="trans3"></div>
     <% roadtrips = current_user.roadtrips.sort_by(&:created_at).reverse %>
-
     <% roadtrips.take(3).each do |roadtrip| %>
       <%= link_to roadtrip_path(roadtrip) do %>
         <div class="cards-hp">
