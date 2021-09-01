@@ -9,7 +9,7 @@
         </div>
         <% if current_user.roadtrips.last.present? %>
           <% current_user.roadtrips.each do |roadtrip| %>
-            <%= link_to params.permit(:room).merge(room: roadtrip.id) do %>
+            <%= link_to params.permit.merge(room: roadtrip.id) do %>
               <div class="roadtrip-button d-flex">
                 <div>
                   <% if roadtrip.messages.last.present? %>
@@ -36,8 +36,9 @@
               </div>
             <% end %>
           <% end %>
+
         <% else %>
-          <p>Commencer par rejoindre un roadtrip pour accéder à sa chatroom</p>
+          <p>Commencer par rejoindre un roadtrip pour accéder à sa chatroom.</p>
         <% end %>
       </div>
       
