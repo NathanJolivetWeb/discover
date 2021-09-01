@@ -35,7 +35,7 @@ import { initFlatpickr } from '../plugins/flatpickr';
 import { initSelect2 } from '../components/init_select2';
 import { textareaEnterKey } from '../components/textarea_enter_key';
 import { activeButton } from '../components/activeButton';
-import { deletepartner } from '../components/deletepartner';
+//import { deletepartner } from '../components/deletepartner';
 import { createPartner } from '../components/partnersnew';
 
 document.addEventListener('turbolinks:load', () => {
@@ -47,7 +47,7 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
   initSelect2();
   initMapbox();
+  createPartner();
   textareaEnterKey();
   activeButton();
-  createPartner();
 });
