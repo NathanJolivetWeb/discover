@@ -6,7 +6,9 @@ const textareaEnterKey = () => {
     }
   }
 
-  document.getElementById("message_content").addEventListener("keypress", submitOnEnter);
+  if (document.getElementById("message_content") != null ) {
+    document.getElementById("message_content").addEventListener("keypress", submitOnEnter);
+  }
 
 };
 
