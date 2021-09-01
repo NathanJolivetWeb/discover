@@ -1,8 +1,5 @@
-
 <div class="contain-homepage">
-
   <div class="banner">
-
     <div class="title-banner">
       <h1>DISCOVER</h1>
       <p class="sous-titre">Planifiez vos roadtrips entres amis</p>
@@ -10,15 +7,12 @@
     <div class="trans"></div>
   </div>
 
-
   <div class="cards-contain">
-
     <div class="card">
       <i class="fas fa-users"></i>
       <h3>Connectez vous</h3>
       <p class="descript-card">Connectez vous sur l'application</p>
     </div>
-
 
     <div class="card">
       <i class="fas fa-map-marked-alt"></i>
@@ -26,13 +20,11 @@
       <p class="descript-card">Plannifiez votre voyage, de l'itinéraire à la checklist</p>
     </div>
 
-
      <div class="card">
       <i class="far fa-handshake"></i>
       <h3>Conviez</h3>
       <p class="descript-card">Invitez vos amis à rejoindre le trip</p>
     </div>
-
 
     <div class="card">
       <i class="fas fa-motorcycle"></i>
@@ -41,52 +33,52 @@
     </div>
   </div>
 
-
   <div class="ameuble">
-      <div class="trans2"></div>
-        <div class="citation">
-          <h2 class="text-hp"><i class="fas fa-angle-double-left"></i> Le bonheur n’est pas une destination, mais une façon de voyager <i class="fas fa-angle-double-right"></i></h2>
-        </div>
-
+    <div class="trans2"></div>
+    <div class="citation">
+      <h2 class="text-hp"><i class="fas fa-angle-double-left"></i> Le bonheur n’est pas une destination, mais une façon de voyager <i class="fas fa-angle-double-right"></i></h2>
+    </div>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1597766752709-6725aae388f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80)">
       <p class="a-wrap">Rejoignez Discover pour de folles aventures<p>
       <%= link_to "Nouveau roadtrip", new_roadtrip_path, class: "btn-sign" %>
     </div>
   </div>
 
-  <div class="ameuble2">
-    <div class="trans3"></div>
-    <% roadtrips = current_user.roadtrips.sort_by(&:created_at).reverse %>
-    <% roadtrips.take(3).each do |roadtrip| %>
-      <%= link_to roadtrip_path(roadtrip) do %>
-        <div class="cards-hp">
-          <p class="title-rd"><%= roadtrip.title %></p>
-          <% if roadtrip.photo.present? %>
-                    <%= cl_image_tag roadtrip.photo.key, crop: :fill, class: "img-rd" %>
-                  <% else %>
-                    <img class="img-rd" src="https://images.unsplash.com/photo-1519817914152-22d216bb9170?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=401&q=80" alt="">
-                  <% end %>
-          <div class="date-km">
-            <p class="no-margin"><%= roadtrip.start_date %> /
-            <%= roadtrip.end_date %></p>
-            <% sum = 0 %>
-            <% roadtrip.itineraries.each do |itinerary| %>
-              <% sum += itinerary.distance.to_i %>
-            <% end %>
-              <p class="no-margin"><%= sum %> km</p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-    <div class="trans4"></div>
-  </div>
+  <% if current_user.present? %>
+    <div class="ameuble2">
+      <div class="trans3"></div>
+        <% roadtrips = current_user.roadtrips.sort_by(&:created_at).reverse %>
+        <% roadtrips.take(3).each do |roadtrip| %>
+          <%= link_to roadtrip_path(roadtrip) do %>
+            <div class="cards-hp">
+              <p class="title-rd"><%= roadtrip.title %></p>
+              <% if roadtrip.photo.present? %>
+                <%= cl_image_tag roadtrip.photo.key, crop: :fill, class: "img-rd" %>
+              <% else %>
+                <img class="img-rd" src="https://images.unsplash.com/photo-1519817914152-22d216bb9170?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=401&q=80" alt="">
+              <% end %>
+              <div class="date-km">
+                <p class="no-margin"><%= roadtrip.start_date %> /
+                <%= roadtrip.end_date %></p>
+                <% sum = 0 %>
+                <% roadtrip.itineraries.each do |itinerary| %>
+                  <% sum += itinerary.distance.to_i %>
+                <% end %>
+                <p class="no-margin"><%= sum %> km</p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <div class="trans4"></div>
+    </div>
+  <% end %>
 
   <div class="ameuble3">
     <div class="footer">
-        <p>Rejoignez-nous!</p>
-        <i class="fab fa-facebook-square"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-github-square"></i>
-      </div>
+      <p>Rejoignez-nous!</p>
+      <i class="fab fa-facebook-square"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-github-square"></i>
+    </div>
   </div>
 </div>
