@@ -3,14 +3,15 @@
   <div class="modal-content">
     <div class="d-flex modal-roadtrip">
 
+      <%# LEFT PART %>
       <div class="col-4 roadtrips-room p-0">
         <div class="roadtrips-chat-title">
           <h3>Roadtrips chat</h3>
         </div>
         <% if current_user.roadtrips.last.present? %>
           <% current_user.roadtrips.each do |roadtrip| %>
-            <%= link_to params.permit(:allroom).merge(room: roadtrip.id) do %>
-              <div class="roadtrip-button d-flex">
+            <%= link_to params.permit.merge(room: roadtrip.id) do %>
+              <div class="roadtrip-button d-flex" id="roadtrip-room-<%= roadtrip.id %>">
                 <div>
                   <% if roadtrip.messages.last.present? %>
                     <%= cl_image_tag roadtrip.messages.last.user.photo.key, class: "avatar" %>
@@ -36,32 +37,46 @@
               </div>
             <% end %>
           <% end %>
+
         <% else %>
-          <p>Commencer par rejoindre un roadtrip pour accéder à sa chatroom</p>
+          <p>Commencer par rejoindre un roadtrip pour accéder à sa chatroom.</p>
         <% end %>
       </div>
       
-      <div class="col-8 roadtrip-message" data-chatroom-id="<%= @roadtrip.id %>">
+      <%# RIGHT PART %>
+      <div class="col-8 roadtrip-message">
         <div class="modal-green-top">
           <span class="close">&times;</span>
         </div>
         <% if params[:room].present? %>
-          <p class="roadtrip-start-paragraph text-center">Conversation commencé le <%= @roadtrip.created_at.strftime('%c') %></p>
+          <p class="roadtrip-start-paragraph text-center">Conversation commencé le <%= Roadtrip.find(params[:room]).created_at.strftime('%c') %></p>
         <% end %>
 
         <div class="messages-box">
           <% if params[:room].present? %>
             <div class="message-and-input">
-              <% @roadtrip.messages.each do |message| %>
-                <div class="message-box-content" id="message-<%= message.id %>">
-                  <%= cl_image_tag message.user.photo.key, class: "avatar-bordered-small avatar-wrap" %>
-                  <p><%= message.content %></p>
-                </div>
-              <% end %>
-              <div class="mt-1 simple-textarea">
-              <%= simple_form_for [ @roadtrip, @message ] do |f| %>
-                <%= f.input :content, label: false, placeholder: "Message ..." %>
-                <%= f.submit "Envoyer", class: "btn button-green m-0" %>
+              <div id="messages" data-chatroom-id="<%= Roadtrip.find(params[:room]).id %>">
+                <% Roadtrip.find(params[:room]).messages.each do |message| %>
+                  <% if ( message.user.id != current_user.id ) %>
+                    <div class="message-box-content" id="message-<%= message.id %>">
+                      <p>
+                        <%= cl_image_tag message.user.photo.key, class: "avatar-bordered-small avatar-wrap" %>
+                        <%= message.content %>
+                      </p>
+                    </div>
+                  <% else %>
+                    <div class="message-box-content-currentuser" id="message-<%= message.id %>">
+                      <p>
+                        <%= message.content %>
+                      </p>
+                    </div>
+                  <% end %>
+                <% end %> 
+              </div>
+              <div class="mt-3 simple-textarea message-form">
+              <%= simple_form_for [ Roadtrip.find(params[:room]), @message ] do |f| %>
+                <%= f.input :content, label: false, placeholder: "Message..." %>
+                <%= f.submit "Envoyer", class: "btn button-dark-green m-0" %>
               <% end %>
               </div>
             </div>

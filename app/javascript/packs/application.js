@@ -33,7 +33,9 @@ import { filterStatus } from '../components/roadtripsindex'
 import { initRoadtripCable } from '../channels/roadtrip_channel'
 import { initFlatpickr } from '../plugins/flatpickr';
 import { initSelect2 } from '../components/init_select2';
-import { deletepartner } from '../components/deletepartner';
+import { textareaEnterKey } from '../components/textarea_enter_key';
+import { activeButton } from '../components/activeButton';
+//import { deletepartner } from '../components/deletepartner';
 import { createPartner } from '../components/partnersnew';
 
 document.addEventListener('turbolinks:load', () => {
@@ -46,4 +48,6 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   initMapbox();
   createPartner();
+  textareaEnterKey();
+  activeButton();
 });

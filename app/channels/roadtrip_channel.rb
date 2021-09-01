@@ -1,6 +1,6 @@
 class RoadtripChannel < ApplicationCable::Channel
   def subscribed
-    roadtrip = Chatroom.find(4)
+    roadtrip = Roadtrip.find(params[:id])
     stream_for roadtrip
   end
 
