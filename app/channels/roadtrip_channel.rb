@@ -1,8 +1,7 @@
 class RoadtripChannel < ApplicationCable::Channel
   def subscribed
-    roadtrip = Roadtrip.find(params[:room])
+    roadtrip = Roadtrip.find(params[:id])
     stream_for roadtrip
-    raise
   end
 
   def unsubscribed

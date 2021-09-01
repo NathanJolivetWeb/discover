@@ -129,16 +129,18 @@
 
 .message-box-content{
   display: flex;
-  align-items: center;
-  background-color: #fff;
-  padding: 4px;
-  border-radius: 24px;
   margin-top: 4px;
-
+  
   p{
+    border-radius: 24px;
+    padding: 8px;
+    background-color: #fff;
     margin: 0;
-    padding-left: 8px;
   }
+}
+
+.message-box-content-currentuser{
+
 }
 
 .roadtrip-start-paragraph{
