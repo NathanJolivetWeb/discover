@@ -1,5 +1,11 @@
 <div class='container-show-map'>
   <div class="one">
+
+    <div class="back-roadtrip">
+      <i class="fas fa-undo undo-show-map"></i>
+      <%= link_to "Retour au Roadtrip", roadtrip_path(@itinerary.roadtrip) %>
+    </div>
+
     <div class="add-step">
       <p>Ajoutez des étapes (maximum 5)</p>
       <% if @itinerary.steps.count < 5 %>
@@ -38,10 +44,7 @@
       <div data-duration=0 id='duration'><strong class='strong-show'>0</strong> Kms</div>
     </div>
 
-    <div class="back-roadtrip">
-      <i class="fas fa-undo undo-show-map"></i>
-      <%= link_to "Retour au Roadtrip", roadtrip_path(@itinerary.roadtrip) %>
-    </div>
+
 
   </div>
   <div

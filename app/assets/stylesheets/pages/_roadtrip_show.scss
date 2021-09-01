@@ -1,4 +1,4 @@
-.container-show-roadtrip {
+.containeur-show-roadtrip {
   padding: 0 90px;
 }
 .itineraries {
@@ -25,7 +25,6 @@
 }
 .contain-checklist{
   margin-left: 120px;
-  margin-top: 65px;
   padding: 0 30px;
 }
 .separation{
@@ -43,6 +42,11 @@
   .p-dates{
     color: rgba(0, 0, 0, 0.864);
   }
+}
+.moto-show{
+  width: 42px;
+  margin-right: 5px;
+  vertical-align: -5px;
 }
 
 @media(max-width: 768px) {

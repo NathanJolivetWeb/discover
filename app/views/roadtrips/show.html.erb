@@ -5,9 +5,9 @@
     <%= link_to "Retour au Roadbooks", roadtrips_path %>
   </div>
 
-  <div class="d-flex justify-content-around mb-5">
+  <div class="d-flex justify-content-around mb-5 mt-5">
     <div class="title-show-map">
-      <h1 style="color:#52796E;font-weight: bold;"> <%= @roadtrip.title %> </h1>
+      <h1 style="color:#52796E;font-weight: bold;"><%= image_tag "moto.png", class: "moto-show" %> <%= @roadtrip.title %> </h1>
     </div>
     <div class="title-dates">
       <p class="p-dates"> <%= @roadtrip.start_date %><%= @roadtrip.end_date %></p>
@@ -16,16 +16,15 @@
     <div class="card-map-avatars">
       <% @roadtrip.users.each do |user| %>
         <% if user.photo.present? %>
-          <%= cl_image_tag user.photo.key, class: "avatar-bordered avatar-wrap" %>
+          <%= cl_image_tag user.photo.key, class: "avatar-bordered-show  avatar-wrap" %>
         <% else %>
-          <%= image_tag "default_user_image.png", class: "avatar-bordered avatar-wrap" %>
+          <%= image_tag "default_user_image.png", class: ".avatar-bordered-show avatar-wrap" %>
         <% end %>
       <% end %>
-      <%add_partners = '<i class="mt-1 fas fa-plus-circle text-danger" style="font-size: 36px"></i>'%>
+      <%add_partners = '<i class="fas fa-plus-circle text-danger" style="font-size: 50px"></i>'%>
       <%= link_to add_partners.html_safe, new_roadtrip_partner_path(@roadtrip), class: "text-danger"%></p>
     </div>
   </div>
-
 
   <div class="show-roadtrip-core">
     <div class="roadtrip-itineraries">
@@ -97,9 +96,11 @@
         <hr />
         <div>
           <% @roadtrip.tasks.each do |task| %>
-            <p>
-              <input type="checkbox">
-              <span style="color: #84A98C;"><%= task.content %></span>
+            <p class="checkbox">
+              <label class="containeur"><span class="ml-1"><%= task.content %></span>
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+              </label>
               <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure you want to remove this task ?"} do %>
                 <i class="far fa-trash-alt fa-trash-size"></i>
               <% end %>
