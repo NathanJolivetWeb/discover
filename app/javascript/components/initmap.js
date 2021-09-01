@@ -7,6 +7,9 @@ const initMapbox = () => {
   if (map) {
 
     const fitMapToMarkers = (map, markers) => {
+      if (markers.length === 0) {
+        return
+      }
       const bounds = new mapboxgl.LngLatBounds();
       markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
       map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
@@ -42,12 +45,12 @@ const initMapbox = () => {
 
         const distanceDisplay = document.getElementById('distance');
         const distance = Math.round(data.distance/1000);
-        distanceDisplay.innerHTML = `Distance: <strong class='strong-show'> ${distance} kilomètres </strong>`;
+        distanceDisplay.innerHTML = `<strong class='strong-show'>${distance}</strong> Kms`;
         distanceDisplay.dataset.distance = distance;
 
         const durationDisplay = document.getElementById('duration');
         const duration = Math.round(data.duration/3600);
-        durationDisplay.innerHTML = `Durée: <strong class='strong-show'> ${duration} heures </strong>`;
+        durationDisplay.innerHTML = `<strong class='strong-show'>${duration}</strong> Hrs `;
         durationDisplay.dataset.duration = duration;
 
         const url = window.location.pathname
