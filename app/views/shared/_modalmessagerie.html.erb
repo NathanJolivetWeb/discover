@@ -71,10 +71,10 @@
                   <% end %>
                 <% end %> 
               </div>
-              <div class="mt-1 simple-textarea">
+              <div class="mt-3 simple-textarea message-form">
               <%= simple_form_for [ @roadtrip, @message ] do |f| %>
                 <%= f.input :content, label: false, placeholder: "Message..." %>
-                <%= f.submit "Envoyer", class: "btn button-green m-0" %>
+                <%= f.submit "Envoyer", class: "btn button-dark-green m-0" %>
               <% end %>
               </div>
             </div>

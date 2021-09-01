@@ -34,6 +34,7 @@ import { initRoadtripCable } from '../channels/roadtrip_channel'
 import { initFlatpickr } from '../plugins/flatpickr';
 import { initSelect2 } from '../components/init_select2';
 import { textareaEnterKey } from '../components/textarea_enter_key';
+// import { activeButton } from '../components/activeButton';
 
 document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
@@ -45,4 +46,5 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   initMapbox();
   textareaEnterKey();
+  // activeButton();
 });

@@ -8,9 +8,6 @@ const textareaEnterKey = () => {
 
   document.getElementById("message_content").addEventListener("keypress", submitOnEnter);
 
-  document.getElementById("form").addEventListener("submit", (event) => {
-    event.preventDefault();
-  });
 };
 
 export { textareaEnterKey };
