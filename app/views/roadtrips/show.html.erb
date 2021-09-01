@@ -32,8 +32,7 @@
         <h2 class="mt-3">Itinéraires</h2>
         <button class="button-green-show"> Consulter le trajet complet </button>
       </div>
-        <div class="card-map-grid">
-
+      <div class="card-map-grid">
         <% @roadtrip.itineraries.each do |itinerary| %>
           <%= link_to itinerary_path(itinerary) do %>
             <div class="card-map">

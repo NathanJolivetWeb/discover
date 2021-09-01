@@ -1,7 +1,28 @@
 <div class="container">
-  <%= simple_form_for [@roadtrip, @partner] do |f| %>
-    <% ids = current_user.friends.difference(@roadtrip.users).map {|friend| [friend.username, friend.id]} %>
-    <%= f.input :user, collection: ids , label: "", as: :check_boxes, required: false %>
-    <%= f.submit %>
-  <% end %>
+  <h2 class="mt-4"><strong> Vos amis: </strong></h2>
+  <div class="container partners-roadtrip" data-roadtrip-id="<%= @roadtrip.id %>">
+    <% current_user.friends.each do |friend| %>
+      <% if @partners.include?(friend.id) %>
+        <div class="partners-roadtrip-core" ">
+          <%= cl_image_tag friend.photo.key, class: "avatar-bordered avatar-partner partner-margin", "data-user-id": friend.id%>
+          <div class="partners-roadtrips-infos">
+            <p> <%= friend.first_name %> </p>
+          </div>
+        </div>
+      <% else %>
+        <div class="partners-roadtrip-core" ">
+          <%= cl_image_tag friend.photo.key, class: "avatar-bordered avatar-no-partner partner-margin", "data-user-id": friend.id %>
+          <div class="partners-roadtrips-infos">
+            <p> <%= friend.first_name %> </p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
+
+<%#  <%= simple_form_for [@roadtrip, @partner] do |f| %>
+<%#  <% ids = current_user.friends.difference(@roadtrip.users).map {|friend| [friend.username, friend.id]} %>
+<%#  <%= f.input :user, collection: ids , label: "", as: :check_boxes, required: false %>
+<%#  <%= f.submit %>
+<%# <% end %>

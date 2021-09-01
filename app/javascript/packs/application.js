@@ -23,26 +23,28 @@ require("channels")
 // ----------------------------------------------------
 
 // External imports
-import "bootstrap"
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder'
-import { textWrapperHomePage } from '../components/homepage'
-import { modalMessagerie } from '../components/modalmessagerie'
-import { initMapbox } from '../components/initmap'
-import { filterStatus } from '../components/roadtripsindex'
-import { initAutocomplete } from '../plugins/init_autocomplete'
-import { initRoadtripCable } from '../channels/roadtrip_channel'
+import "bootstrap";
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
+import { textWrapperHomePage } from '../components/homepage';
+import { modalMessagerie } from '../components/modalmessagerie';
+import { initMapbox } from '../components/initmap';
+import { filterStatus } from '../components/roadtripsindex';
+import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initRoadtripCable } from '../channels/roadtrip_channel';
 import { initFlatpickr } from '../plugins/flatpickr';
 import { initSelect2 } from '../components/init_select2';
-import { deletepartner } from '../components/deletepartner'
+import { deletepartner } from '../components/deletepartner';
+import { createPartner } from '../components/partnersnew';
 
 document.addEventListener('turbolinks:load', () => {
   textWrapperHomePage();
   modalMessagerie();
   filterStatus();
-  initMapbox();
   initAutocomplete();
   initRoadtripCable();
   initFlatpickr();
   initSelect2();
+  initMapbox();
   deletepartner();
+  createPartner();
 });
