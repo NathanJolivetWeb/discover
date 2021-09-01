@@ -1,24 +1,23 @@
 const activeButton = () => {
-  // Get the container element
-  let buttonContainer = document.querySelector(".roadtrips-room");
 
-  // Get all buttons with class="btn" inside the container
-  let buttons = buttonContainer.querySelectorAll(".roadtrip-button");
+  function getRoomParams()
+  {
+      var result = {};
+      var tmp = [];
   
-  // Loop through the buttons and add the active class to the current/clicked button
-  for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function() {
-      var current = document.getElementsByClassName("active-button");
+      location.search
+          .substr (1)
+          .split ("&")
+          .forEach (function (item)
+          {
+              tmp = item.split ("=");
+              result [tmp[0]] = decodeURIComponent (tmp[1]);
+          });
+  
+      return parseInt(result.room);
+  }
 
-      // If there's no active class
-      if (current.length > 0) {
-        current[0].className = current[0].className.replace(" active-button", "");
-      }
-
-      // Add the active class to the current/clicked button
-      this.className += " active-button";
-    });
-  } 
+  document.getElementById("roadtrip-room-" + getRoomParams()).classList.add("active-button");
 };
 
 export { activeButton };

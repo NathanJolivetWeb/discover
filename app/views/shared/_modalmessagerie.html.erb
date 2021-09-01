@@ -10,7 +10,7 @@
         <% if current_user.roadtrips.last.present? %>
           <% current_user.roadtrips.each do |roadtrip| %>
             <%= link_to params.permit.merge(room: roadtrip.id) do %>
-              <div class="roadtrip-button d-flex">
+              <div class="roadtrip-button d-flex" id="roadtrip-room-<%= roadtrip.id %>">
                 <div>
                   <% if roadtrip.messages.last.present? %>
                     <%= cl_image_tag roadtrip.messages.last.user.photo.key, class: "avatar" %>
