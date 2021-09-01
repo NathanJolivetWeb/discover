@@ -1,3 +1,6 @@
+.container-show-roadtrip {
+  padding: 0 90px;
+}
 .itineraries {
   display: grid;
   grid: 1fr 1fr;
@@ -20,13 +23,11 @@
   display: flex;
   justify-content: space-between;
 }
-
 .contain-checklist{
   margin-left: 120px;
   margin-top: 65px;
   padding: 0 30px;
 }
-
 .separation{
   height: 600px;
   background-color: lightgray;
@@ -35,19 +36,14 @@
   position: absolute;
 
 }
-
 .title-dates{
   display: flex;
   align-items: center;
   justify-content: space-between;
   .p-dates{
     color: rgba(0, 0, 0, 0.864);
-
   }
 }
-
-
-
 
 @media(max-width: 768px) {
   .show-roadtrip-core{

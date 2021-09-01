@@ -1,21 +1,37 @@
 <div class="container friends">
   <div class="contain-all">
-  <h1 class="amis-title">Mes amis</h1>
-      <% @friendships.each do |friendship| %>
-          <% if friendship.requester == current_user %>
-            <div class="total">
-              <div class="contain-avatar">
-                    <%= link_to "#" do %>
-                <p>  <%= cl_image_tag friendship.addressed.photo.key, class: "avatar-bordered avatar" %>
-                    <% end %>
-                <%= friendship.addressed.username %>
-              </div>
-              <div class="names">
-                <%= friendship.addressed.first_name %>
-                <%= friendship.addressed.last_name %> </p>
-              </div>
-            </div>
-        <% end %>
+    <h1 class="amis-title">Mes amis</h1>
+    <% @friendships.each do |friendship| %>
+      <% if friendship.requester == current_user %>
+        <div class="total">
+          <div class="contain-avatar">
+                <%= link_to "#" do %>
+            <p>  <%= cl_image_tag friendship.addressed.photo.key, class: "avatar-bordered avatar" %>
+                <% end %>
+            <%= friendship.addressed.username %>
+          </div>
+          <div class="names">
+            <%= friendship.addressed.first_name %>
+            <%= friendship.addressed.last_name %> </p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <% @friendships.each do |friendship| %>
+      <% if friendship.addressed == current_user %>
+        <div class="total">
+          <div class="contain-avatar">
+                <%= link_to "#" do %>
+            <p>  <%= cl_image_tag friendship.requester.photo.key, class: "avatar-bordered avatar" %>
+                <% end %>
+            <%= friendship.requester.username %>
+          </div>
+          <div class="names">
+            <%= friendship.requester.first_name %>
+            <%= friendship.requester.last_name %> </p>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -5,6 +5,7 @@
 
 .contain-homepage{
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .banner{
@@ -52,7 +53,7 @@
 // 4 cards sous la banner //
 .cards-contain{
   margin-top: 130px;
-  margin-bottom: 250px;
+  margin-bottom: 160px;
   display: flex;
   justify-content: center;
 }
@@ -61,7 +62,6 @@
   width: 210px;
   height: 221px;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
   margin: 0 50px;
   border: none;
@@ -76,6 +76,7 @@
 
 .card h3{
   color: #84A98C;
+  margin-top: 12px;
 } i{
   font-size: 35px;
   color: black;
@@ -97,13 +98,30 @@
   position: relative;
 }
 
+.ameuble2{
+  height: 800px;
+  background-color: #52796F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.ameuble3{
+  background-color: #52796F;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
 .citation{
   height: 110px;
   width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 300px;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .trans2{
@@ -113,6 +131,79 @@
   transform: skew(3deg, -3deg);
   position: absolute;
   top: -48px;
+}
+
+.trans3{
+  width: 100vw;
+  background-color: white;
+  height: 100px;
+  transform: skew(3deg, 3deg);
+  position: absolute;
+  top: 43px;
+}
+
+.cards-hp{
+  width: 350px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 50px;
+  border: none;
+  background-color: #f4f4f4;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: black;
+  padding: 10px 0;
+  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+  &:hover{
+    transform: scale(1.03);
+    transition: 0.3s;
+  }
+}
+
+.img-rd{
+  height: 83%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.title-rd{
+  margin: 5px;
+}
+.date-km{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.no-margin{
+  margin-bottom: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.trans4{
+  width: 100vw;
+  background-color: white;
+  height: 100px;
+  transform: skew(3deg, 3deg);
+  position: absolute;
+  bottom: 47px;
+}
+
+.footer i{
+  margin: 0 10px;
+  color: white;
+}
+
+.footer p{
+  color: white;
+  font-weight: bold;
 }
 
 .text-hp {
@@ -137,7 +228,7 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: absolute;
-  bottom: 50px;
+  bottom: 130px;
 } .btn-sign{
   color: white;
   background-color: rgba(245, 243, 243, 0.412);
