@@ -34,34 +34,38 @@
         <div class="d-flex justify-content-center">
           <div class="w-50">
             <%= f.input :first_name,
-            required: false %>
+                        label: "Prénom" %>
           </div>
           <div class="w-50">
             <%= f.input :last_name,
-            required: false %>
+                        label: "Nom" %>
           </div>
         </div>
         <%= f.input :username,
-                      required: false %>
-        <%= f.input :email, autofocus: true %>
+                    label: "Pseudo",
+                    required: false %>
+        <%= f.input :email %>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <p>En attente de confirmation pour : <%= resource.unconfirmed_email %></p>
+          <p>En attente de confirmation pour : <%= resource.unconfirmed_email %>.</p>
         <% end %>
         <%= f.input :photo, as: :file %>
 
         <h3 class="mt-5">Securité</h3>
         <hr />
+        <%= f.input :current_password,
+                    label: "Mot de passe actuel",
+                    hint: "Nous avons besoin de votre mot de passe actuel pour confirmer vos modifications.",
+                    required: true,
+                    input_html: { autocomplete: "current-password" } %>
         <%= f.input :password,
-                    hint: "Laissez-le vide si vous ne voulez pas le changer",
+                    label: "Nouveau mot de passe",
+                    hint: "Laissez-le vide si vous ne voulez pas le changer.",
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation,
+                    label: "Confirmation du nouveau mot de passe",
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
-        <%= f.input :current_password,
-                    hint: "Nous avons besoin de votre mot de passe actuel pour confirmer vos modifications",
-                    required: true,
-                    input_html: { autocomplete: "current-password" } %>
       </div>
 
       <div class="d-flex justify-content-between mt-5">
