@@ -33,7 +33,8 @@ import { filterStatus } from '../components/roadtripsindex'
 import { initRoadtripCable } from '../channels/roadtrip_channel'
 import { initFlatpickr } from '../plugins/flatpickr';
 import { initSelect2 } from '../components/init_select2';
-
+import { deletepartner } from '../components/deletepartner';
+import { createPartner } from '../components/partnersnew';
 
 document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
@@ -44,4 +45,5 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
   initSelect2();
   initMapbox();
+  createPartner();
 });

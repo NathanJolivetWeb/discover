@@ -1,5 +1,21 @@
-li {
-  list-style: none;
-  margin: 16px 8px;
+.partners-roadtrip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.partners-roadtrips-infos {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.partner-margin {
+  margin: 24px 0;
+}
+
+.partners-roadtrip-core {
   text-align: center;
+  p {
+    text-align: center;
+    margin: 4px 12px;
+  }
 }
