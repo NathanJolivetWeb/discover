@@ -1,0 +1,14 @@
+.tag-trash-parent {
+  position: relative;
+  font-size: 12px;
+  overflow: hidden;
+  display: flex;
+}
+
+.tag-trash {
+  content: "-";
+  font-size: 12px;
+  right: 0;
+  top: 0;
+  position: absolute;
+}

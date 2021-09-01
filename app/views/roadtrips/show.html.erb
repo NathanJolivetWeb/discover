@@ -5,12 +5,18 @@
       <p class="p-dates"> <%= @roadtrip.start_date %> / <%= @roadtrip.end_date %></p>
     </div>
     <div class="show-roadtrip-top mt-2 mb-3 container">
-      <div class="card-map-avatars">
+      <div class="card-map-avatars" id="delete_partners">
         <% @roadtrip.users.each do |user| %>
           <% if user.photo.present? %>
-            <%= cl_image_tag user.photo.key, class: "avatar-bordered avatar-wrap" %>
+            <%= cl_image_tag user.photo.key, class: "avatar-bordered avatar-wrap tag-trash-parent" %>
+            <%= link_to partner_path(@roadtrip.partners) do %>
+              <i class="fas fa-minus tag-trash"></i>
+            <% end %>
           <% else %>
-            <%= image_tag "default_user_image.png", class: "avatar-bordered avatar-wrap" %>
+            <%= image_tag "default_user_image.png", class: "avatar-bordered avatar-wrap tag-trash-parent" %>
+            <%= link_to partner_path(@roadtrip.partners) do %>
+              <i class="fas fa-minus tag-trash"></i>
+            <% end %>
           <% end %>
         <% end %>
       </div>

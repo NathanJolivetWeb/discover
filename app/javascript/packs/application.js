@@ -33,7 +33,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete'
 import { initRoadtripCable } from '../channels/roadtrip_channel'
 import { initFlatpickr } from '../plugins/flatpickr';
 import { initSelect2 } from '../components/init_select2';
-
+import { deletepartner } from '../components/deletepartner'
 
 document.addEventListener('turbolinks:load', () => {
   textWrapperHomePage();
@@ -44,4 +44,5 @@ document.addEventListener('turbolinks:load', () => {
   initRoadtripCable();
   initFlatpickr();
   initSelect2();
+  deletepartner();
 });
