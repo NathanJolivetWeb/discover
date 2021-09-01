@@ -24,24 +24,24 @@ require("channels")
 
 // External imports
 import "bootstrap"
+import { initAutocomplete } from '../plugins/init_autocomplete'
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder'
 import { textWrapperHomePage } from '../components/homepage'
 import { modalMessagerie } from '../components/modalmessagerie'
 import { initMapbox } from '../components/initmap'
 import { filterStatus } from '../components/roadtripsindex'
-import { initAutocomplete } from '../plugins/init_autocomplete'
 import { initRoadtripCable } from '../channels/roadtrip_channel'
 import { initFlatpickr } from '../plugins/flatpickr';
 import { initSelect2 } from '../components/init_select2';
 
 
 document.addEventListener('turbolinks:load', () => {
+  initAutocomplete();
   textWrapperHomePage();
   modalMessagerie();
   filterStatus();
-  initMapbox();
-  initAutocomplete();
   initRoadtripCable();
   initFlatpickr();
   initSelect2();
+  initMapbox();
 });
