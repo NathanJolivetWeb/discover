@@ -10,14 +10,9 @@
       <h1 class="m-2"> <%= @roadtrip.title %> </h1>
       <p class="p-dates"> <%= @roadtrip.start_date %> / <%= @roadtrip.end_date %></p>
     </div>
-<<<<<<< HEAD
-    <div class="show-roadtrip-top mt-2 mb-3 container">
-      <div class="card-map-avatars" id="delete_partners">
-=======
 
     <div class="show-roadtrip-top mt-2 mb-3">
       <div class="card-map-avatars">
->>>>>>> master
         <% @roadtrip.users.each do |user| %>
           <% if user.photo.present? %>
             <%= cl_image_tag user.photo.key, class: "avatar-bordered avatar-wrap tag-trash-parent" %>
