@@ -55,7 +55,7 @@
             <div class="message-and-input">
               <div id="messages" data-chatroom-id="<%= @roadtrip.id %>">
                 <% @roadtrip.messages.each do |message| %>
-                  <% if (message.user.id != current_user.id) %>
+                  <% if ( message.user.id != current_user.id ) %>
                     <div class="message-box-content" id="message-<%= message.id %>">
                       <p>
                         <%= cl_image_tag message.user.photo.key, class: "avatar-bordered-small avatar-wrap" %>

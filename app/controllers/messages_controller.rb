@@ -13,12 +13,7 @@ class MessagesController < ApplicationController
       )
       redirect_to request.referrer
     end
-
-
-    # if @message.save
-      # url = request.referrer
-      # redirect_to "#{url}?room=#{@roadtrip.id}"
-    # end
+    
   end
 
 

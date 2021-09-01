@@ -121,10 +121,7 @@
   padding: 8px;
   height: 100%;
   overflow: scroll;
-  
-  p{
-    text-align: start;
-  }
+  font-size: large;
 }
 
 .message-box-content{
@@ -133,14 +130,25 @@
   
   p{
     border-radius: 24px;
-    padding: 8px;
-    background-color: #fff;
+    padding: 8px 12px 8px 8px;
+    background-color: rgb(77, 77, 77);
+    color: white;
     margin: 0;
   }
 }
 
 .message-box-content-currentuser{
-
+  display: flex;
+  justify-content: end;
+  margin-top: 4px;
+  
+  p{
+    border-radius: 24px;
+    padding: 8px 24px 8px 12px;
+    background-color: rgb(58, 100, 68);
+    color: white;
+    margin: 0;
+  }
 }
 
 .roadtrip-start-paragraph{
@@ -149,9 +157,6 @@
   margin: 0;
 }
 
-.message-and-input{
-  // align-self: end;
-}
 
 .simple-textarea{
   position: relative;
@@ -169,3 +174,4 @@
     border-radius: 38px;
   }
 }
+
