@@ -1,4 +1,8 @@
 // Model part
+#myModal {
+  z-index: 5;
+}
+
 .modal {
   display: block;
   position: fixed;
