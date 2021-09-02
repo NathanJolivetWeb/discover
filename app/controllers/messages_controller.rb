@@ -13,7 +13,6 @@ class MessagesController < ApplicationController
       )
       redirect_to request.referrer
     end
-
     
   end
 
