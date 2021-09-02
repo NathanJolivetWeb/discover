@@ -57,7 +57,7 @@
             <div class="message-and-input">
               <div id="messages" data-chatroom-id="<%= Roadtrip.find(params[:room]).id %>">
                 <% Roadtrip.find(params[:room]).messages.each do |message| %>
-                  <%= render "messages/message", message: message %>
+                  <%= render "messages/message", message: message, receiver: (message.user.id != current_user.id) %>
                 <% end %> 
               </div>
               <div class="mt-3 simple-textarea message-form">
