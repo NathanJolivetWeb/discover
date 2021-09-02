@@ -1,5 +1,5 @@
 .containeur {
-  display: block;
+  display: flex;
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
@@ -9,6 +9,8 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  min-height: 40px;
+  align-items: center;
 }
 .containeur input {
   position: absolute;

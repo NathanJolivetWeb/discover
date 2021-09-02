@@ -3,7 +3,8 @@
     <i class="fas fa-undo undo-show-map"></i>
     <%= link_to "Retour au Roadtrip", roadtrip_path(@roadtrip) %>
   </div>
-  <div class="container partners-roadtrip" data-roadtrip-id="<%= @roadtrip.id %>">
+  <h2 class="mt-3 text-center"><strong> Choisissez avec qui vous partez </strong></h2>
+  <div class="container partners-roadtrip mt-4" data-roadtrip-id="<%= @roadtrip.id %>">
     <% current_user.friends.each do |friend| %>
       <% if @partners.include?(friend.id) %>
         <% partner_id = friend.partners.find { |p| p.roadtrip_id == @roadtrip.id }.id %>
