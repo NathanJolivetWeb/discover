@@ -1,5 +1,12 @@
-.containeur-show-roadtrip {
-  padding: 0 90px;
+.container-show-roadtrip {
+  padding: 0 0px;
+}
+.banner-show-trip {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: -60px;
+  display: flex;
+  justify-content: space-around;
 }
 .itineraries {
   display: grid;
@@ -28,12 +35,11 @@
   padding: 0 30px;
 }
 .separation{
-  height: 600px;
-  background-color: lightgray;
-  width: 1px;
+  height: 800px;
+  background-color: grey;
+  width: 3px;
   margin-left: 70px;
   position: absolute;
-
 }
 .title-dates{
   display: flex;
