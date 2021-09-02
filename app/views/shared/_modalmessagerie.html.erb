@@ -61,11 +61,13 @@
                 <% end %> 
               </div>
               <div class="mt-3 simple-textarea message-form">
-              <%= simple_form_for [ Roadtrip.find(params[:room]), @message ] do |f| %>
-                <%= f.input :content, label: false, placeholder: "Message..." %>
-                <%= f.submit "Envoyer", class: "btn button-dark-green m-0" %>
-              <% end %>
+                <%= simple_form_for [ Roadtrip.find(params[:room]), @message ]  do |f| %>
+                  <%= f.input :content, label: false, placeholder: "Message..." %>
+                <% end %>
               </div>
+              <%= simple_form_for [ Roadtrip.find(params[:room]), @message ], remote: true do |f| %>
+                <%= f.input :content, label: false, placeholder: "Message..." %>
+              <% end %>
             </div>
           <% end %>
         </div>
