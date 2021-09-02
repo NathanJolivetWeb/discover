@@ -7,17 +7,20 @@
   <div class="container partners-roadtrip" data-roadtrip-id="<%= @roadtrip.id %>">
     <% current_user.friends.each do |friend| %>
       <% if @partners.include?(friend.id) %>
+        <% partner_id = friend.partners.find { |p| p.roadtrip_id == @roadtrip.id }.id %>
         <div class="partners-roadtrip-core">
-          <%= cl_image_tag friend.photo.key, class: "avatar-partner partner-margin", "data-user-id": friend.id%>
+          <%= cl_image_tag friend.photo.key, class: "avatar-partner partner-margin", "data-user-id": friend.id, "data-partner-id": partner_id %>
+          <i class="fas fa-check avatar-partner-checked"></i>
           <div class="partners-roadtrips-infos">
-            <p> <%= friend.first_name %> </p>
+            <p> <%= friend.first_name.capitalize %> </p>
           </div>
         </div>
       <% else %>
         <div class="partners-roadtrip-core">
-          <%= cl_image_tag friend.photo.key, class: "avatar-no-partner partner-margin", "data-user-id": friend.id %>
+          <%= cl_image_tag friend.photo.key, class: "avatar-no-partner partner-margin", "data-user-id": friend.id, "data-partner-id": ""  %>
+          <i class="fas fa-check avatar-no-partner-checked"></i>
           <div class="partners-roadtrips-infos">
-            <p> <%= friend.first_name %> </p>
+            <p> <%= friend.first_name.capitalize %> </p>
           </div>
         </div>
       <% end %>
