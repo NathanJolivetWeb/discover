@@ -1,19 +1,22 @@
 class MessagesController < ApplicationController
-  
+
   def create
     @roadtrip = Roadtrip.find(params[:roadtrip_id])
     @message = Message.new(message_params)
     @message.roadtrip = @roadtrip
     @message.user = current_user
-    
+
     if @message.save
       RoadtripChannel.broadcast_to(
         @roadtrip,
-        render_to_string(partial: "message", locals: { message: @message, receiver: true })
+        {
+          message: render_to_string(partial: "message", locals: { message: @message, receiver: true }),
+          sender_id: current_user.id
+        }
       )
       redirect_to request.referrer
     end
-    
+
   end
 
   private
