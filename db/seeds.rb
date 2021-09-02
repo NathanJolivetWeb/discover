@@ -50,7 +50,7 @@ sebastien = User.new(email: "sebastien@lewagon.fr", password: "password", first_
 sebastien.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 sebastien.save
 
-file = URI.open('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=334&q=80')
+file = URI.open('https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
 elodie = User.new(email: "elodie@lewagon.fr", password: "password", first_name: "Elodie", last_name: "Lahaie", username: "Elo62")
 elodie.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 elodie.save
