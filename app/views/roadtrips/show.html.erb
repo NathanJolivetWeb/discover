@@ -55,9 +55,15 @@
                 <% if itinerary.steps[0] == nil %>
                   <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.398782,47.081012,2/500x300?access_token=pk.eyJ1IjoibmF0aGFuam9saXZldHdlYiIsImEiOiJja3JxOWJ5bnkya3RsMnVydjRybGJmaW80In0.MVD8QTxtS8nqAIHNQ3X_bg">
                   <% else %>
-                  <%longitude = itinerary.steps[0].longitude%>
-                  <%latitude = itinerary.steps[0].latitude %>
-                  <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/<%=longitude%>,<%=latitude%>,9.67,0.00,0.00/1000x600@2x?access_token=pk.eyJ1IjoibmF0aGFuam9saXZldHdlYiIsImEiOiJja3JxOWJ5bnkya3RsMnVydjRybGJmaW80In0.MVD8QTxtS8nqAIHNQ3X_bg" >
+                    <% @coord = itinerary.steps %>
+                    <% @markers2 = @coord.map{ |marker| {lat: marker.latitude, lng: marker.longitude}} %>
+                    <div
+                      id="<%=dom_id(itinerary)%>"
+                      class="map2 <%= dom_id(itinerary)%>"
+                      data-selector= "<%=dom_id(itinerary)%>"
+                      data-markers="<%= @markers2.to_json %>"
+                      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+                    </div>
                 <% end %>
               </div>
 
