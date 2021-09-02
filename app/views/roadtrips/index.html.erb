@@ -50,7 +50,7 @@
                 </div>
                 <div class="card-product-buttons-owner">
                   <% trash = '<i class="fas fa-trash trash-fa"></i>' %>
-                  <%= link_to trash.html_safe, roadtrip_path(roadtrip), data: { confirm: 'Are you sure?' }, method: :delete %>
+                  <%= link_to trash.html_safe, roadtrip_path(roadtrip), data: { confirm: 'Êtes-vous sûr de vouloir supprimer ce roadtrip?' }, method: :delete %>
                   <% show = '<i class="far fa-eye eye-fa-owner"></i>' %>
                   <%= link_to show.html_safe, roadtrip_path(roadtrip)%>
                 </div>
@@ -124,7 +124,7 @@
                 </div>
                 <div class="card-product-buttons-owner">
                   <% trash = '<i class="fas fa-trash trash-fa"></i>' %>
-                  <%= link_to trash.html_safe, roadtrip_path(roadtrip), confirm: 'Are you sure?', method: :delete %>
+                  <%= link_to trash.html_safe, roadtrip_path(roadtrip), confirm: 'Êtes-vous sûr de vouloir supprimer ce roadtrip?', method: :delete %>
                   <% show = '<i class="far fa-eye eye-fa-owner"></i>' %>
                   <%= link_to show.html_safe, roadtrip_path(roadtrip)%>
                 </div>
