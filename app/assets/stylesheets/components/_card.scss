@@ -220,13 +220,19 @@ a:hover {
 }
 .card-map-bottom i {
   font-size: 18px;
-  padding-top: 7px;
+  padding-top: 6px;
+  vertical-align: -2px;
   color: grey;
   font-weight: bold;
 }
 .card-map-bottom-right {
   padding-top: 5px;
   width: 50%;
+  color: #5C846A;
+  font-weight: bold;
+}
+.car-map-center {
+  padding-top: 5px;
   color: #5C846A;
   font-weight: bold;
 }
