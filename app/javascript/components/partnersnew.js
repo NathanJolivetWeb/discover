@@ -1,4 +1,5 @@
 import { fetchWithToken } from "../utils/fetch_with_token";
+import { csrfToken } from "@rails/ujs";
 
 const createPartner = () => {
   const roadtripPartner = document.querySelector('.partners-roadtrip');
