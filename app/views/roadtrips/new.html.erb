@@ -1,5 +1,7 @@
 <div class="contain-form">
   <div class="contain-formulaire">
+    <div class="bcgi">
+
     <div class="formulaire">
       <div class="screen-2">
       </div>
@@ -7,7 +9,8 @@
         <div class="form-wrapper">
           <%= simple_form_for @roadtrip do |f| %>
             <div class="form-inputs">
-              <%= f.input :title, label: 'Nom du RoadTrip' %>
+              <label><%= image_tag "road-line.png", class: "flat-icon" %> Nom du Roadtrip</label>
+              <%= f.input :title, label: false %>
             </div>
             <%= f.input :start_date, label: "Sélectionnez vos dates:",
                                     as: :string,
@@ -18,12 +21,13 @@
                                   required: false,
                                   input_html: { id: "range_end", class: "d-none" } %>
               <div class="form-actions">
-                <%= f.submit "Créer RoadTrip", class: "btn-signin" %>
+                <%= f.submit "Créer Roadtrip", class: "btn-signin" %>
               </div>
           <% end %>
         </div>
       </div>
     </div>
+  </div>
   </div>
 
     <div class="imageForm2">
