@@ -138,14 +138,18 @@ a:hover {
   justify-content: flex-end;
   width: 150px;
   text-align: end;
-  margin-right: 16px;
 }
 .card-product-buttons-owner {
   display: flex;
   justify-content: flex-end;
   width: 150px;
   text-align: end;
-  margin-right: 16px;
+
+  a{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
 }
 .card-product-bottom-infos {
   height: 100%;
@@ -178,24 +182,19 @@ a:hover {
 }
 .eye-fa {
   font-size: 26px;
-  margin-right: 63px;
-  margin-bottom: 30px;
+  margin-bottom: -4px;
+  margin-left: 16px;
   color: #52796F;
 }
 .eye-fa-owner {
-  font-size: 24px;
-  margin-right: 30px;
-  margin-bottom: 8px;
-  margin-top: 15px;
+  font-size: 26px;
+  margin-bottom: -4px;
+  margin-left: 16px;
   color: #52796F;
 }
 .trash-fa {
   font-size: 18px;
   color: #52796F;
-  margin-bottom: 8px;
-  margin-top: 18px;
-  margin-right: 45px;
-  margin-left: 4px;
 }
 .plus-fa {
   color: white;
