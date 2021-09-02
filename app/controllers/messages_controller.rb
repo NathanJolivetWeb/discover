@@ -9,13 +9,12 @@ class MessagesController < ApplicationController
     if @message.save
       RoadtripChannel.broadcast_to(
         @roadtrip,
-        render_to_string(partial: "message", locals: { message: @message })
+        render_to_string(partial: "message", locals: { message: @message, receiver: true })
       )
       redirect_to request.referrer
     end
     
   end
-
 
   private
 

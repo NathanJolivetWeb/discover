@@ -7,10 +7,11 @@ const initRoadtripCable = () => {
 
     consumer.subscriptions.create({ channel: "RoadtripChannel", id: id }, {
       received(data) {
-        console.log(data);
         messagesContainer.insertAdjacentHTML('beforeend', data);
-      },
+      }
     });
+
+
   }
 }
 
