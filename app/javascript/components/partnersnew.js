@@ -10,6 +10,7 @@ const createPartner = () => {
       partner.addEventListener("click", (event) => {
         const userId = event.currentTarget.dataset.userId
         const target = event.currentTarget
+        const tick = event.currentTarget.nextElementSibling.querySelector(".fa-check")
         event.preventDefault();
         console.log(userId);
         fetchWithToken(`/roadtrips/${roadtripId}/partners`, {
@@ -24,6 +25,8 @@ const createPartner = () => {
           .then((data) => {
             target.classList.add("avatar-partner")
             target.classList.remove("avatar-no-partner")
+            tick.classList.add("avatar-partner-checked")
+            tick.classList.remove("avatar-no-partner-checked")
           });
       });
     });
