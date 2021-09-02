@@ -7,6 +7,7 @@
 .partners-roadtrips-infos {
   display: flex;
   justify-content: space-evenly;
+  font-family: $headers-font;
 }
 
 .partner-margin {
@@ -26,12 +27,11 @@
   padding-top: 80px;
   padding-left: 80px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
 .partners-form-text{
-  margin-top: 4px;
+  margin: 0 8px;
   padding-top: 1px;
   padding-bottom: 5px;
   width: 30%;
