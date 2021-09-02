@@ -1,5 +1,4 @@
-<div id="messages" data-chatroom-id="<%= @roadtrip.id %>">
-  <% @roadtrip.messages.each do |message| %>
+<div id="messages" data-chatroom-id="<%= Roadtrip.find(params[:room]).id %>">
     <% if ( message.user.id != current_user.id ) %>
       <div class="message-box-content" id="message-<%= message.id %>">
         <p>
@@ -14,5 +13,4 @@
         </p>
       </div>
     <% end %>
-  <% end %> 
 </div>
