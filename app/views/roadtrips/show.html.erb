@@ -8,9 +8,9 @@
   <div class="banner-show-trip">
     <div class="title-show-map">
       <h1 style="color:#52796E;font-weight: bold;"><%= image_tag "moto.png", class: "moto-show" %> <%= @roadtrip.title %> </h1>
-    </div>
-    <div class="title-dates">
-      <p class="p-dates"> <%= @roadtrip.start_date %><%= @roadtrip.end_date %></p>
+      <% if @roadtrip.start_date.present? %>
+      <p class="p-dates text-secondary"> Du <%= @roadtrip.start_date %> au <%= @roadtrip.end_date %></p>
+      <% end %>
     </div>
 
     <div class="card-map-avatars">
