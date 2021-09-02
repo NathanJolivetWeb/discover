@@ -28,7 +28,7 @@ class ItinerariesController < ApplicationController
     @itinerary.roadtrip_id = @roadtrip.id
     if @roadtrip.itineraries.size.zero?
       if @itinerary.save
-        redirect_to roadtrip_path(@roadtrip)
+        redirect_to @itinerary
       else
         redirect_to roadtrip_path(@roadtrip)
       end
@@ -36,7 +36,7 @@ class ItinerariesController < ApplicationController
       @last_step_of_previous_itinerary = @roadtrip.itineraries.last.steps.last
       if @itinerary.save
         ItineraryStep.create!(step: @last_step_of_previous_itinerary, itinerary: @itinerary)
-        redirect_to roadtrip_path(@roadtrip)
+        redirect_to @itinerary
       else
         redirect_to roadtrip_path(@roadtrip)
       end
