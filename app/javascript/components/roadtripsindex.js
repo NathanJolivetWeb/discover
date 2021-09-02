@@ -54,6 +54,7 @@ const filterStatus = () => {
       resetColor();
       btnAll.style.backgroundColor = "#84A98C";
       cards.forEach((card) => card.style.display = 'flex');
+      cardsOwner.forEach((cardOwner) => cardOwner.style.display = 'flex')
     });
    };
   }

@@ -13,7 +13,7 @@ class PartnersController < ApplicationController
     @roadtrip = Roadtrip.find(params[:roadtrip_id])
     @partner.roadtrip = @roadtrip
     if @partner.save!
-      render json: { success: true }
+      render json: { success: true, partner: @partner.id }
     else
       render json: { success: false, errors: @partner.errors.messages }, status: :unprocessable_entity
     end
@@ -26,9 +26,8 @@ class PartnersController < ApplicationController
   end
 
   def destroy
-    @partner.roadtrip = @roadtrip
     @partner.destroy
-    redirect_to roadtrip_path(@roadtrip)
+    render json: { success: true }
   end
 
   private
