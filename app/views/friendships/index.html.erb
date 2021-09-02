@@ -2,7 +2,7 @@
   <div class="container grid-friends">
     <% current_user.friends.each do |friend| %>
       <div class="partners-roadtrip-core">
-        <%= cl_image_tag friend.photo.key, class: "avatar-no-partner partner-margin", "data-user-id": friend.id%>
+        <%= cl_image_tag friend.photo.key, class: "avatar-no-partner-friends partner-margin", "data-user-id": friend.id%>
         <div class="partners-roadtrips-infos">
           <p> <%= friend.first_name %> </p>
         </div>
