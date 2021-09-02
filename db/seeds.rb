@@ -50,7 +50,7 @@ sebastien = User.new(email: "sebastien@lewagon.fr", password: "password", first_
 sebastien.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 sebastien.save
 
-file = URI.open('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=334&q=80')
+file = URI.open('https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
 elodie = User.new(email: "elodie@lewagon.fr", password: "password", first_name: "Elodie", last_name: "Lahaie", username: "Elo62")
 elodie.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 elodie.save
@@ -92,22 +92,22 @@ roadtrip4.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip4.save
 
 file = URI.open('https://images.unsplash.com/photo-1507929632612-bff9cd17f808?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bW9udGFpbnMlMjByb2FkfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
-roadtrip5 = Roadtrip.new(title: "Escapade en montagne", status: "Terminé", owner: christophe)
+roadtrip5 = Roadtrip.new(title: "Escapade en montagne", status: "Terminé", owner: 3, start_date: "15-05-2020", end_date: "17-05-2020")
 roadtrip5.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip5.save
 
 file = URI.open('https://images.unsplash.com/photo-1629197428260-38bcac894354?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHJvYWQlMjB3aW5lfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
-roadtrip6 = Roadtrip.new(title: "La route des vins", status: "Terminé", owner: nathan)
+roadtrip6 = Roadtrip.new(title: "La route des vins", status: "Terminé", owner: 1, start_date: "23-10-2020" , end_date: "26-10-2020")
 roadtrip6.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip6.save
 
 file = URI.open('https://images.unsplash.com/photo-1558211515-c327762eb8bd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXJkZW5uZXMlMjByb2FkfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
-roadtrip7 = Roadtrip.new(title: "Week-end dans les ardennes", status: "Terminé", owner: maxence)
+roadtrip7 = Roadtrip.new(title: "Week-end dans les ardennes", status: "Terminé", owner: 7, start_date: "17-04-2021", end_date: "18-04-2021")
 roadtrip7.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip7.save
 
 file = URI.open('https://images.unsplash.com/photo-1559131463-f9386f12e2db?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y290ZSUyMGQnb3BhbGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
-roadtrip8 = Roadtrip.new(title: "Balade sur la côte d'opale", status: "En cours", owner: nathan)
+roadtrip8 = Roadtrip.new(title: "Balade sur la côte d'opale", status: "En cours", owner: 1, start_date: "24-09-2021", end_date: "26-09-2021")
 roadtrip8.photo.attach(io: file, filename: 'avatar', content_type: 'image')
 roadtrip8.save
 
