@@ -2,7 +2,7 @@
   background: url("https://i.imgur.com/JYFfBQF.jpeg") center no-repeat;
   background-size: cover;
   width: 50vw;
-  height: 100vh;
+  height: 90vh;
 }
 span{
   color: #999;
@@ -14,12 +14,18 @@ span{
   width: 140px;
   height: 45px;
   box-sizing: border-box;
-  border-radius: 30px;
+  border-radius: 4px;
   background-color: #84A98C;
   color: white;
   border: none;
+  margin-top: 6px;
   &:hover{
     opacity: 0.8;
     color: white;
   }
+}
+
+.flat-icon{
+  width: 25px;
+  height: 25px;
 }
