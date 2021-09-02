@@ -8,7 +8,8 @@
     <% current_user.friends.each do |friend| %>
       <% if @partners.include?(friend.id) %>
         <div class="partners-roadtrip-core">
-          <%= cl_image_tag friend.photo.key, class: "avatar-partner partner-margin", "data-user-id": friend.id%>
+        <%= partners_id = friend.partners.find{ |partner| partner.roadtrip_id == @roadtrip.id }.to_json %>
+          <%= cl_image_tag friend.photo.key, class: "avatar-partner partner-margin", "data-user-id": friend.id, "data-partner-id": partners_id %>
           <i class="fas fa-check avatar-partner-checked"></i>
           <div class="partners-roadtrips-infos">
             <p> <%= friend.first_name.capitalize %> </p>
@@ -16,10 +17,10 @@
         </div>
       <% else %>
         <div class="partners-roadtrip-core">
-          <%= cl_image_tag friend.photo.key, class: "avatar-no-partner partner-margin", "data-user-id": friend.id %>
+          <%= cl_image_tag friend.photo.key, class: "avatar-no-partner partner-margin", "data-user-id": friend.id, "data-partner-id": "" %>
+          <i class="fas fa-check avatar-no-partner-checked"></i>
           <div class="partners-roadtrips-infos">
             <p> <%= friend.first_name.capitalize %> </p>
-            <i class="fas fa-check avatar-no-partner-checked"></i>
           </div>
         </div>
       <% end %>
@@ -32,5 +33,3 @@
 </form>
   </div>
 </div>
-
-<%= link_to 'Delete', partner_path(@roadtrip.partners), method: :delete %>

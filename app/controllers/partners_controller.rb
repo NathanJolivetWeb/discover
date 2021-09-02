@@ -26,9 +26,8 @@ class PartnersController < ApplicationController
   end
 
   def destroy
-    @partner.roadtrip = @roadtrip
     @partner.destroy
-    redirect_to roadtrip_path(@roadtrip)
+    render json: { success: true }
   end
 
   private
