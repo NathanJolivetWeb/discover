@@ -4,9 +4,15 @@
 .banner-show-trip {
   margin-top: 50px;
   margin-bottom: 50px;
-  margin-left: -60px;
+  margin-left: 45px;
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
+}
+.title-show-map {
+  margin-right: auto;
+}
+.card-map-avatars {
+  margin-right: 80px;
 }
 .itineraries {
   display: grid;

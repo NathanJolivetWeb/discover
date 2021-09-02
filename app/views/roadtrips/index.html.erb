@@ -42,7 +42,11 @@
               <div class="card-product-bottom">
                 <div class="card-product-bottom-infos">
                   <h2 class="m-2"> <i class="fas fa-calendar-alt" id="calendrier-fa"></i> <%= roadtrip.start_date %> au <%= roadtrip.end_date %> </h2>
-                  <h2 class="m-2"> <i class="fas fa-road" id="road-fa"></i> nombre de km </h2>
+                  <% sum = 0 %>
+                  <% roadtrip.itineraries.each do |itinerary| %>
+                  <% sum += itinerary.distance.to_i %>
+                  <% end %>
+                  <h2 class="m-2"> <i class="fas fa-road" id="road-fa"></i> <%=sum%> kilomètres</h2>
                 </div>
                 <div class="card-product-buttons-owner">
                   <% trash = '<i class="fas fa-trash trash-fa"></i>' %>
@@ -75,7 +79,11 @@
               <div class="card-product-bottom">
                 <div class="card-product-bottom-infos">
                   <h2 class="m-2"> <i class="fas fa-calendar-alt" id="calendrier-fa"></i> <%= roadtrip.start_date %> au <%= roadtrip.end_date %> </h2>
-                  <h2 class="m-2"> <i class="fas fa-road" id="road-fa"></i> nombre de km </h2>
+                  <% sum = 0 %>
+                  <% roadtrip.itineraries.each do |itinerary| %>
+                  <% sum += itinerary.distance.to_i %>
+                  <% end %>
+                  <h2 class="m-2"> <i class="fas fa-road" id="road-fa"></i> <%=sum%> kilomètres</h2>
                 </div>
                 <div class="card-product-buttons">
                   <% show = '<i class="far fa-eye eye-fa"></i>' %>
@@ -108,7 +116,11 @@
               <div class="card-product-bottom">
                 <div class="card-product-bottom-infos">
                   <h2 class="m-2"> <i class="fas fa-calendar-alt" id="calendrier-fa"></i> <%= roadtrip.start_date %> au <%= roadtrip.end_date %> </h2>
-                  <h2 class="m-2"> <i class="fas fa-road" id="road-fa"></i> nombre de km </h2>
+                  <% sum = 0 %>
+                  <% roadtrip.itineraries.each do |itinerary| %>
+                  <% sum += itinerary.distance.to_i %>
+                  <% end %>
+                  <h2 class="m-2"> <i class="fas fa-road" id="road-fa"></i> <%=sum%> kilomètres</h2>
                 </div>
                 <div class="card-product-buttons-owner">
                   <% trash = '<i class="fas fa-trash trash-fa"></i>' %>
@@ -140,8 +152,12 @@
                 </div>
                 <div class="card-product-bottom">
                   <div class="card-product-bottom-infos">
-                    <h2 class="m-2"> <i class="fas fa-calendar-alt" id="calendrier-fa"></i> <%= roadtrip.start_date %> au <%= roadtrip.end_date %> </h2>
-                    <h2 class="m-2"> <i class="fas fa-road" id="road-fa"></i> nombre de km </h2>
+                    <h2 class="m-2"> <i class="fas fa-calendar-alt" id="calendrier-fa"></i>Du <%= roadtrip.start_date %> au <%= roadtrip.end_date %> </h2>
+                    <% sum = 0 %>
+                    <% roadtrip.itineraries.each do |itinerary| %>
+                      <% sum += itinerary.distance.to_i %>
+                    <% end %>
+                    <h2 class="m-2"> <i class="fas fa-road" id="road-fa"></i> <%=sum%> kilomètres</h2>
                   </div>
                   <div class="card-product-buttons">
                     <% show = '<i class="far fa-eye eye-fa"></i>' %>
